@@ -1,0 +1,1018 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blas_functions>
+  <function name="isamax" type="INT_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="isamin" type="INT_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="sasum" type="FLOAT_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="saxpy" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_FLOAT_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="scopy" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_FLOAT_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="sdot" type="FLOAT_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="snrm2" type="FLOAT_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="srot" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_FLOAT_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+    <param name="sc" type="FLOAT_TYPE"/>
+    <param name="ss" type="FLOAT_TYPE"/>
+  </function>
+  <function name="srotg" type="VOID_TYPE">
+    <param name="sa" type="PTR_FLOAT_TYPE"/>
+    <param name="sb" type="PTR_FLOAT_TYPE"/>
+    <param name="sc" type="PTR_FLOAT_TYPE"/>
+    <param name="ss" type="PTR_FLOAT_TYPE"/>
+  </function>
+  <function name="srotm" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_FLOAT_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+    <param name="sparam" type="PTR_CONST_FLOAT_TYPE"/>
+  </function>
+  <function name="srotmg" type="VOID_TYPE">
+    <param name="sd1" type="PTR_FLOAT_TYPE"/>
+    <param name="sd2" type="PTR_FLOAT_TYPE"/>
+    <param name="sx1" type="PTR_FLOAT_TYPE"/>
+    <param name="sy1" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="sparam" type="PTR_FLOAT_TYPE"/>
+  </function>
+  <function name="sscal" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="x" type="PTR_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="sswap" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_FLOAT_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="caxpy" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_COMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="ccopy" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_COMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="cscal" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="x" type="PTR_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="crotg" type="VOID_TYPE">
+    <param name="pca" type="PTR_COMPLEX_TYPE"/>
+    <param name="cb" type="COMPLEX_TYPE"/>
+    <param name="psc" type="PTR_FLOAT_TYPE"/>
+    <param name="pcs" type="PTR_COMPLEX_TYPE"/>
+  </function>
+  <function name="crot" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_COMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+    <param name="c" type="FLOAT_TYPE"/>
+    <param name="s" type="COMPLEX_TYPE"/>
+  </function>
+  <function name="csrot" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_COMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+    <param name="c" type="FLOAT_TYPE"/>
+    <param name="s" type="FLOAT_TYPE"/>
+  </function>
+  <function name="csscal" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="x" type="PTR_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="cswap" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_COMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="cdotu" type="COMPLEX_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="cdotc" type="COMPLEX_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="icamax" type="INT_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="icamin" type="INT_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="scasum" type="FLOAT_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="scnrm2" type="FLOAT_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="zdotu" type="DOUBLECOMPLEX_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_DOUBLECOMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_CONST_DOUBLECOMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="zscal" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="DOUBLECOMPLEX_TYPE"/>
+    <param name="x" type="PTR_DOUBLECOMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="sgbmv" type="VOID_TYPE">
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="kl" type="INT_TYPE"/>
+    <param name="ku" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="a" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="beta" type="FLOAT_TYPE"/>
+    <param name="y" type="PTR_FLOAT_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="sgemv" type="VOID_TYPE">
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="a" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="beta" type="FLOAT_TYPE"/>
+    <param name="y" type="PTR_FLOAT_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="sger" type="VOID_TYPE">
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+    <param name="a" type="PTR_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+  </function>
+  <function name="ssbmv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="a" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="beta" type="FLOAT_TYPE"/>
+    <param name="y" type="PTR_FLOAT_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="sspmv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="ap" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="beta" type="FLOAT_TYPE"/>
+    <param name="y" type="PTR_FLOAT_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="sspr" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="ap" type="PTR_FLOAT_TYPE"/>
+  </function>
+  <function name="sspr2" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+    <param name="ap" type="PTR_FLOAT_TYPE"/>
+  </function>
+  <function name="ssymv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="a" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="beta" type="FLOAT_TYPE"/>
+    <param name="y" type="PTR_FLOAT_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="ssyr" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="a" type="PTR_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+  </function>
+  <function name="ssyr2" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="x" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+    <param name="a" type="PTR_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+  </function>
+  <function name="stbmv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="a" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="stbsv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="a" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="stpmv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="ap" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="x" type="PTR_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="stpsv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="ap" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="x" type="PTR_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="strmv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="a" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="strsv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="a" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_FLOAT_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="zgemv" type="VOID_TYPE">
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="DOUBLECOMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_DOUBLECOMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_DOUBLECOMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="beta" type="DOUBLECOMPLEX_TYPE"/>
+    <param name="y" type="PTR_DOUBLECOMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="cgemv" type="VOID_TYPE">
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="beta" type="COMPLEX_TYPE"/>
+    <param name="y" type="PTR_COMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="cgbmv" type="VOID_TYPE">
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="kl" type="INT_TYPE"/>
+    <param name="ku" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="beta" type="COMPLEX_TYPE"/>
+    <param name="y" type="PTR_COMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="chemv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="beta" type="COMPLEX_TYPE"/>
+    <param name="y" type="PTR_COMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="chbmv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="beta" type="COMPLEX_TYPE"/>
+    <param name="y" type="PTR_COMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="chpmv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="ap" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="beta" type="COMPLEX_TYPE"/>
+    <param name="y" type="PTR_COMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="ctrmv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="ctbmv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="ctpmv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="ap" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="x" type="PTR_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="ctrsv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="ctbsv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="ctpsv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="ap" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="x" type="PTR_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="cgeru" type="VOID_TYPE">
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+    <param name="a" type="PTR_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+  </function>
+  <function name="cgerc" type="VOID_TYPE">
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+    <param name="a" type="PTR_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+  </function>
+  <function name="cher" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="a" type="PTR_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+  </function>
+  <function name="chpr" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="ap" type="PTR_COMPLEX_TYPE"/>
+  </function>
+  <function name="cher2" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+    <param name="a" type="PTR_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+  </function>
+  <function name="chpr2" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="x" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+    <param name="ap" type="PTR_COMPLEX_TYPE"/>
+  </function>
+  <function name="sgemm" type="VOID_TYPE">
+    <param name="transa" type="CHAR_TYPE"/>
+    <param name="transb" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="a" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+    <param name="beta" type="FLOAT_TYPE"/>
+    <param name="c" type="PTR_FLOAT_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+  <function name="ssymm" type="VOID_TYPE">
+    <param name="side" type="CHAR_TYPE"/>
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="a" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+    <param name="beta" type="FLOAT_TYPE"/>
+    <param name="c" type="PTR_FLOAT_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+  <function name="ssyrk" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="a" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="beta" type="FLOAT_TYPE"/>
+    <param name="c" type="PTR_FLOAT_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+  <function name="ssyr2k" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="a" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+    <param name="beta" type="FLOAT_TYPE"/>
+    <param name="c" type="PTR_FLOAT_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+  <function name="strmm" type="VOID_TYPE">
+    <param name="side" type="CHAR_TYPE"/>
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="transa" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="a" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_FLOAT_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+  </function>
+  <function name="strsm" type="VOID_TYPE">
+    <param name="side" type="CHAR_TYPE"/>
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="transa" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="FLOAT_TYPE"/>
+    <param name="a" type="PTR_CONST_FLOAT_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_FLOAT_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+  </function>
+  <function name="cgemm" type="VOID_TYPE">
+    <param name="transa" type="CHAR_TYPE"/>
+    <param name="transb" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+    <param name="beta" type="COMPLEX_TYPE"/>
+    <param name="c" type="PTR_COMPLEX_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+  <function name="csymm" type="VOID_TYPE">
+    <param name="side" type="CHAR_TYPE"/>
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+    <param name="beta" type="COMPLEX_TYPE"/>
+    <param name="c" type="PTR_COMPLEX_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+  <function name="chemm" type="VOID_TYPE">
+    <param name="side" type="CHAR_TYPE"/>
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+    <param name="beta" type="COMPLEX_TYPE"/>
+    <param name="c" type="PTR_COMPLEX_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+  <function name="csyrk" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="beta" type="COMPLEX_TYPE"/>
+    <param name="c" type="PTR_COMPLEX_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+  <function name="cherk" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="beta" type="COMPLEX_TYPE"/>
+    <param name="c" type="PTR_COMPLEX_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+  <function name="csyr2k" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+    <param name="beta" type="COMPLEX_TYPE"/>
+    <param name="c" type="PTR_COMPLEX_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+  <function name="cher2k" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+    <param name="beta" type="COMPLEX_TYPE"/>
+    <param name="c" type="PTR_COMPLEX_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+  <function name="ctrmm" type="VOID_TYPE">
+    <param name="side" type="CHAR_TYPE"/>
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="transa" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_COMPLEX_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+  </function>
+  <function name="ctrsm" type="VOID_TYPE">
+    <param name="side" type="CHAR_TYPE"/>
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="transa" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="COMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_COMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_COMPLEX_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+  </function>
+  <function name="xerbla" type="VOID_TYPE">
+    <param name="srname" type="PTR_CONST_CHAR_TYPE"/>
+    <param name="info" type="INT_TYPE"/>
+  </function>
+  <function name="dasum" type="DOUBLE_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="daxpy" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="DOUBLE_TYPE"/>
+    <param name="x" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_DOUBLE_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="dcopy" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_DOUBLE_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="ddot" type="DOUBLE_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="dnrm2" type="DOUBLE_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="drot" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_DOUBLE_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_DOUBLE_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+    <param name="sc" type="DOUBLE_TYPE"/>
+    <param name="ss" type="DOUBLE_TYPE"/>
+  </function>
+  <function name="drotg" type="VOID_TYPE">
+    <param name="sa" type="PTR_DOUBLE_TYPE"/>
+    <param name="sb" type="PTR_DOUBLE_TYPE"/>
+    <param name="sc" type="PTR_DOUBLE_TYPE"/>
+    <param name="ss" type="PTR_DOUBLE_TYPE"/>
+  </function>
+  <function name="drotm" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_DOUBLE_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_DOUBLE_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+    <param name="sparam" type="PTR_CONST_DOUBLE_TYPE"/>
+  </function>
+  <function name="drotmg" type="VOID_TYPE">
+    <param name="sd1" type="PTR_DOUBLE_TYPE"/>
+    <param name="sd2" type="PTR_DOUBLE_TYPE"/>
+    <param name="sx1" type="PTR_DOUBLE_TYPE"/>
+    <param name="sy1" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="sparam" type="PTR_DOUBLE_TYPE"/>
+  </function>
+  <function name="dscal" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="DOUBLE_TYPE"/>
+    <param name="x" type="PTR_DOUBLE_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="dswap" type="VOID_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_DOUBLE_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_DOUBLE_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="idamax" type="INT_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="idamin" type="INT_TYPE">
+    <param name="n" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="dgemv" type="VOID_TYPE">
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="DOUBLE_TYPE"/>
+    <param name="a" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="beta" type="DOUBLE_TYPE"/>
+    <param name="y" type="PTR_DOUBLE_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+  </function>
+  <function name="dger" type="VOID_TYPE">
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="DOUBLE_TYPE"/>
+    <param name="x" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="y" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="incy" type="INT_TYPE"/>
+    <param name="a" type="PTR_DOUBLE_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+  </function>
+  <function name="dsyr" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="DOUBLE_TYPE"/>
+    <param name="x" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+    <param name="a" type="PTR_DOUBLE_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+  </function>
+  <function name="dtrsv" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="a" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="x" type="PTR_DOUBLE_TYPE"/>
+    <param name="incx" type="INT_TYPE"/>
+  </function>
+  <function name="dgemm" type="VOID_TYPE">
+    <param name="transa" type="CHAR_TYPE"/>
+    <param name="transb" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="alpha" type="DOUBLE_TYPE"/>
+    <param name="a" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+    <param name="beta" type="DOUBLE_TYPE"/>
+    <param name="c" type="PTR_DOUBLE_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+  <function name="dtrsm" type="VOID_TYPE">
+    <param name="side" type="CHAR_TYPE"/>
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="transa" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="DOUBLE_TYPE"/>
+    <param name="a" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_DOUBLE_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+  </function>
+  <function name="ztrsm" type="VOID_TYPE">
+    <param name="side" type="CHAR_TYPE"/>
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="transa" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="DOUBLECOMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_DOUBLECOMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_DOUBLECOMPLEX_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+  </function>
+  <function name="dtrmm" type="VOID_TYPE">
+    <param name="side" type="CHAR_TYPE"/>
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="transa" type="CHAR_TYPE"/>
+    <param name="diag" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="DOUBLE_TYPE"/>
+    <param name="a" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_DOUBLE_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+  </function>
+  <function name="dsymm" type="VOID_TYPE">
+    <param name="side" type="CHAR_TYPE"/>
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="alpha" type="DOUBLE_TYPE"/>
+    <param name="a" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+    <param name="beta" type="DOUBLE_TYPE"/>
+    <param name="c" type="PTR_DOUBLE_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+  <function name="dsyrk" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="alpha" type="DOUBLE_TYPE"/>
+    <param name="a" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="beta" type="DOUBLE_TYPE"/>
+    <param name="c" type="PTR_DOUBLE_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+  <function name="zsyrk" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="alpha" type="DOUBLECOMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_DOUBLECOMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="beta" type="DOUBLECOMPLEX_TYPE"/>
+    <param name="c" type="PTR_DOUBLECOMPLEX_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+  <function name="dsyr2k" type="VOID_TYPE">
+    <param name="uplo" type="CHAR_TYPE"/>
+    <param name="trans" type="CHAR_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="alpha" type="DOUBLE_TYPE"/>
+    <param name="a" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_CONST_DOUBLE_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+    <param name="beta" type="DOUBLE_TYPE"/>
+    <param name="c" type="PTR_DOUBLE_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+  <function name="zgemm" type="VOID_TYPE">
+    <param name="transa" type="CHAR_TYPE"/>
+    <param name="transb" type="CHAR_TYPE"/>
+    <param name="m" type="INT_TYPE"/>
+    <param name="n" type="INT_TYPE"/>
+    <param name="k" type="INT_TYPE"/>
+    <param name="alpha" type="DOUBLECOMPLEX_TYPE"/>
+    <param name="a" type="PTR_CONST_DOUBLECOMPLEX_TYPE"/>
+    <param name="lda" type="INT_TYPE"/>
+    <param name="b" type="PTR_CONST_DOUBLECOMPLEX_TYPE"/>
+    <param name="ldb" type="INT_TYPE"/>
+    <param name="beta" type="DOUBLECOMPLEX_TYPE"/>
+    <param name="c" type="PTR_DOUBLECOMPLEX_TYPE"/>
+    <param name="ldc" type="INT_TYPE"/>
+  </function>
+</blas_functions>

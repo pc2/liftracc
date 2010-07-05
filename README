@@ -1,0 +1,25 @@
+prerequirements:
+  - C/C++/Fortran compiler
+  - cmake+make
+  - netlib.org blas+cblas library
+  - python (for the generator scripts)
+
+optional:
+  - additional BLAS libraries (Goto2, ATLAS, MKL, ...)
+  - hardware accelerated versions of BLAS (cuda, clearspeed, opencl, ...)
+
+directory structure:
+  benchmarks/
+   - linpack benchmark in order to test the library
+  common/
+   - python helper scripts
+   - cmake modules
+   - xml files
+  library/
+   - liftracc source code
+   - auto generation scripts
+   - profiling scripts
+   - documentation
+  testapps/
+   - some test applications
+

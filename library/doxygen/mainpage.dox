@@ -1,0 +1,28 @@
+/**
+ * \mainpage libliftracc Documentation
+ *
+ * This is the source code documentation of the liftracc library.
+ * Information on how to set up and use this library is presented.
+ *
+ * \section pre_sec Prerequirements
+ *   - C/C++/Fortran compiler
+ *   - cmake+make
+ *   - netlib.org blas+cblas library
+ *   - python (for the generator scripts)
+ *
+ * \subsection opt_sec Optional
+ *   - additional BLAS libraries
+ *     (Goto2, ATLAS, MKL, ...)
+ *   - hardware accelerated versions of BLAS
+ *     (cuda, clearspeed, ...)
+ *
+ * \section inst_sec Installation
+ *
+ * \section use_sec Useage
+ *
+ * \author Manuel Niekamp <niekma@upb.de>
+ * \version 0.1
+ * \date Oct. 2009 - Mar. 2010
+ *
+ */
+

@@ -1,0 +1,126 @@
+--- cublas.h	2009-05-27 15:13:10.000000000 +0200
++++ cublas_new.h	2010-01-26 18:04:40.000000000 +0100
+@@ -91,7 +91,17 @@
+ extern "C" {
+ #endif /* __cplusplus */
+ 
+-#include "cuComplex.h"   /* import complex data type */
++typedef struct {
++    float r;
++    float i;
++} cuComplex;
++
++typedef struct {
++    double r;
++    double i;
++} cuDoubleComplex;
++
++#define __host__
+ 
+ /* CUBLAS status returns */
+ #define CUBLAS_STATUS_SUCCESS           0x00000000
+@@ -121,8 +131,8 @@
+  * CUBLAS_STATUS_ALLOC_FAILED     if resources could not be allocated
+  * CUBLAS_STATUS_SUCCESS          if CUBLAS library initialized successfully
+  */
+-cublasStatus CUBLASAPI cublasInit (void);
+-
++/*cublasStatus CUBLASAPI cublasInit (void);
++*/
+ /*
+  * cublasStatus 
+  * cublasShutdown (void)
+@@ -135,8 +145,8 @@
+  * CUBLAS_STATUS_NOT_INITIALIZED  if CUBLAS library has not been initialized
+  * CUBLAS_STATUS_SUCCESS          if CUBLAS library shut down successfully
+  */
+-cublasStatus CUBLASAPI cublasShutdown (void);
+-
++/*cublasStatus CUBLASAPI cublasShutdown (void);
++*/
+ /* 
+  * cublasStatus 
+  * cublasGetError (void)
+@@ -149,8 +159,8 @@
+  * cublasGetError() resets the internal error state to 
+  * CUBLAS_STATUS_SUCCESS.
+  */
+-cublasStatus CUBLASAPI cublasGetError (void);
+-
++/*cublasStatus CUBLASAPI cublasGetError (void);
++*/
+ /*
+  * cublasStatus 
+  * cublasAlloc (int n, int elemSize, void **devicePtr)
+@@ -169,8 +179,8 @@
+  *                                lack of resources.
+  * CUBLAS_STATUS_SUCCESS          if storage was successfully allocated
+  */
+-cublasStatus CUBLASAPI cublasAlloc (int n, int elemSize, void **devicePtr);
+-
++/*cublasStatus CUBLASAPI cublasAlloc (int n, int elemSize, void **devicePtr);
++*/
+ /*
+  * cublasStatus 
+  * cublasFree (const void *devicePtr)
+@@ -183,8 +193,8 @@
+  * CUBLAS_STATUS_INTERNAL_ERROR   if the object could not be deallocated
+  * CUBLAS_STATUS_SUCCESS          if object was destroyed successfully
+  */
+-cublasStatus CUBLASAPI cublasFree (const void *devicePtr);
+-
++/*cublasStatus CUBLASAPI cublasFree (const void *devicePtr);
++*/
+ /* 
+  * cublasStatus 
+  * cublasSetVector (int n, int elemSize, const void *x, int incx, 
+@@ -208,9 +218,9 @@
+  * CUBLAS_STATUS_MAPPING_ERROR    if an error occurred accessing GPU memory   
+  * CUBLAS_STATUS_SUCCESS          if the operation completed successfully
+  */
+-cublasStatus CUBLASAPI cublasSetVector (int n, int elemSize, const void *x, 
++/*cublasStatus CUBLASAPI cublasSetVector (int n, int elemSize, const void *x, 
+                                         int incx, void *devicePtr, int incy);
+-
++*/
+ /* 
+  * cublasStatus 
+  * cublasGetVector (int n, int elemSize, const void *x, int incx, 
+@@ -234,9 +244,9 @@
+  * CUBLAS_STATUS_MAPPING_ERROR    if an error occurred accessing GPU memory   
+  * CUBLAS_STATUS_SUCCESS          if the operation completed successfully
+  */
+-cublasStatus CUBLASAPI cublasGetVector (int n, int elemSize, const void *x, 
++/*cublasStatus CUBLASAPI cublasGetVector (int n, int elemSize, const void *x, 
+                                         int incx, void *y, int incy);
+-
++*/
+ /*
+  * cublasStatus 
+  * cublasSetMatrix (int rows, int cols, int elemSize, const void *A, 
+@@ -258,10 +268,10 @@
+  * CUBLAS_STATUS_MAPPING_ERROR    if error occurred accessing GPU memory
+  * CUBLAS_STATUS_SUCCESS          if the operation completed successfully
+  */
+-cublasStatus CUBLASAPI cublasSetMatrix (int rows, int cols, int elemSize, 
++/*cublasStatus CUBLASAPI cublasSetMatrix (int rows, int cols, int elemSize, 
+                                         const void *A, int lda, void *B, 
+                                         int ldb);
+-
++*/
+ /*
+  * cublasStatus 
+  * cublasGetMatrix (int rows, int cols, int elemSize, const void *A, 
+@@ -282,10 +292,10 @@
+  * CUBLAS_STATUS_MAPPING_ERROR    if error occurred accessing GPU memory
+  * CUBLAS_STATUS_SUCCESS          if the operation completed successfully
+  */
+-cublasStatus CUBLASAPI cublasGetMatrix (int rows, int cols, int elemSize, 
++/*cublasStatus CUBLASAPI cublasGetMatrix (int rows, int cols, int elemSize, 
+                                         const void *A, int lda, void *B,
+                                         int ldb);
+-
++*/
+ 
+ /* ---------------- CUBLAS single-precision BLAS1 functions ---------------- */
+ 

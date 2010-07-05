@@ -1,0 +1,8 @@
+
+in order to use cublas2xml.py please patch the file cublas.h with
+cublas.h.patch.
+
+example:
+  patch -p0 -o cublas.h /usr/local/cuda/include/cublas.h cublas.h.patch
+  ./cublas2xml.py cublas.h > cublas.xml
+
