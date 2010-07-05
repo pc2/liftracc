@@ -1,7 +1,10 @@
 
-/***
- * This file is generated automatically, do not edit manually!
+/**
+ * \file liftracc_level1.h
+ * \brief [generated file]
  */
+
+/* This file is generated automatically, do not edit manually! */
 
 #ifndef __LIFTRACC_LEVEL1_H__
 #define __LIFTRACC_LEVEL1_H__

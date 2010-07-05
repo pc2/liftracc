@@ -34,7 +34,7 @@ typedef const struct {
  * As numbers to the power of two are used, this can be done
  * with the bsr instruction.
  *
- * \param probesize
+ * \param probsize
  *   Get the index to this number
  * \param max
  *   To not jump behind the bounds of the array, the maximum

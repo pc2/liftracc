@@ -24,9 +24,12 @@
 
 
 <xsl:template match="/blas_functions">
-<![CDATA[/***
- * This file is generated automatically, do not edit manually!
+<![CDATA[/**
+ * \file cblas_autogen.c
+ * \brief [generated file]
  */
+
+/* This file is generated automatically, do not edit manually! */
 
 const char *liftracc_cblas_function_names[] = {
 ]]><xsl:apply-templates/><![CDATA[    "size_entry"

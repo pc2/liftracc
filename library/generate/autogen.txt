@@ -1,3 +1,5 @@
+cblas_autogen.c.xsl
+cblas_autogen.h.xsl
 cblas_plugin.c.xsl
 liftracc_autogen.c.xsl
 liftracc_level1.h.xsl

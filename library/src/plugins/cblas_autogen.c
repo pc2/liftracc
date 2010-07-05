@@ -1,7 +1,10 @@
 
-/***
- * This file is generated automatically, do not edit manually!
+/**
+ * \file cblas_autogen.c
+ * \brief [generated file]
  */
+
+/* This file is generated automatically, do not edit manually! */
 
 const char *liftracc_cblas_function_names[] = {
     "cblas_sdsdot",

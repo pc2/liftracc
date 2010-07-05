@@ -1,6 +1,6 @@
 /**
  * \file liftracc.c
- * \brief C file of the liftracc lib
+ * \brief Main C file of the liftracc lib.
  *
  * \author Manuel Niekamp <niekma@upb.de>
  * \version 0.1
@@ -27,7 +27,7 @@ profiling_data_t liftracc_function_profiling_data[LIFTRACC_FUNCTIONS_COUNT] = {}
 int liftracc_initialized = 0;
 
 /***
- * \brief The library constructor
+ * \brief The library constructor.
  * This function is called automatically when the library
  * is loaded by the dynamic loader.
  */
@@ -59,7 +59,7 @@ void __attribute__ ((constructor)) liftracc_init(void)
 }
 
 /**
- * \brief The library destructor
+ * \brief The library destructor.
  * This function is called at the time the library is unloaded.
  */
 void __attribute__ ((destructor)) liftracc_fini(void)
@@ -82,7 +82,7 @@ void __attribute__ ((destructor)) liftracc_fini(void)
 }
 
 /**
- * \brief Check initialization state
+ * \brief Check initialization state.
  * Return the initialization state of the library
  *
  * \return

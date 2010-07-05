@@ -1,8 +1,11 @@
 
 /**
- * Template file to create new plugins easily.
- * Delete unneeded functions and fill in code to fulfill your functionality.
+ * \file liftracc_plugin_template.c
+ * \brief [generated template file]
  */
+
+/* Template file to create new plugins easily. */
+/* Delete unneeded functions and fill in code to fulfill your functionality. */
 
 #include "liftracc.h"
 #include "plugin.h"

@@ -24,9 +24,12 @@
 
 
 <xsl:template match="/blas_functions">
-<![CDATA[/***
- * This file is generated automatically, do not edit manually!
+<![CDATA[/**
+ * \file liftracc_profiling_autogen.h
+ * \brief [generated file]
  */
+
+/* This file is generated automatically, do not edit manually! */
 
 #ifndef __LIFTRACC_PROFILING_AUTOGEN_H__
 #define __LIFTRACC_PROFILING_AUTOGEN_H__

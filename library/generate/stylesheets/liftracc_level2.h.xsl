@@ -24,9 +24,12 @@
 
 
 <xsl:template match="/blas_functions">
-<![CDATA[/***
- * This file is generated automatically, do not edit manually!
+<![CDATA[/**
+ * \file liftracc_level2.h
+ * \brief [generated file]
  */
+
+/* This file is generated automatically, do not edit manually! */
 
 #ifndef __LIFTRACC_LEVEL2_H__
 #define __LIFTRACC_LEVEL2_H__

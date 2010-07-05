@@ -1,4 +1,13 @@
-/*
+/**
+ * \file cycle.h
+ * \brief Platform independent getticks function.
+ *
+ * \author Matteo Frigo
+ * \date 2003, 2007-8
+ *
+ * The defined function returns the number of ticks since the last
+ * reboot. The function is defined for several different platforms.
+ *
  * Copyright (c) 2003, 2007-8 Matteo Frigo
  * Copyright (c) 2003, 2007-8 Massachusetts Institute of Technology
  *

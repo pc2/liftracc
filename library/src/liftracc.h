@@ -1,10 +1,10 @@
 /**
  * \file liftracc.h
- * \brief Header file of the liftracc lib
+ * \brief Header file of the liftracc lib.
  *
  * \author Manuel Niekamp <niekma@upb.de>
  * \version 0.1
- * \date 10/2009-03/2010
+ * \date Oct. 2009 - Mar. 2010
  *
  * Main header file of the complete library.
  * Users should include this file to use

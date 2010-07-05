@@ -1,7 +1,10 @@
 
-/***
- * This file is generated automatically, do not edit manually!
+/**
+ * \file cblas_plugin.c
+ * \brief [generated file]
  */
+
+/* This file is generated automatically, do not edit manually! */
 
 #include "liftracc.h"
 #include "liftracc_plugin.h"

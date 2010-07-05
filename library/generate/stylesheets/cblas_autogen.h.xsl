@@ -24,9 +24,12 @@
 
 
 <xsl:template match="/blas_functions">
-<![CDATA[/***
- * This file is generated automatically, do not edit manually!
+<![CDATA[/**
+ * \file cblas_autogen.h
+ * \brief [generated file]
  */
+
+/* This file is generated automatically, do not edit manually! */
 
 #ifndef __CBLAS_AUTOGEN_H__
 #define __CBLAS_AUTOGEN_H__

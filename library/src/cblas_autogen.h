@@ -1,7 +1,10 @@
 
-/***
- * This file is generated automatically, do not edit manually!
+/**
+ * \file cblas_autogen.h
+ * \brief [generated file]
  */
+
+/* This file is generated automatically, do not edit manually! */
 
 #ifndef __CBLAS_AUTOGEN_H__
 #define __CBLAS_AUTOGEN_H__
