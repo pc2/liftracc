@@ -11,10 +11,12 @@ include(${LIFTRACC_USE_FILE})
 
 include_directories(
   $ENV{HOME}/include
+  ${LIFTRACC_ROOT_DIR}/../common/boost_program_options/include
 )
 
 link_directories(
   $ENV{HOME}/lib
+  ${LIFTRACC_ROOT_DIR}/../common/boost_program_options/build
 )
 
 add_library(testlib SHARED

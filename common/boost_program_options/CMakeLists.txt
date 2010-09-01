@@ -4,6 +4,7 @@ project(boost_program_options)
 
 include_directories(
   $ENV{HOME}/include
+  ${PROJECT_SOURCE_DIR}/include
 )
 
 add_library(boost_program_options

@@ -110,6 +110,7 @@ endif(LIFTRACC_USE_PLUGIN)
 # find different blas libraries installed on system
 # FindPackage files can be found in ./cmake/modules
 #
+find_package(BLAS REQUIRED)
 find_package(CBLAS REQUIRED)
 find_package(CUDA)
 if(CUDA_TOOLKIT_ROOT_DIR)
@@ -125,6 +126,7 @@ find_package(Clearspeed)
 include_directories(
 #  $ENV{HOME}/include
   ${PROJECT_SOURCE_DIR}/src
+  ${BLAS_INCLUDE_DIRS}
   ${CBLAS_INCLUDE_DIRS}
   ${GOTO2_INCLUDE_DIRS}
   ${CUDA_INCLUDE_DIRS}
@@ -138,6 +140,7 @@ link_directories(
 #  $ENV{HOME}/lib
   ${PROJECT_BINARY_DIR}
   ${CUDA_LIBRARY_DIR}
+  ${BLAS_LIBRARY_DIR}
   ${CBLAS_LIBRARY_DIR}
   ${ATLAS_LIBRARY_DIR}
   ${GOTO2_LIBRARY_DIR}

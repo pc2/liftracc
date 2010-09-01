@@ -3,7 +3,7 @@ if(CBLAS_FOUND)
   add_liftracc_plugin(cblas_plugin
     cblas_plugin.c
     cblas_autogen.c
-    LINK dl
+    LINK cblas blas dl
   )
 endif(CBLAS_FOUND)
 

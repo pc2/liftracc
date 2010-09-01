@@ -18,7 +18,7 @@
 profiling_data_t function_profiling_data[LIFTRACC_FUNCTIONS_COUNT] = {};
 #endif
 
-decision_data_t decision_data[FUNCTION_COUNT][ARRAY_SIZE] = {};
+decision_data_t decision_data[FUNCTION_COUNT*ARRAY_SIZE] = {};
 
 plugin_info_t liftracc_plugin_info = {
     .uuid = "4241c224-99c9-4c44-979f-32c6ac5fc9a4",
@@ -52,7 +52,7 @@ void __attribute__ ((constructor)) liftracc_plugin_load(void)
     strncat(plugin_data_filename, ".txt", PATH_MAX-strlen(plugin_data_filename)-1);
     MSG("plugin_data_filename: %s", plugin_data_filename);
 #endif /* _LIFTRACC_AUTOMODE_ */
-    liftracc_selector_loadinfo(plugin_data_filename, decision_data);
+    liftracc_selector_loadinfo(plugin_data_filename, &decision_data[0]);
 
 #if _LIFTRACC_PROFILING_ == 3
     liftracc_function_timing_stop(&(function_profiling_data[LIFTRACC_INIT]));
@@ -80,7 +80,7 @@ void __attribute__ ((destructor)) liftracc_plugin_unload(void)
 
     MSG("plugin_data_filename: %s", plugin_data_filename);
 
-    liftracc_selector_saveinfo(plugin_data_filename, decision_data);
+    liftracc_selector_saveinfo(plugin_data_filename, &decision_data[0]);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
     INFO("%s unloaded.", liftracc_plugin_info.name);
@@ -94,18 +94,18 @@ void __attribute__ ((destructor)) liftracc_plugin_unload(void)
 void set_decision_data(int value, int func_id, int select_id) {
     ERROR("set_decision_data(%d, %d, %d)", value, func_id, select_id);
     ticks new_tks = function_profiling_data[func_id].last_time;
-    ticks old_tks = decision_data[select_id][get_inx(value, ARRAY_SIZE)];
-    decision_data[select_id][get_inx(value, ARRAY_SIZE)] = (new_tks+old_tks)/2;
+    ticks old_tks = decision_data[select_id*ARRAY_SIZE+get_inx(value, ARRAY_SIZE)];
+    decision_data[select_id*ARRAY_SIZE+get_inx(value, ARRAY_SIZE)] = (new_tks+old_tks)/2;
 }
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 decision_data_t liftracc_plugin_getdecision(liftracc_selector_funcid_t id, int index)
 {
 #ifdef _LIFTRACC_AUTOMODE_
-    return decision_data[id][index];
+    return decision_data[id*ARRAY_SIZE+index];
 #else
-    if (decision_data[id][index] > 0)
-        return decision_data[id][index];
+    if (decision_data[id*ARRAY_SIZE+index] > 0)
+        return decision_data[id*ARRAY_SIZE+index];
     return liftracc_plugin_info.prio;
 #endif /* _LIFTRACC_AUTOMODE_ */
 }

@@ -252,7 +252,7 @@ liftracc_selector_error_t liftracc_selector_fini();
  *   The selected function pointer
  */
 void *liftracc_selector_select(const liftracc_selector_funcid_t func_id,
-                              const liftracc_selector_problem_info_t *problem_info);
+                               const liftracc_selector_problem_info_t *problem_info);
 
 #else /* _LIFTRACC_SELECTOR_NEW_ */
 
@@ -288,7 +288,8 @@ void *liftracc_selector_select(const char *symbol_name);
  * \return
  *   liftracc selector error code
  */
-liftracc_selector_error_t liftracc_selector_loadinfo(const char *file_name, decision_data_t array[FUNCTION_COUNT][ARRAY_SIZE]);
+liftracc_selector_error_t liftracc_selector_loadinfo(const char *file_name, 
+                                                     decision_data_t *array);
 
 #ifdef _LIFTRACC_AUTOMODE_
 
@@ -307,7 +308,8 @@ liftracc_selector_error_t liftracc_selector_loadinfo(const char *file_name, deci
  * \return
  *   liftracc selector error code
  */
-liftracc_selector_error_t liftracc_selector_saveinfo(const char *file_name, decision_data_t array[FUNCTION_COUNT][ARRAY_SIZE]);
+liftracc_selector_error_t liftracc_selector_saveinfo(const char *file_name,
+                                                     decision_data_t *array);
 
 #endif /* _LIFTRACC_AUTOMODE_ */
 

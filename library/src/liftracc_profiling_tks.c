@@ -43,7 +43,7 @@ void liftracc_function_timing_start(profiling_data_t *pd)
         return;
     }
     pd->measuring = 1;
-    pd->count++;
+    if (pd->count < MAX_VALUES-1) pd->count++;
     pd->start_time = getticks(); /* start point of measurment */
 }
 

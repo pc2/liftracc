@@ -6,15 +6,18 @@ project(benchmarks)
 find_package(LIFTRACC REQUIRED)
 include(${LIFTRACC_USE_FILE})
 
+find_package(BLAS REQUIRED)
 find_package(CBLAS REQUIRED)
 find_package(Goto2)
 
 include_directories(
+  ${BLAS_INCLUDE_DIRS}
   ${CBLAS_INCLUDE_DIRS}
   ${GOTO2_INCLUDE_DIRS}
 )
 
 link_directories(
+  ${BLAS_LIBRARY_DIR}
   ${CBLAS_LIBRARY_DIR}
   ${GOTO2_LIBRARY_DIR}
 )
@@ -41,6 +44,8 @@ add_executable(linpack-liftracc
 
 target_link_libraries(linpack-liftracc
   liftracc
+  cblas
+  blas
 )
 
 add_custom_command(

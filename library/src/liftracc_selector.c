@@ -234,12 +234,10 @@ liftracc_selector_error_t liftracc_selector_load_plugins()
 
 #ifdef _LIFTRACC_AUTOMODE_
 
-liftracc_selector_error_t liftracc_selector_loadinfo(const char *file_name, decision_data_t array[FUNCTION_COUNT][ARRAY_SIZE])
+liftracc_selector_error_t liftracc_selector_loadinfo(const char *file_name, decision_data_t *array)
 {
     /* load decision data from HDD */
-
-    ERROR("LOAD FROM: %s", file_name);
-    ERROR("### address of array: %llx", (unsigned long long)&array[0][0]);
+    /* ERROR("LOAD FROM: %s", file_name); */
 
     FILE *data_file = 0;
 
@@ -266,9 +264,10 @@ liftracc_selector_error_t liftracc_selector_loadinfo(const char *file_name, deci
             return DATA_READ_ERROR;
         } else {
             int i;
-            for (i=0; i<ARRAY_SIZE; i++)
-                /* ERROR("IN ARRAY: %d", array[fc][i]); */
-                array[fc][i] = tmp[i];
+            for (i=0; i<ARRAY_SIZE; i++) {
+                /* ERROR("LOAD: array[fc=%d*ARRAY_SIZE+i=%d] = %u", fc, i, (unsigned int)array[fc*ARRAY_SIZE+i]); */
+                array[fc*ARRAY_SIZE+i] = tmp[i];
+            }
         }
         /* if ((feof(data_file) != 0) || (ferror(data_file) != 0)) break; */
         if (feof(data_file)) {
@@ -298,7 +297,7 @@ liftracc_selector_error_t liftracc_selector_loadinfo(const char *file_name, deci
     return NO_ERROR;
 }
 
-liftracc_selector_error_t liftracc_selector_saveinfo(const char *file_name, decision_data_t array[FUNCTION_COUNT][ARRAY_SIZE])
+liftracc_selector_error_t liftracc_selector_saveinfo(const char *file_name, decision_data_t *array)
 {
     /* save decision data to HDD */
     FILE *data_file = 0;
@@ -311,9 +310,15 @@ liftracc_selector_error_t liftracc_selector_saveinfo(const char *file_name, deci
 
     size_t num = 0;
     int fc;
+    decision_data_t tmp[ARRAY_SIZE] = { };
 
     for (fc=0; fc<FUNCTION_COUNT; fc++) {
-        size_t count = fwrite((void*)(&array[fc]), sizeof(decision_data_t), ARRAY_SIZE, data_file);
+        int i;
+        for (i=0; i<ARRAY_SIZE; i++) {
+            /* ERROR("SAVE: tmp[fc=%d*ARRAY_SIZE+i=%d] = %u", fc, i, (unsigned int)array[fc*ARRAY_SIZE+i]); */
+            tmp[i] = array[fc*ARRAY_SIZE+i];
+        }
+        size_t count = fwrite((void*)(&tmp[0]), sizeof(decision_data_t), ARRAY_SIZE, data_file);
         num += count;
         /* ERROR("WRITE %d", (int)count); */
         if (count != ARRAY_SIZE) {
