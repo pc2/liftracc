@@ -1,0 +1,48 @@
+diff -ru old/Makefile.LINUX new/Makefile.LINUX
+--- old/Makefile.LINUX	1999-03-15 21:10:52.000000000 +0100
++++ new/Makefile.LINUX	2010-08-19 14:23:29.000000000 +0200
+@@ -22,25 +22,26 @@
+ # Libraries and includs
+ #-----------------------------------------------------------------------------
+  
+-BLLIB = libblas.a
+-CBDIR = $(HOME)/CBLAS
+-CBLIBDIR = $(CBDIR)/lib/$(PLAT)
+-CBLIB = $(CBLIBDIR)/cblas_$(PLAT).a
++BLLIB = ../../BLAS/libblas.a
++CBDIR = ..
++CBLIBDIR = $(CBDIR)
++CBLIB = $(CBLIBDIR)/libcblas.a
++CBLIBSO = $(CBLIBDIR)/libcblas.so
+ 
+ #-----------------------------------------------------------------------------
+ # Compilers
+ #-----------------------------------------------------------------------------
+ 
+ CC = gcc
+-FC = g77
++FC = gfortran
+ LOADER = $(FC)
+ 
+ #-----------------------------------------------------------------------------
+ # Flags for Compilers
+ #-----------------------------------------------------------------------------
+ 
+-CFLAGS = -O3 -DADD_
+-FFLAGS = -O3  
++CFLAGS = -O3 -fPIC -DADD_
++FFLAGS = -O3 -fPIC
+ 
+ #-----------------------------------------------------------------------------
+ # Archive programs and flags
+diff -ru old/src/Makefile new/src/Makefile
+--- old/src/Makefile	1999-03-15 21:11:03.000000000 +0100
++++ new/src/Makefile	2010-08-19 14:30:13.000000000 +0200
+@@ -234,6 +234,7 @@
+ all: $(alev)  
+ 	$(ARCH) $(ARCHFLAGS)  $(CBLIB) $(alev) 
+ 	$(RANLIB) $(CBLIB)
++	$(CC) -shared -L../../BLAS *.o -lblas -o ../libcblas.so
+ 
+ 
+ .SUFFIXES: .o .c .f

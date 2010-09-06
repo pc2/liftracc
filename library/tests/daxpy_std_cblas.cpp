@@ -74,7 +74,7 @@ int main(int argc, char** argv)
     // function init
     double (*cblas_daxpy)(const int n, const double alpha, const double * x, const int incx, double * y, const int incy);
 
-    *(void **) (&cblas_daxpy) = dlsym(cblas_handle, "cblas_daxpy");
+    *(void **) (&cblas_daxpy) = dlsym(cblas_handle, "inner_cblas_daxpy");
 
     if ((error = dlerror()) != 0)  {
         ERROR("%s", error);

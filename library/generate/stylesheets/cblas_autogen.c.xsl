@@ -12,7 +12,7 @@
 <!-- import helper functions -->
 <xsl:import href="helper_functions.xsl"/>
 
-<xsl:param name="PREFIX">cblas_</xsl:param>
+<xsl:param name="PREFIX">inner_cblas_</xsl:param>
 
 <!-- document output options -->
 <xsl:output method="text"/>

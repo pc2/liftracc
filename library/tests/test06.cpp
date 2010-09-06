@@ -28,7 +28,7 @@ int main(int argc, char** argv)
     unsigned int error_count = 0;
 
     const int max_runs = 10;
-    const int max_dim = 2048;
+    const int max_dim = 1024; /* 2048; */
     const int max_entries = max_dim * max_dim;
 
 #ifdef _LIFTRACC_PROFILING_
@@ -54,7 +54,7 @@ int main(int argc, char** argv)
     if (!atlas_handle)
         ERROR("%s", dlerror());
 
-    if (atlas_handle) INFO("lib init ok.");
+    if (atlas_handle) MSG("lib init ok.");
 
     // function init
     void (*atlas_dgemm)(const liftracc_transpose_t transa,

@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
 
     printf("test02 begin\n");
     
-    fret = cblas_sdot(4, v1, 1, v2, 1);
+    fret = inner_cblas_sdot(4, v1, 1, v2, 1);
     
     printf("float ret = %f\n", fret);
     

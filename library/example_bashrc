@@ -12,7 +12,7 @@ export PATH=$HOME/bin:$HOME/usr/local/texlive/2009/bin/x86_64-linux:~/opt/pin-2.
 
 export SVN_EDITOR=vim
 
-export CS_HOST_BLAS=/home/niekma/libraries/blas/GotoBLAS2/libgoto2.so
+export CS_HOST_BLAS=$HOME/libraries/blas/GotoBLAS2/libgoto2.so
 
 export FC=/usr/bin/gfortran
 export CC=/usr/local/bin/gcc

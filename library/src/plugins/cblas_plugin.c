@@ -110,14 +110,6 @@ void __attribute__ ((destructor)) liftracc_plugin_unload(void)
 #endif /* _LIFTRACC_PROFILING_ */
 }
 
-#ifdef _LIFTRACC_AUTOMODE_TRAINING_
-void set_decision_data(int value, int func_id, int select_id) {
-    ticks new_tks = function_profiling_data[func_id].last_time;
-    ticks old_tks = decision_data[select_id*ARRAY_SIZE+get_inx(value, ARRAY_SIZE)];
-    decision_data[select_id*ARRAY_SIZE+get_inx(value, ARRAY_SIZE)] = (new_tks+old_tks)/2;
-}
-#endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
-
 decision_data_t liftracc_plugin_getdecision(liftracc_selector_funcid_t id, int index)
 {
 #ifdef _LIFTRACC_AUTOMODE_
@@ -162,7 +154,7 @@ float liftracc_plugin_sdsdot(const int n, const float alpha, const float * x, co
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SDSDOT, SELECT_SDSDOT);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SDSDOT, SELECT_SDSDOT);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -191,7 +183,7 @@ double liftracc_plugin_dsdot(const int n, const float * x, const int incx, const
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DSDOT, SELECT_DSDOT);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSDOT, SELECT_DSDOT);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -220,7 +212,7 @@ float liftracc_plugin_sdot(const int n, const float * x, const int incx, const f
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SDOT, SELECT_SDOT);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SDOT, SELECT_SDOT);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -249,7 +241,7 @@ double liftracc_plugin_ddot(const int n, const double * x, const int incx, const
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DDOT, SELECT_DDOT);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DDOT, SELECT_DDOT);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -275,7 +267,7 @@ void liftracc_plugin_cdotu_sub(const int n, const void * x, const int incx, cons
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CDOTU_SUB, SELECT_CDOTU_SUB);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CDOTU_SUB, SELECT_CDOTU_SUB);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -301,7 +293,7 @@ void liftracc_plugin_cdotc_sub(const int n, const void * x, const int incx, cons
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CDOTC_SUB, SELECT_CDOTC_SUB);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CDOTC_SUB, SELECT_CDOTC_SUB);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -327,7 +319,7 @@ void liftracc_plugin_zdotu_sub(const int n, const void * x, const int incx, cons
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZDOTU_SUB, SELECT_ZDOTU_SUB);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZDOTU_SUB, SELECT_ZDOTU_SUB);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -353,7 +345,7 @@ void liftracc_plugin_zdotc_sub(const int n, const void * x, const int incx, cons
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZDOTC_SUB, SELECT_ZDOTC_SUB);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZDOTC_SUB, SELECT_ZDOTC_SUB);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -382,7 +374,7 @@ float liftracc_plugin_snrm2(const int n, const float * x, const int incx)
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SNRM2, SELECT_SNRM2);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SNRM2, SELECT_SNRM2);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -411,7 +403,7 @@ float liftracc_plugin_sasum(const int n, const float * x, const int incx)
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SASUM, SELECT_SASUM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SASUM, SELECT_SASUM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -440,7 +432,7 @@ double liftracc_plugin_dnrm2(const int n, const double * x, const int incx)
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DNRM2, SELECT_DNRM2);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DNRM2, SELECT_DNRM2);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -469,7 +461,7 @@ double liftracc_plugin_dasum(const int n, const double * x, const int incx)
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DASUM, SELECT_DASUM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DASUM, SELECT_DASUM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -498,7 +490,7 @@ float liftracc_plugin_scnrm2(const int n, const void * x, const int incx)
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SCNRM2, SELECT_SCNRM2);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SCNRM2, SELECT_SCNRM2);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -527,7 +519,7 @@ float liftracc_plugin_scasum(const int n, const void * x, const int incx)
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SCASUM, SELECT_SCASUM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SCASUM, SELECT_SCASUM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -556,7 +548,7 @@ double liftracc_plugin_dznrm2(const int n, const void * x, const int incx)
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DZNRM2, SELECT_DZNRM2);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DZNRM2, SELECT_DZNRM2);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -585,7 +577,7 @@ double liftracc_plugin_dzasum(const int n, const void * x, const int incx)
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DZASUM, SELECT_DZASUM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DZASUM, SELECT_DZASUM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -614,7 +606,7 @@ liftracc_index_t liftracc_plugin_isamax(const int n, const float * x, const int 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ISAMAX, SELECT_ISAMAX);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ISAMAX, SELECT_ISAMAX);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -643,7 +635,7 @@ liftracc_index_t liftracc_plugin_idamax(const int n, const double * x, const int
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_IDAMAX, SELECT_IDAMAX);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_IDAMAX, SELECT_IDAMAX);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -672,7 +664,7 @@ liftracc_index_t liftracc_plugin_icamax(const int n, const void * x, const int i
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ICAMAX, SELECT_ICAMAX);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ICAMAX, SELECT_ICAMAX);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -701,7 +693,7 @@ liftracc_index_t liftracc_plugin_izamax(const int n, const void * x, const int i
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_IZAMAX, SELECT_IZAMAX);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_IZAMAX, SELECT_IZAMAX);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -727,7 +719,7 @@ void liftracc_plugin_sswap(const int n, float * x, const int incx, float * y, co
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SSWAP, SELECT_SSWAP);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SSWAP, SELECT_SSWAP);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -753,7 +745,7 @@ void liftracc_plugin_scopy(const int n, const float * x, const int incx, float *
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SCOPY, SELECT_SCOPY);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SCOPY, SELECT_SCOPY);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -779,7 +771,7 @@ void liftracc_plugin_saxpy(const int n, const float alpha, const float * x, cons
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SAXPY, SELECT_SAXPY);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SAXPY, SELECT_SAXPY);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -805,7 +797,7 @@ void liftracc_plugin_dswap(const int n, double * x, const int incx, double * y, 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DSWAP, SELECT_DSWAP);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSWAP, SELECT_DSWAP);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -831,7 +823,7 @@ void liftracc_plugin_dcopy(const int n, const double * x, const int incx, double
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DCOPY, SELECT_DCOPY);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DCOPY, SELECT_DCOPY);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -857,7 +849,7 @@ void liftracc_plugin_daxpy(const int n, const double alpha, const double * x, co
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DAXPY, SELECT_DAXPY);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DAXPY, SELECT_DAXPY);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -883,7 +875,7 @@ void liftracc_plugin_cswap(const int n, void * x, const int incx, void * y, cons
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CSWAP, SELECT_CSWAP);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CSWAP, SELECT_CSWAP);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -909,7 +901,7 @@ void liftracc_plugin_ccopy(const int n, const void * x, const int incx, void * y
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CCOPY, SELECT_CCOPY);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CCOPY, SELECT_CCOPY);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -935,7 +927,7 @@ void liftracc_plugin_caxpy(const int n, const void * alpha, const void * x, cons
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CAXPY, SELECT_CAXPY);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CAXPY, SELECT_CAXPY);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -961,7 +953,7 @@ void liftracc_plugin_zswap(const int n, void * x, const int incx, void * y, cons
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZSWAP, SELECT_ZSWAP);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZSWAP, SELECT_ZSWAP);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -987,7 +979,7 @@ void liftracc_plugin_zcopy(const int n, const void * x, const int incx, void * y
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZCOPY, SELECT_ZCOPY);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZCOPY, SELECT_ZCOPY);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1013,7 +1005,7 @@ void liftracc_plugin_zaxpy(const int n, const void * alpha, const void * x, cons
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZAXPY, SELECT_ZAXPY);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZAXPY, SELECT_ZAXPY);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1039,7 +1031,7 @@ void liftracc_plugin_srotg(float * a, float * b, float * c, float * s)
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
     int n = 0;
-    set_decision_data(n, LIFTRACC_FUNCTION_SROTG, SELECT_SROTG);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SROTG, SELECT_SROTG);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1065,7 +1057,7 @@ void liftracc_plugin_srotmg(float * d1, float * d2, float * b1, const float b2, 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
     int n = 0;
-    set_decision_data(n, LIFTRACC_FUNCTION_SROTMG, SELECT_SROTMG);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SROTMG, SELECT_SROTMG);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1091,7 +1083,7 @@ void liftracc_plugin_srot(const int n, float * x, const int incx, float * y, con
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SROT, SELECT_SROT);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SROT, SELECT_SROT);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1117,7 +1109,7 @@ void liftracc_plugin_srotm(const int n, float * x, const int incx, float * y, co
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SROTM, SELECT_SROTM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SROTM, SELECT_SROTM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1143,7 +1135,7 @@ void liftracc_plugin_drotg(double * a, double * b, double * c, double * s)
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
     int n = 0;
-    set_decision_data(n, LIFTRACC_FUNCTION_DROTG, SELECT_DROTG);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DROTG, SELECT_DROTG);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1169,7 +1161,7 @@ void liftracc_plugin_drotmg(double * d1, double * d2, double * b1, const double 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
     int n = 0;
-    set_decision_data(n, LIFTRACC_FUNCTION_DROTMG, SELECT_DROTMG);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DROTMG, SELECT_DROTMG);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1195,7 +1187,7 @@ void liftracc_plugin_drot(const int n, double * x, const int incx, double * y, c
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DROT, SELECT_DROT);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DROT, SELECT_DROT);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1221,7 +1213,7 @@ void liftracc_plugin_drotm(const int n, double * x, const int incx, double * y, 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DROTM, SELECT_DROTM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DROTM, SELECT_DROTM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1247,7 +1239,7 @@ void liftracc_plugin_sscal(const int n, const float alpha, float * x, const int 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SSCAL, SELECT_SSCAL);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SSCAL, SELECT_SSCAL);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1273,7 +1265,7 @@ void liftracc_plugin_dscal(const int n, const double alpha, double * x, const in
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DSCAL, SELECT_DSCAL);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSCAL, SELECT_DSCAL);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1299,7 +1291,7 @@ void liftracc_plugin_cscal(const int n, const void * alpha, void * x, const int 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CSCAL, SELECT_CSCAL);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CSCAL, SELECT_CSCAL);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1325,7 +1317,7 @@ void liftracc_plugin_zscal(const int n, const void * alpha, void * x, const int 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZSCAL, SELECT_ZSCAL);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZSCAL, SELECT_ZSCAL);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1351,7 +1343,7 @@ void liftracc_plugin_csscal(const int n, const float alpha, void * x, const int 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CSSCAL, SELECT_CSSCAL);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CSSCAL, SELECT_CSSCAL);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1377,7 +1369,7 @@ void liftracc_plugin_zdscal(const int n, const double alpha, void * x, const int
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZDSCAL, SELECT_ZDSCAL);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZDSCAL, SELECT_ZDSCAL);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1403,7 +1395,7 @@ void liftracc_plugin_sgemv(const liftracc_order_t order, const liftracc_transpos
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SGEMV, SELECT_SGEMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SGEMV, SELECT_SGEMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1429,7 +1421,7 @@ void liftracc_plugin_sgbmv(const liftracc_order_t order, const liftracc_transpos
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SGBMV, SELECT_SGBMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SGBMV, SELECT_SGBMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1455,7 +1447,7 @@ void liftracc_plugin_strmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_STRMV, SELECT_STRMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_STRMV, SELECT_STRMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1481,7 +1473,7 @@ void liftracc_plugin_stbmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_STBMV, SELECT_STBMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_STBMV, SELECT_STBMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1507,7 +1499,7 @@ void liftracc_plugin_stpmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_STPMV, SELECT_STPMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_STPMV, SELECT_STPMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1533,7 +1525,7 @@ void liftracc_plugin_strsv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_STRSV, SELECT_STRSV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_STRSV, SELECT_STRSV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1559,7 +1551,7 @@ void liftracc_plugin_stbsv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_STBSV, SELECT_STBSV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_STBSV, SELECT_STBSV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1585,7 +1577,7 @@ void liftracc_plugin_stpsv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_STPSV, SELECT_STPSV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_STPSV, SELECT_STPSV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1611,7 +1603,7 @@ void liftracc_plugin_dgemv(const liftracc_order_t order, const liftracc_transpos
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DGEMV, SELECT_DGEMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DGEMV, SELECT_DGEMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1637,7 +1629,7 @@ void liftracc_plugin_dgbmv(const liftracc_order_t order, const liftracc_transpos
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DGBMV, SELECT_DGBMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DGBMV, SELECT_DGBMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1663,7 +1655,7 @@ void liftracc_plugin_dtrmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DTRMV, SELECT_DTRMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DTRMV, SELECT_DTRMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1689,7 +1681,7 @@ void liftracc_plugin_dtbmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DTBMV, SELECT_DTBMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DTBMV, SELECT_DTBMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1715,7 +1707,7 @@ void liftracc_plugin_dtpmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DTPMV, SELECT_DTPMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DTPMV, SELECT_DTPMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1741,7 +1733,7 @@ void liftracc_plugin_dtrsv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DTRSV, SELECT_DTRSV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DTRSV, SELECT_DTRSV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1767,7 +1759,7 @@ void liftracc_plugin_dtbsv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DTBSV, SELECT_DTBSV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DTBSV, SELECT_DTBSV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1793,7 +1785,7 @@ void liftracc_plugin_dtpsv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DTPSV, SELECT_DTPSV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DTPSV, SELECT_DTPSV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1819,7 +1811,7 @@ void liftracc_plugin_cgemv(const liftracc_order_t order, const liftracc_transpos
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CGEMV, SELECT_CGEMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CGEMV, SELECT_CGEMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1845,7 +1837,7 @@ void liftracc_plugin_cgbmv(const liftracc_order_t order, const liftracc_transpos
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CGBMV, SELECT_CGBMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CGBMV, SELECT_CGBMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1871,7 +1863,7 @@ void liftracc_plugin_ctrmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CTRMV, SELECT_CTRMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CTRMV, SELECT_CTRMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1897,7 +1889,7 @@ void liftracc_plugin_ctbmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CTBMV, SELECT_CTBMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CTBMV, SELECT_CTBMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1923,7 +1915,7 @@ void liftracc_plugin_ctpmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CTPMV, SELECT_CTPMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CTPMV, SELECT_CTPMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1949,7 +1941,7 @@ void liftracc_plugin_ctrsv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CTRSV, SELECT_CTRSV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CTRSV, SELECT_CTRSV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -1975,7 +1967,7 @@ void liftracc_plugin_ctbsv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CTBSV, SELECT_CTBSV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CTBSV, SELECT_CTBSV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2001,7 +1993,7 @@ void liftracc_plugin_ctpsv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CTPSV, SELECT_CTPSV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CTPSV, SELECT_CTPSV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2027,7 +2019,7 @@ void liftracc_plugin_zgemv(const liftracc_order_t order, const liftracc_transpos
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZGEMV, SELECT_ZGEMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZGEMV, SELECT_ZGEMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2053,7 +2045,7 @@ void liftracc_plugin_zgbmv(const liftracc_order_t order, const liftracc_transpos
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZGBMV, SELECT_ZGBMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZGBMV, SELECT_ZGBMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2079,7 +2071,7 @@ void liftracc_plugin_ztrmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZTRMV, SELECT_ZTRMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZTRMV, SELECT_ZTRMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2105,7 +2097,7 @@ void liftracc_plugin_ztbmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZTBMV, SELECT_ZTBMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZTBMV, SELECT_ZTBMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2131,7 +2123,7 @@ void liftracc_plugin_ztpmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZTPMV, SELECT_ZTPMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZTPMV, SELECT_ZTPMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2157,7 +2149,7 @@ void liftracc_plugin_ztrsv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZTRSV, SELECT_ZTRSV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZTRSV, SELECT_ZTRSV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2183,7 +2175,7 @@ void liftracc_plugin_ztbsv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZTBSV, SELECT_ZTBSV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZTBSV, SELECT_ZTBSV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2209,7 +2201,7 @@ void liftracc_plugin_ztpsv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZTPSV, SELECT_ZTPSV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZTPSV, SELECT_ZTPSV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2235,7 +2227,7 @@ void liftracc_plugin_ssymv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SSYMV, SELECT_SSYMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SSYMV, SELECT_SSYMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2261,7 +2253,7 @@ void liftracc_plugin_ssbmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SSBMV, SELECT_SSBMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SSBMV, SELECT_SSBMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2287,7 +2279,7 @@ void liftracc_plugin_sspmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SSPMV, SELECT_SSPMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SSPMV, SELECT_SSPMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2313,7 +2305,7 @@ void liftracc_plugin_sger(const liftracc_order_t order, const int m, const int n
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SGER, SELECT_SGER);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SGER, SELECT_SGER);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2339,7 +2331,7 @@ void liftracc_plugin_ssyr(const liftracc_order_t order, const liftracc_uplo_t up
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SSYR, SELECT_SSYR);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SSYR, SELECT_SSYR);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2365,7 +2357,7 @@ void liftracc_plugin_sspr(const liftracc_order_t order, const liftracc_uplo_t up
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SSPR, SELECT_SSPR);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SSPR, SELECT_SSPR);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2391,7 +2383,7 @@ void liftracc_plugin_ssyr2(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SSYR2, SELECT_SSYR2);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SSYR2, SELECT_SSYR2);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2417,7 +2409,7 @@ void liftracc_plugin_sspr2(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SSPR2, SELECT_SSPR2);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SSPR2, SELECT_SSPR2);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2443,7 +2435,7 @@ void liftracc_plugin_dsymv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DSYMV, SELECT_DSYMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSYMV, SELECT_DSYMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2469,7 +2461,7 @@ void liftracc_plugin_dsbmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DSBMV, SELECT_DSBMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSBMV, SELECT_DSBMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2495,7 +2487,7 @@ void liftracc_plugin_dspmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DSPMV, SELECT_DSPMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSPMV, SELECT_DSPMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2521,7 +2513,7 @@ void liftracc_plugin_dger(const liftracc_order_t order, const int m, const int n
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DGER, SELECT_DGER);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DGER, SELECT_DGER);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2547,7 +2539,7 @@ void liftracc_plugin_dsyr(const liftracc_order_t order, const liftracc_uplo_t up
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DSYR, SELECT_DSYR);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSYR, SELECT_DSYR);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2573,7 +2565,7 @@ void liftracc_plugin_dspr(const liftracc_order_t order, const liftracc_uplo_t up
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DSPR, SELECT_DSPR);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSPR, SELECT_DSPR);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2599,7 +2591,7 @@ void liftracc_plugin_dsyr2(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DSYR2, SELECT_DSYR2);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSYR2, SELECT_DSYR2);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2625,7 +2617,7 @@ void liftracc_plugin_dspr2(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DSPR2, SELECT_DSPR2);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSPR2, SELECT_DSPR2);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2651,7 +2643,7 @@ void liftracc_plugin_chemv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CHEMV, SELECT_CHEMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CHEMV, SELECT_CHEMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2677,7 +2669,7 @@ void liftracc_plugin_chbmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CHBMV, SELECT_CHBMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CHBMV, SELECT_CHBMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2703,7 +2695,7 @@ void liftracc_plugin_chpmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CHPMV, SELECT_CHPMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CHPMV, SELECT_CHPMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2729,7 +2721,7 @@ void liftracc_plugin_cgeru(const liftracc_order_t order, const int m, const int 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CGERU, SELECT_CGERU);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CGERU, SELECT_CGERU);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2755,7 +2747,7 @@ void liftracc_plugin_cgerc(const liftracc_order_t order, const int m, const int 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CGERC, SELECT_CGERC);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CGERC, SELECT_CGERC);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2781,7 +2773,7 @@ void liftracc_plugin_cher(const liftracc_order_t order, const liftracc_uplo_t up
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CHER, SELECT_CHER);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CHER, SELECT_CHER);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2807,7 +2799,7 @@ void liftracc_plugin_chpr(const liftracc_order_t order, const liftracc_uplo_t up
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CHPR, SELECT_CHPR);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CHPR, SELECT_CHPR);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2833,7 +2825,7 @@ void liftracc_plugin_cher2(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CHER2, SELECT_CHER2);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CHER2, SELECT_CHER2);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2859,7 +2851,7 @@ void liftracc_plugin_chpr2(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CHPR2, SELECT_CHPR2);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CHPR2, SELECT_CHPR2);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2885,7 +2877,7 @@ void liftracc_plugin_zhemv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZHEMV, SELECT_ZHEMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZHEMV, SELECT_ZHEMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2911,7 +2903,7 @@ void liftracc_plugin_zhbmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZHBMV, SELECT_ZHBMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZHBMV, SELECT_ZHBMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2937,7 +2929,7 @@ void liftracc_plugin_zhpmv(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZHPMV, SELECT_ZHPMV);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZHPMV, SELECT_ZHPMV);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2963,7 +2955,7 @@ void liftracc_plugin_zgeru(const liftracc_order_t order, const int m, const int 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZGERU, SELECT_ZGERU);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZGERU, SELECT_ZGERU);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -2989,7 +2981,7 @@ void liftracc_plugin_zgerc(const liftracc_order_t order, const int m, const int 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZGERC, SELECT_ZGERC);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZGERC, SELECT_ZGERC);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3015,7 +3007,7 @@ void liftracc_plugin_zher(const liftracc_order_t order, const liftracc_uplo_t up
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZHER, SELECT_ZHER);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZHER, SELECT_ZHER);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3041,7 +3033,7 @@ void liftracc_plugin_zhpr(const liftracc_order_t order, const liftracc_uplo_t up
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZHPR, SELECT_ZHPR);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZHPR, SELECT_ZHPR);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3067,7 +3059,7 @@ void liftracc_plugin_zher2(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZHER2, SELECT_ZHER2);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZHER2, SELECT_ZHER2);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3093,7 +3085,7 @@ void liftracc_plugin_zhpr2(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZHPR2, SELECT_ZHPR2);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZHPR2, SELECT_ZHPR2);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3119,7 +3111,7 @@ void liftracc_plugin_sgemm(const liftracc_order_t order, const liftracc_transpos
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SGEMM, SELECT_SGEMM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SGEMM, SELECT_SGEMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3145,7 +3137,7 @@ void liftracc_plugin_ssymm(const liftracc_order_t order, const liftracc_side_t s
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SSYMM, SELECT_SSYMM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SSYMM, SELECT_SSYMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3171,7 +3163,7 @@ void liftracc_plugin_ssyrk(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SSYRK, SELECT_SSYRK);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SSYRK, SELECT_SSYRK);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3197,7 +3189,7 @@ void liftracc_plugin_ssyr2k(const liftracc_order_t order, const liftracc_uplo_t 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_SSYR2K, SELECT_SSYR2K);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_SSYR2K, SELECT_SSYR2K);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3223,7 +3215,7 @@ void liftracc_plugin_strmm(const liftracc_order_t order, const liftracc_side_t s
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_STRMM, SELECT_STRMM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_STRMM, SELECT_STRMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3249,7 +3241,7 @@ void liftracc_plugin_strsm(const liftracc_order_t order, const liftracc_side_t s
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_STRSM, SELECT_STRSM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_STRSM, SELECT_STRSM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3275,7 +3267,7 @@ void liftracc_plugin_dgemm(const liftracc_order_t order, const liftracc_transpos
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DGEMM, SELECT_DGEMM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DGEMM, SELECT_DGEMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3301,7 +3293,7 @@ void liftracc_plugin_dsymm(const liftracc_order_t order, const liftracc_side_t s
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DSYMM, SELECT_DSYMM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSYMM, SELECT_DSYMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3327,7 +3319,7 @@ void liftracc_plugin_dsyrk(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DSYRK, SELECT_DSYRK);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSYRK, SELECT_DSYRK);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3353,7 +3345,7 @@ void liftracc_plugin_dsyr2k(const liftracc_order_t order, const liftracc_uplo_t 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DSYR2K, SELECT_DSYR2K);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSYR2K, SELECT_DSYR2K);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3379,7 +3371,7 @@ void liftracc_plugin_dtrmm(const liftracc_order_t order, const liftracc_side_t s
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DTRMM, SELECT_DTRMM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DTRMM, SELECT_DTRMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3405,7 +3397,7 @@ void liftracc_plugin_dtrsm(const liftracc_order_t order, const liftracc_side_t s
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_DTRSM, SELECT_DTRSM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DTRSM, SELECT_DTRSM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3431,7 +3423,7 @@ void liftracc_plugin_cgemm(const liftracc_order_t order, const liftracc_transpos
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CGEMM, SELECT_CGEMM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CGEMM, SELECT_CGEMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3457,7 +3449,7 @@ void liftracc_plugin_csymm(const liftracc_order_t order, const liftracc_side_t s
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CSYMM, SELECT_CSYMM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CSYMM, SELECT_CSYMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3483,7 +3475,7 @@ void liftracc_plugin_csyrk(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CSYRK, SELECT_CSYRK);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CSYRK, SELECT_CSYRK);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3509,7 +3501,7 @@ void liftracc_plugin_csyr2k(const liftracc_order_t order, const liftracc_uplo_t 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CSYR2K, SELECT_CSYR2K);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CSYR2K, SELECT_CSYR2K);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3535,7 +3527,7 @@ void liftracc_plugin_ctrmm(const liftracc_order_t order, const liftracc_side_t s
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CTRMM, SELECT_CTRMM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CTRMM, SELECT_CTRMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3561,7 +3553,7 @@ void liftracc_plugin_ctrsm(const liftracc_order_t order, const liftracc_side_t s
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CTRSM, SELECT_CTRSM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CTRSM, SELECT_CTRSM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3587,7 +3579,7 @@ void liftracc_plugin_zgemm(const liftracc_order_t order, const liftracc_transpos
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZGEMM, SELECT_ZGEMM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZGEMM, SELECT_ZGEMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3613,7 +3605,7 @@ void liftracc_plugin_zsymm(const liftracc_order_t order, const liftracc_side_t s
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZSYMM, SELECT_ZSYMM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZSYMM, SELECT_ZSYMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3639,7 +3631,7 @@ void liftracc_plugin_zsyrk(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZSYRK, SELECT_ZSYRK);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZSYRK, SELECT_ZSYRK);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3665,7 +3657,7 @@ void liftracc_plugin_zsyr2k(const liftracc_order_t order, const liftracc_uplo_t 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZSYR2K, SELECT_ZSYR2K);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZSYR2K, SELECT_ZSYR2K);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3691,7 +3683,7 @@ void liftracc_plugin_ztrmm(const liftracc_order_t order, const liftracc_side_t s
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZTRMM, SELECT_ZTRMM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZTRMM, SELECT_ZTRMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3717,7 +3709,7 @@ void liftracc_plugin_ztrsm(const liftracc_order_t order, const liftracc_side_t s
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZTRSM, SELECT_ZTRSM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZTRSM, SELECT_ZTRSM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3743,7 +3735,7 @@ void liftracc_plugin_chemm(const liftracc_order_t order, const liftracc_side_t s
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CHEMM, SELECT_CHEMM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CHEMM, SELECT_CHEMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3769,7 +3761,7 @@ void liftracc_plugin_cherk(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CHERK, SELECT_CHERK);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CHERK, SELECT_CHERK);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3795,7 +3787,7 @@ void liftracc_plugin_cher2k(const liftracc_order_t order, const liftracc_uplo_t 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_CHER2K, SELECT_CHER2K);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_CHER2K, SELECT_CHER2K);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3821,7 +3813,7 @@ void liftracc_plugin_zhemm(const liftracc_order_t order, const liftracc_side_t s
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZHEMM, SELECT_ZHEMM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZHEMM, SELECT_ZHEMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3847,7 +3839,7 @@ void liftracc_plugin_zherk(const liftracc_order_t order, const liftracc_uplo_t u
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZHERK, SELECT_ZHERK);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZHERK, SELECT_ZHERK);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3873,7 +3865,7 @@ void liftracc_plugin_zher2k(const liftracc_order_t order, const liftracc_uplo_t 
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 
-    set_decision_data(n, LIFTRACC_FUNCTION_ZHER2K, SELECT_ZHER2K);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_ZHER2K, SELECT_ZHER2K);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -3899,7 +3891,7 @@ void liftracc_plugin_xerbla(int p, const char * rout, const char * form)
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
     int n = 0;
-    set_decision_data(n, LIFTRACC_FUNCTION_XERBLA, SELECT_XERBLA);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_XERBLA, SELECT_XERBLA);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }

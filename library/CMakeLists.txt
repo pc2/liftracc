@@ -15,7 +15,8 @@ if($ENV{CXX})
   set(CMAKE_CXX_COMPILER $ENV{CXX})
 endif($ENV{CXX})
 
-add_definitions(-Wall -O2 -fno-strict-aliasing)
+#add_definitions(-Wall -O2 -fno-strict-aliasing)
+add_definitions(-Wall -O0 -fno-strict-aliasing)
 
 set(CMAKE_C_FLAGS_PROFILING          "-g -pg")
 set(CMAKE_CXX_FLAGS_PROFILING        "-g -pg")

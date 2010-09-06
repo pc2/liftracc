@@ -111,7 +111,7 @@ int main(int argc, char** argv)
 
     // function init
     float (*cblas_sdsdot)(const int n, const float alpha, const float * x, const int incx, const float * y, const int incy);
-    *(void **) (&cblas_sdsdot) = dlsym(cblas_handle, "cblas_sdsdot");
+    *(void **) (&cblas_sdsdot) = dlsym(cblas_handle, "inner_cblas_sdsdot");
 
     if ((error = dlerror()) != 0)  {
         ERROR("%s", error);
@@ -136,7 +136,7 @@ int main(int argc, char** argv)
 
     // function init
     double (*cblas_dsdot)(const int n, const float * x, const int incx, const float * y, const int incy);
-    *(void **) (&cblas_dsdot) = dlsym(cblas_handle, "cblas_dsdot");
+    *(void **) (&cblas_dsdot) = dlsym(cblas_handle, "inner_cblas_dsdot");
 
     if ((error = dlerror()) != 0)  {
         ERROR("%s", error);
@@ -161,7 +161,7 @@ int main(int argc, char** argv)
     
     // function init
     float (*cblas_sdot)(const int n, const float * x, const int incx, const float * y, const int incy);
-    *(void **) (&cblas_sdot) = dlsym(cblas_handle, "cblas_sdot");
+    *(void **) (&cblas_sdot) = dlsym(cblas_handle, "inner_cblas_sdot");
 
     if ((error = dlerror()) != 0)  {
         ERROR("%s", error);
@@ -186,7 +186,7 @@ int main(int argc, char** argv)
 
     // function init
     double (*cblas_ddot)(const int n, const double * x, const int incx, const double * y, const int incy);
-    *(void **) (&cblas_ddot) = dlsym(cblas_handle, "cblas_ddot");
+    *(void **) (&cblas_ddot) = dlsym(cblas_handle, "inner_cblas_ddot");
 
     if ((error = dlerror()) != 0)  {
         ERROR("%s", error);

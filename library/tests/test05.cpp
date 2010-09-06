@@ -19,6 +19,7 @@ extern "C" {
 
 int main(int argc, char** argv)
 {
+    printf("TEST\n");
 #ifdef _LIFTRACC_PROFILING_
     for (int i=0; i<100; i++) {
         liftracc_function_timing_start(&(liftracc_profiling_data[MEASURING_ERROR]));
@@ -72,7 +73,7 @@ int main(int argc, char** argv)
                         double *c,
                         const int ldc);
     
-    *(void **) (&cblas_dgemm) = dlsym(cblas_handle, "cblas_dgemm");
+    *(void **) (&cblas_dgemm) = dlsym(cblas_handle, "inner_cblas_dgemm");
 
     if ((error = dlerror()) != 0)  {
         ERROR("%s", error);
@@ -99,7 +100,7 @@ int main(int argc, char** argv)
         liftracc_function_timing_stop(&(data[i]));
 #endif /* _LIFTRACC_PROFILING_ */
         memcpy(dC, dM, max_entries);
-        INFO("%d_%d.run", j, i);
+        MSG("%d_%d.run", j, i);
       }
     }
 

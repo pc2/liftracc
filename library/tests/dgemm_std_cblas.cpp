@@ -92,7 +92,7 @@ int main(int argc, char** argv)
                         double *c,
                         const int ldc);
     
-    *(void **) (&cblas_dgemm) = dlsym(cblas_handle, "cblas_dgemm");
+    *(void **) (&cblas_dgemm) = dlsym(cblas_handle, "inner_cblas_dgemm");
 
     if ((error = dlerror()) != 0)  {
         ERROR("%s", error);

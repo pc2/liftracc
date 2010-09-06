@@ -25,7 +25,7 @@ int main(int argc, char** argv)
     unsigned int error_count = 0;
 
     const int max_runs = 10;
-    const int max_dim = 2048;
+    const int max_dim = 1024;
     const int max_entries = max_dim * max_dim;
 
 #ifdef _LIFTRACC_PROFILING_

@@ -1,0 +1,47 @@
+diff -ru old/Makefile new/Makefile
+--- old/Makefile	2007-04-05 22:59:57.000000000 +0200
++++ new/Makefile	2010-08-18 00:02:59.865894674 +0200
+@@ -55,7 +55,7 @@
+ #
+ #######################################################################
+ 
+-all: $(BLASLIB)
++all: $(BLASLIB) $(BLASLIBSO)
+  
+ #---------------------------------------------------------
+ #  Comment out the next 6 definitions if you already have
+@@ -141,6 +141,9 @@
+ 	$(ARCH) $(ARCHFLAGS) $@ $(ALLOBJ)
+ 	$(RANLIB) $@
+ 
++$(BLASLIBSO): $(ALLOBJ)
++	$(FORTRAN) -shared -o $@ $(ALLOBJ)
++
+ single: $(SBLAS1) $(ALLBLAS) $(SBLAS2) $(SBLAS3)
+ 	$(ARCH) $(ARCHFLAGS) $(BLASLIB) $(SBLAS1) $(ALLBLAS) \
+ 	$(SBLAS2) $(SBLAS3)
+diff -ru old/make.inc new/make.inc
+--- old/make.inc	2007-03-21 22:25:22.000000000 +0100
++++ new/make.inc	2010-08-17 23:47:19.861894847 +0200
+@@ -15,11 +15,11 @@
+ #  selected.  Define LOADER and LOADOPTS to refer to the loader and 
+ #  desired load options for your machine.
+ #
+-FORTRAN  = g77 
+-OPTS     = -O3
++FORTRAN  = gfortran
++OPTS     = -O3 -fPIC
+ DRVOPTS  = $(OPTS)
+ NOOPT    =
+-LOADER   = g77
++LOADER   = gfortran
+ LOADOPTS =
+ #
+ #  The archiver and the flag(s) to use when building archive (library)
+@@ -31,4 +31,5 @@
+ #
+ #  The location and name of the Reference BLAS library.
+ #
+-BLASLIB      = blas$(PLAT).a
++BLASLIB      = libblas.a
++BLASLIBSO    = libblas.so

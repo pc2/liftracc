@@ -90,15 +90,6 @@ void __attribute__ ((destructor)) liftracc_plugin_unload(void)
 #endif /* _LIFTRACC_PROFILING_ */
 }
 
-#ifdef _LIFTRACC_AUTOMODE_TRAINING_
-void set_decision_data(int value, int func_id, int select_id) {
-    ERROR("set_decision_data(%d, %d, %d)", value, func_id, select_id);
-    ticks new_tks = function_profiling_data[func_id].last_time;
-    ticks old_tks = decision_data[select_id*ARRAY_SIZE+get_inx(value, ARRAY_SIZE)];
-    decision_data[select_id*ARRAY_SIZE+get_inx(value, ARRAY_SIZE)] = (new_tks+old_tks)/2;
-}
-#endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
-
 decision_data_t liftracc_plugin_getdecision(liftracc_selector_funcid_t id, int index)
 {
 #ifdef _LIFTRACC_AUTOMODE_
@@ -143,7 +134,7 @@ void liftracc_plugin_daxpy(const int n, const double alpha, const double * x, co
 #endif /* _LIFTRACC_PROFILING_ */
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
-    set_decision_data(n, LIFTRACC_FUNCTION_DDOT, SELECT_DDOT);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DDOT, SELECT_DDOT);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -177,7 +168,7 @@ double liftracc_plugin_ddot(const int n, const double *x, const int incx, const 
 #endif /* _LIFTRACC_PROFILING_ */
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
-    set_decision_data(n, LIFTRACC_FUNCTION_DDOT, SELECT_DDOT);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DDOT, SELECT_DDOT);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
     return ret;
@@ -252,7 +243,7 @@ void liftracc_plugin_dgemm(const liftracc_order_t order,
 #endif /* _LIFTRACC_PROFILING_ */
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
-    set_decision_data(n, LIFTRACC_FUNCTION_DGEMM, SELECT_DGEMM);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DGEMM, SELECT_DGEMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 }
 
@@ -282,7 +273,7 @@ void liftracc_plugin_dscal(const int n, const double alpha, double * x, const in
 #endif /* _LIFTRACC_PROFILING_ */
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
-    set_decision_data(n, LIFTRACC_FUNCTION_DSCAL, SELECT_DSCAL);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSCAL, SELECT_DSCAL);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 }
 
@@ -310,7 +301,7 @@ liftracc_index_t liftracc_plugin_idamax(const int n, const double * x, const int
 #endif /* _LIFTRACC_PROFILING_ */
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
-    set_decision_data(n, LIFTRACC_FUNCTION_IDAMAX, SELECT_IDAMAX);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_IDAMAX, SELECT_IDAMAX);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
     return ret;

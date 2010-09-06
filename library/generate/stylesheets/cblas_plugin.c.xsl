@@ -139,14 +139,6 @@ void __attribute__ ((destructor)) liftracc_plugin_unload(void)
 #endif /* _LIFTRACC_PROFILING_ */
 }
 
-#ifdef _LIFTRACC_AUTOMODE_TRAINING_
-void set_decision_data(int value, int func_id, int select_id) {
-    ticks new_tks = function_profiling_data[func_id].last_time;
-    ticks old_tks = decision_data[select_id*ARRAY_SIZE+get_inx(value, ARRAY_SIZE)];
-    decision_data[select_id*ARRAY_SIZE+get_inx(value, ARRAY_SIZE)] = (new_tks+old_tks)/2;
-}
-#endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
-
 decision_data_t liftracc_plugin_getdecision(liftracc_selector_funcid_t id, int index)
 {
 #ifdef _LIFTRACC_AUTOMODE_
@@ -202,7 +194,7 @@ int liftracc_plugin_calltest_dynamic(int a, int b, int c)
 <xsl:when test="@name='xerbla'"><![CDATA[    int n = 0;]]></xsl:when>
 <xsl:otherwise><![CDATA[]]></xsl:otherwise>
 </xsl:choose><![CDATA[
-    set_decision_data(n, LIFTRACC_FUNCTION_]]><xsl:value-of select="helper:upper-case(@name)"/><![CDATA[, SELECT_]]><xsl:value-of select="helper:upper-case(@name)"/><![CDATA[);
+    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_]]><xsl:value-of select="helper:upper-case(@name)"/><![CDATA[, SELECT_]]><xsl:value-of select="helper:upper-case(@name)"/><![CDATA[);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }]]>
