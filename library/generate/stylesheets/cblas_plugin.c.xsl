@@ -81,7 +81,7 @@ void __attribute__ ((constructor)) liftracc_plugin_load(void)
         handle = dlopen(libname, RTLD_LAZY);
 
     if (!handle)
-        handle = dlopen("libcblas.so", RTLD_LAZY);
+        handle = dlopen("libcblas_inner.so", RTLD_LAZY);
 
     if (!handle)
         ERROR("%s", dlerror());
@@ -170,7 +170,8 @@ int liftracc_plugin_calltest_dynamic(int a, int b, int c)
 #if _LIFTRACC_PROFILING_ == 3
     liftracc_function_timing_start(&(function_profiling_data[LIFTRACC_FUNCTION_]]><xsl:value-of select="helper:upper-case(@name)"/><![CDATA[]));
 #endif /* _LIFTRACC_PROFILING_ */
-
+    
+    int success = 1;
     ]]><xsl:value-of select="dyn:evaluate(concat('$',@type))"/><![CDATA[ (*func)();
     ]]><xsl:if test="@type!='VOID_TYPE'"><xsl:value-of select="dyn:evaluate(concat('$',@type))"/><![CDATA[ ret = 0.0;
     ]]></xsl:if><![CDATA[
@@ -178,12 +179,12 @@ int liftracc_plugin_calltest_dynamic(int a, int b, int c)
     
     if (func != 0) {
         ]]><xsl:if test="@type!='VOID_TYPE'"><![CDATA[ret = ]]></xsl:if><![CDATA[(*func)(]]><xsl:value-of select="helper:param-str()"/><![CDATA[);]]><![CDATA[
+    } else {
+        success = 0;
     }
 #if _LIFTRACC_PROFILING_ == 3
     liftracc_function_timing_stop(&(function_profiling_data[LIFTRACC_FUNCTION_]]><xsl:value-of select="helper:upper-case(@name)"/><![CDATA[]));
-#endif /* _LIFTRACC_PROFILING_ */]]><xsl:if test="@type!='VOID_TYPE'"><![CDATA[
-
-    return ret;]]></xsl:if><![CDATA[
+#endif /* _LIFTRACC_PROFILING_ */
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 ]]><xsl:choose>
@@ -194,10 +195,14 @@ int liftracc_plugin_calltest_dynamic(int a, int b, int c)
 <xsl:when test="@name='xerbla'"><![CDATA[    int n = 0;]]></xsl:when>
 <xsl:otherwise><![CDATA[]]></xsl:otherwise>
 </xsl:choose><![CDATA[
-    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_]]><xsl:value-of select="helper:upper-case(@name)"/><![CDATA[, SELECT_]]><xsl:value-of select="helper:upper-case(@name)"/><![CDATA[);
+    set_decision_data(success, &decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_]]><xsl:value-of select="helper:upper-case(@name)"/><![CDATA[, SELECT_]]><xsl:value-of select="helper:upper-case(@name)"/><![CDATA[);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
-}]]>
+]]><xsl:if test="@type!='VOID_TYPE'"><![CDATA[
+
+    return ret;
+
+]]></xsl:if><![CDATA[}]]>
 <xsl:text>
 
 </xsl:text>

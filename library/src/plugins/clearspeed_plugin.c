@@ -133,17 +133,15 @@ void liftracc_plugin_dgemm(const liftracc_order_t order,
 #if _LIFTRACC_PROFILING_ == 3
     liftracc_function_timing_start(&(function_profiling_data[LIFTRACC_FUNCTION_DGEMM]));
 #endif /* _LIFTRACC_PROFILING_ */
+
     if (order != liftracc_col_major) {
         ERROR("Matrix not in column-major order.");
         return;
     }
+
+    int success = 1;
     void (*func)();
     *(void **) (&func) = liftracc_plugin_fptr[CLEAR_DGEMM_ID];
-
-    if ((error = dlerror()) != 0)  {
-        ERROR("%s", error);
-        return;
-    }
 
     char ta, tb;
     switch (transa) {
@@ -159,17 +157,21 @@ void liftracc_plugin_dgemm(const liftracc_order_t order,
        default: tb = 'N'; break;
     }
 
-    (*func)((const char *) &ta, (const char *) &tb,
-            &m, &n, &k,
-            &alpha, a, &lda,
-            b, &ldb, &beta,
-            c, &ldc);
+    if (func != 0) {
+        (*func)((const char *) &ta, (const char *) &tb,
+                &m, &n, &k,
+                &alpha, a, &lda,
+                b, &ldb, &beta,
+                c, &ldc);
+    } else {
+        success = 0;
+    }
 #if _LIFTRACC_PROFILING_ == 3
     liftracc_function_timing_stop(&(function_profiling_data[LIFTRACC_FUNCTION_DGEMM]));
 #endif /* _LIFTRACC_PROFILING_ */
 
 #ifdef  _LIFTRACC_AUTOMODE_TRAINING_
-    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DGEMM, SELECT_DGEMM);
+    set_decision_data(success, &decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DGEMM, SELECT_DGEMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 }
 

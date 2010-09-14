@@ -28,6 +28,12 @@
 
 #include "cblas.h"
 
+/* only testing */
+#define cblas_idamax inner_cblas_idamax
+#define cblas_dscal  inner_cblas_dscal
+#define cblas_daxpy  inner_cblas_daxpy
+#define cblas_ddot   inner_cblas_ddot
+
 static double linpack_dyn(long nreps, int arsize);
 static void matgen_dyn(double *a, int lda, int n, double *b, double *norma);
 static void dgefa_dyn(double *a, int lda, int n, int *ipvt, int *info);
@@ -36,7 +42,7 @@ static double second(void);
 
 static void *mempool;
 
-#define MAX_DIM 1024
+#define MAX_DIM 8192
 
 int main(void)
 {
@@ -49,7 +55,7 @@ int main(void)
     printf("N Reps Time(s) DGEFA DGESL OVERHEAD KFLOPS\n");
     printf("------------------------------------------\n");
 
-    for (arsize=2; arsize<=MAX_DIM; arsize+=2) {
+    for (arsize=16; arsize<=MAX_DIM; arsize*=2) {
         arsize/=2;
         arsize*=2;
         arsize2d = (long)arsize*(long)arsize;

@@ -19,7 +19,6 @@ extern "C" {
 
 int main(int argc, char** argv)
 {
-    printf("TEST\n");
 #ifdef _LIFTRACC_PROFILING_
     for (int i=0; i<100; i++) {
         liftracc_function_timing_start(&(liftracc_profiling_data[MEASURING_ERROR]));
@@ -50,7 +49,7 @@ int main(int argc, char** argv)
     void *cblas_handle = 0;
     char *error = 0;
 
-    cblas_handle = dlopen("libcblas.so", RTLD_LAZY);
+    cblas_handle = dlopen("libcblas_inner.so", RTLD_LAZY);
 
     if (!cblas_handle)
         ERROR("%s", dlerror());
@@ -96,6 +95,12 @@ int main(int argc, char** argv)
                        dB, i,
                        dBeta,
                        dC, i);
+        int different = 0;
+        int c;
+        for (c=0; c<max_entries; c++) {
+            if (dM[c] != dC[c]) different++;
+        }
+        MSG("Entries: %d -- Different: %d -- Same: %d", max_entries, different, max_entries-different);
 #ifdef _LIFTRACC_PROFILING_        
         liftracc_function_timing_stop(&(data[i]));
 #endif /* _LIFTRACC_PROFILING_ */

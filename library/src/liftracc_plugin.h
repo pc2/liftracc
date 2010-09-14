@@ -63,7 +63,8 @@ static __inline__ unsigned int get_inx(unsigned int probsize, unsigned int max) 
 }
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
-void set_decision_data(decision_data_t *data,
+void set_decision_data(int success,
+                       decision_data_t *data,
                        profiling_data_t *func_data,
                        int value,
                        int func_id,
@@ -71,8 +72,10 @@ void set_decision_data(decision_data_t *data,
 {
     decision_data_t new_value = func_data[func_id].last_time;
     decision_data_t old_value = data[select_id*ARRAY_SIZE+get_inx(value, ARRAY_SIZE)];
+    if (old_value == 0) old_value = new_value;
     data[select_id*ARRAY_SIZE+get_inx(value, ARRAY_SIZE)] = (new_value+old_value)/2;
-    ERROR("set_decision_data(%d, %d, %d) = %llu+%llu/2", value, func_id, select_id, new_value, old_value);
+    if (!success || new_value == 0) data[select_id*ARRAY_SIZE+get_inx(value, ARRAY_SIZE)] = 0 - 1;
+    ERROR("set_decision_data(%d, %d, %d) = (%llu+%llu)/2", value, func_id, select_id, new_value, old_value);
 }
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 

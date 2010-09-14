@@ -110,6 +110,7 @@ void liftracc_plugin_daxpy(const int n, const double alpha, const double * x, co
     liftracc_function_timing_start(&(function_profiling_data[LIFTRACC_FUNCTION_DAXPY]));
 #endif /* _LIFTRACC_PROFILING_ */
 
+    int success = 1;
     double* dev_x;
     double* dev_y;
 
@@ -121,8 +122,10 @@ void liftracc_plugin_daxpy(const int n, const double alpha, const double * x, co
 
     cublasDaxpy(n, alpha, dev_x, incx, dev_y, incy);
 
-    if (cublasGetError()!=CUBLAS_STATUS_SUCCESS)
+    if (cublasGetError()!=CUBLAS_STATUS_SUCCESS) {
+        success = 0;
         ERROR("cublas function ERROR");
+    }
 
     cublasGetVector(n, sizeof(*y), dev_y, incy, y, incy);
 
@@ -134,7 +137,7 @@ void liftracc_plugin_daxpy(const int n, const double alpha, const double * x, co
 #endif /* _LIFTRACC_PROFILING_ */
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
-    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DDOT, SELECT_DDOT);
+    set_decision_data(success, &decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DAXPY, SELECT_DAXPY);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -146,8 +149,10 @@ double liftracc_plugin_ddot(const int n, const double *x, const int incx, const 
     liftracc_function_timing_start(&(function_profiling_data[LIFTRACC_FUNCTION_DDOT]));
 #endif /* _LIFTRACC_PROFILING_ */
 
+    int success = 1;
     double* dev_x;
     double* dev_y;
+    double ret = 0.0;
 
     cublasAlloc(n, sizeof(*x), (void**)&dev_x);
     cublasAlloc(n, sizeof(*y), (void**)&dev_y);
@@ -155,10 +160,12 @@ double liftracc_plugin_ddot(const int n, const double *x, const int incx, const 
     cublasSetVector(n, sizeof(*x), x, incx, dev_x, incx);
     cublasSetVector(n, sizeof(*y), y, incy, dev_y, incy);
 
-    double ret = cublasDdot(n, dev_x, incx, dev_y, incy);
+    ret = cublasDdot(n, dev_x, incx, dev_y, incy);
 
-    if (cublasGetError()!=CUBLAS_STATUS_SUCCESS)
+    if (cublasGetError()!=CUBLAS_STATUS_SUCCESS) {
+        success = 0;
         ERROR("cublas function ERROR");
+    }
 
     cublasFree(dev_x);
     cublasFree(dev_y);
@@ -168,7 +175,7 @@ double liftracc_plugin_ddot(const int n, const double *x, const int incx, const 
 #endif /* _LIFTRACC_PROFILING_ */
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
-    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DDOT, SELECT_DDOT);
+    set_decision_data(success, &decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DDOT, SELECT_DDOT);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
     return ret;
@@ -189,6 +196,7 @@ void liftracc_plugin_dgemm(const liftracc_order_t order,
 #if _LIFTRACC_PROFILING_ == 10
     liftracc_function_timing_start(&(liftracc_profiling_data[PARAM_CONV]));
 #endif /* _LIFTRACC_PROFILING_ */
+    
     if (order != liftracc_col_major) {
         ERROR("Matrix not in column-major order.");
         return;
@@ -212,13 +220,25 @@ void liftracc_plugin_dgemm(const liftracc_order_t order,
     liftracc_function_timing_stop(&(liftracc_profiling_data[PARAM_CONV]));
 #endif /* _LIFTRACC_PROFILING_ */
 
+    int success = 1;
     double* dev_a;
     double* dev_b;
     double* dev_c;
 
-    cublasAlloc(m*k, sizeof(*a), (void**)&dev_a);
-    cublasAlloc(k*n, sizeof(*b), (void**)&dev_b);
-    cublasAlloc(m*n, sizeof(*c), (void**)&dev_c);
+    if (cublasAlloc(m*k, sizeof(*a), (void**)&dev_a)!=CUBLAS_STATUS_SUCCESS) {
+        success = 0;
+        ERROR("cublas alloc");
+    }
+    
+    if (cublasAlloc(k*n, sizeof(*b), (void**)&dev_b)!=CUBLAS_STATUS_SUCCESS) {
+        success = 0;
+        ERROR("cublas alloc");
+    }
+    
+    if (cublasAlloc(m*n, sizeof(*c), (void**)&dev_c)!=CUBLAS_STATUS_SUCCESS) {
+        success = 0;
+        ERROR("cublas alloc");
+    }
 
     cublasSetMatrix(m, k, sizeof(*a), a, lda, dev_a, lda);
     cublasSetMatrix(k, n, sizeof(*a), a, ldb, dev_b, ldb);
@@ -229,8 +249,10 @@ void liftracc_plugin_dgemm(const liftracc_order_t order,
                 dev_b, ldb, beta,
                 dev_c, ldc);
 
-    if (cublasGetError()!=CUBLAS_STATUS_SUCCESS)
-        ERROR("cublas function ERROR");
+    if (cublasGetError()!=CUBLAS_STATUS_SUCCESS) {
+        success = 0;
+        ERROR("cublas function exec");
+    }
 
     cublasGetMatrix(m, n, sizeof(*c), dev_c, ldc, c, ldc);
 
@@ -243,7 +265,7 @@ void liftracc_plugin_dgemm(const liftracc_order_t order,
 #endif /* _LIFTRACC_PROFILING_ */
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
-    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DGEMM, SELECT_DGEMM);
+    set_decision_data(success, &decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DGEMM, SELECT_DGEMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 }
 
@@ -254,6 +276,7 @@ void liftracc_plugin_dscal(const int n, const double alpha, double * x, const in
     liftracc_function_timing_start(&(function_profiling_data[LIFTRACC_FUNCTION_DSCAL]));
 #endif /* _LIFTRACC_PROFILING_ */
 
+    int success = 1;
     double* dev_x;
 
     cublasAlloc(n, sizeof(*x), (void**)&dev_x);
@@ -261,8 +284,10 @@ void liftracc_plugin_dscal(const int n, const double alpha, double * x, const in
 
     cublasDscal(n, alpha, dev_x, incx);
 
-    if (cublasGetError()!=CUBLAS_STATUS_SUCCESS)
+    if (cublasGetError()!=CUBLAS_STATUS_SUCCESS) {
+        success = 0;
         ERROR("cublas function ERROR");
+    }
 
     cublasGetVector(n, sizeof(*x), dev_x, incx, x, incx);
 
@@ -273,7 +298,7 @@ void liftracc_plugin_dscal(const int n, const double alpha, double * x, const in
 #endif /* _LIFTRACC_PROFILING_ */
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
-    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSCAL, SELECT_DSCAL);
+    set_decision_data(success, &decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSCAL, SELECT_DSCAL);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 }
 
@@ -284,15 +309,19 @@ liftracc_index_t liftracc_plugin_idamax(const int n, const double * x, const int
     liftracc_function_timing_start(&(function_profiling_data[LIFTRACC_FUNCTION_IDAMAX]));
 #endif /* _LIFTRACC_PROFILING_ */
 
+    int success = 1;
     double* dev_x;
+    int ret = 0;
 
     cublasAlloc(n, sizeof(*x), (void**)&dev_x);
     cublasSetVector(n, sizeof(*x), x, incx, dev_x, incx);
 
-    int ret = cublasIdamax(n, dev_x, incx);
+    ret = cublasIdamax(n, dev_x, incx);
 
-    if (cublasGetError()!=CUBLAS_STATUS_SUCCESS)
+    if (cublasGetError()!=CUBLAS_STATUS_SUCCESS) {
+        success = 0;
         ERROR("cublas function ERROR");
+    }
 
     cublasFree(dev_x);
 
@@ -301,7 +330,7 @@ liftracc_index_t liftracc_plugin_idamax(const int n, const double * x, const int
 #endif /* _LIFTRACC_PROFILING_ */
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
-    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_IDAMAX, SELECT_IDAMAX);
+    set_decision_data(success, &decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_IDAMAX, SELECT_IDAMAX);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
     return ret;

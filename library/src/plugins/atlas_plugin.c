@@ -142,19 +142,21 @@ void liftracc_plugin_daxpy(const int n, const double alpha, const double * x, co
     liftracc_function_timing_start(&(function_profiling_data[LIFTRACC_FUNCTION_DAXPY]));
 #endif /* _LIFTRACC_PROFILING_ */
 
+    int success = 1;
     void (*func)();
-
     *(void **) (&func) = liftracc_plugin_fptr[ATLAS_DAXPY_ID];
 
-    if ((error = dlerror()) == 0) {
+    if (func != 0) {
         (*func)(n, alpha, x, incx, y, incy);
+    } else {
+        success = 0;
     }
 #if _LIFTRACC_PROFILING_ == 3
     liftracc_function_timing_stop(&(function_profiling_data[LIFTRACC_FUNCTION_DAXPY]));
 #endif /* _LIFTRACC_PROFILING_ */
 
 #if _LIFTRACC_AUTOMODE_TRAINING_
-    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DDOT, SELECT_DDOT);
+    set_decision_data(success, &decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DAXPY, SELECT_DAXPY);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 }
@@ -166,20 +168,22 @@ double liftracc_plugin_ddot(const int n, const double *x, const int incx, const 
     liftracc_function_timing_start(&(function_profiling_data[LIFTRACC_FUNCTION_DDOT]));
 #endif /* _LIFTRACC_PROFILING_ */
 
+    int success = 1;
     double (*func)();
+    double ret = 0.0;
     *(void **) (&func) = liftracc_plugin_fptr[ATLAS_DDOT_ID];
 
-    if ((error = dlerror()) != 0)  {
-        ERROR("%s", error);
-        return 0.0;
+    if (func != 0)  {
+        ret = (*func)(n, x, incx, y, incy);
+    } else {
+        success = 0;
     }
-    double ret = (*func)(n, x, incx, y, incy);
 #if _LIFTRACC_PROFILING_ == 3
     liftracc_function_timing_stop(&(function_profiling_data[LIFTRACC_FUNCTION_DDOT]));
 #endif /* _LIFTRACC_PROFILING_ */
 
 #if _LIFTRACC_AUTOMODE_TRAINING_
-    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DDOT, SELECT_DDOT);
+    set_decision_data(success, &decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DDOT, SELECT_DDOT);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
     return ret;
@@ -196,24 +200,27 @@ void liftracc_plugin_dgemm(const liftracc_order_t order,
 #if _LIFTRACC_PROFILING_ == 3
     liftracc_function_timing_start(&(function_profiling_data[LIFTRACC_FUNCTION_DGEMM]));
 #endif /* _LIFTRACC_PROFILING_ */
+    
     if (order != liftracc_col_major) {
         ERROR("Matrix not in column-major order.");
         return;
     }
+    
+    int success = 1;
     void (*func)();
     *(void **) (&func) = liftracc_plugin_fptr[ATLAS_DGEMM_ID];
 
-    if ((error = dlerror()) != 0)  {
-        ERROR("%s", error);
-        return;
+    if (func != 0)  {
+        (*func)(transa, transb, m, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
+    } else {
+        success = 0;
     }
-    (*func)(transa, transb, m, n, k, alpha, a, lda, b, ldb, beta, c, ldc);
 #if _LIFTRACC_PROFILING_ == 3
     liftracc_function_timing_stop(&(function_profiling_data[LIFTRACC_FUNCTION_DGEMM]));
 #endif /* _LIFTRACC_PROFILING_ */
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
-    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DGEMM, SELECT_DGEMM);
+    set_decision_data(success, &decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DGEMM, SELECT_DGEMM);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 }
 
@@ -224,19 +231,21 @@ void liftracc_plugin_dscal(const int n, const double alpha, double * x, const in
     liftracc_function_timing_start(&(function_profiling_data[LIFTRACC_FUNCTION_DSCAL]));
 #endif /* _LIFTRACC_PROFILING_ */
 
+    int success = 1;
     void (*func)();
-
     *(void **) (&func) = liftracc_plugin_fptr[ATLAS_DSCAL_ID];
 
-    if ((error = dlerror()) == 0) {
+    if (func != 0) {
         (*func)(n, alpha, x, incx);
+    } else {
+        success = 0;
     }
 #if _LIFTRACC_PROFILING_ == 3
     liftracc_function_timing_stop(&(function_profiling_data[LIFTRACC_FUNCTION_DSCAL]));
 #endif /* _LIFTRACC_PROFILING_ */
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
-    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSCAL, SELECT_DSCAL);
+    set_decision_data(success, &decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_DSCAL, SELECT_DSCAL);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 }
 
@@ -247,20 +256,22 @@ liftracc_index_t liftracc_plugin_idamax(const int n, const double * x, const int
     liftracc_function_timing_start(&(function_profiling_data[LIFTRACC_FUNCTION_IDAMAX]));
 #endif /* _LIFTRACC_PROFILING_ */
 
+    int success = 1;
+    liftracc_index_t ret = 0;
     liftracc_index_t (*func)();
-    liftracc_index_t ret = 0.0;
-
     *(void **) (&func) = liftracc_plugin_fptr[ATLAS_IDAMAX_ID];
 
-    if ((error = dlerror()) == 0) {
+    if (func != 0) {
         ret = (*func)(n, x, incx);
+    } else {
+        success = 0;
     }
 #if _LIFTRACC_PROFILING_ == 3
     liftracc_function_timing_stop(&(function_profiling_data[LIFTRACC_FUNCTION_IDAMAX]));
 #endif /* _LIFTRACC_PROFILING_ */
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
-    set_decision_data(&decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_IDAMAX, SELECT_IDAMAX);
+    set_decision_data(success, &decision_data[0], &function_profiling_data[0], n, LIFTRACC_FUNCTION_IDAMAX, SELECT_IDAMAX);
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
     return ret;
