@@ -1,4 +1,11 @@
 
+/**
+ * @file liftracc_calltest_normal.c
+ * @brief Only for testing purpose
+ *
+ * File implements the call test method.
+ */
+
 #if _LIFTRACC_PROFILING_ == 1
 
 #include "liftracc_profiling.h"
@@ -7,6 +14,8 @@
 #include <stdlib.h>
 
 /**
+ * @brief For dynamic call test time measure.
+ *
  * Only used to measure the time a normal dynamic call
  * costs. This function is useless in any other manner.
  */

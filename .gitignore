@@ -1,4 +1,11 @@
 library/build/*
 benchmarks/build/*
+benchmarks/profiling/*.pdf
+benchmarks/profiling/*.txt
+benchmarks/profiling/*.log
 testapps/build/*
 common/boost_program_options/build/*
+profiling/*.log
+profiling/*.pdf
+blas_libs/*
+!blas_libs/*.sh

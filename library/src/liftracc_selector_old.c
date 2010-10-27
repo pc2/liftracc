@@ -1,4 +1,12 @@
 
+/**
+ * @file liftracc_selector_old.c
+ * @brief [obsolete file]
+ *
+ * Old and very slow selector version. Not in use anymore. Only for
+ * presentation purpose.
+ */
+
 #include "liftracc_selector.h"
 #include "liftracc_plugin.h"
 #include "liftracc_logging.h"

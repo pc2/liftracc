@@ -1,10 +1,10 @@
 
 /**
- * \file liftracc_autogen.c
- * \brief [generated file]
+ * @file liftracc_autogen.c
+ * @brief [generated file]
+ *
+ * This file is generated automatically, do not edit manually!
  */
-
-/* This file is generated automatically, do not edit manually! */
 
 #ifndef _GNU_SOURCE
 #define _GNU_SOURCE
@@ -26,11 +26,6 @@ extern profiling_data_t liftracc_function_profiling_data[];
 
 liftracc_selector_problem_info_t pinfo = { };
 
-
-
-/***
- * SDSDOT
- */
 
 float liftracc_sdsdot(const int n, const float alpha, const float * x, const int incx, const float * y, const int incy)
 {
@@ -84,11 +79,6 @@ __typeof__ (liftracc_sdsdot_) SDSDOT __attribute__ ((alias("liftracc_sdsdot_")))
 __typeof__ (liftracc_sdsdot) cblas_sdsdot __attribute__ ((alias("liftracc_sdsdot")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DSDOT
- */
-
 double liftracc_dsdot(const int n, const float * x, const int incx, const float * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -140,11 +130,6 @@ __typeof__ (liftracc_dsdot_) DSDOT __attribute__ ((alias("liftracc_dsdot_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_dsdot) cblas_dsdot __attribute__ ((alias("liftracc_dsdot")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * SDOT
- */
 
 float liftracc_sdot(const int n, const float * x, const int incx, const float * y, const int incy)
 {
@@ -198,11 +183,6 @@ __typeof__ (liftracc_sdot_) SDOT __attribute__ ((alias("liftracc_sdot_")));
 __typeof__ (liftracc_sdot) cblas_sdot __attribute__ ((alias("liftracc_sdot")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DDOT
- */
-
 double liftracc_ddot(const int n, const double * x, const int incx, const double * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -254,11 +234,6 @@ __typeof__ (liftracc_ddot_) DDOT __attribute__ ((alias("liftracc_ddot_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_ddot) cblas_ddot __attribute__ ((alias("liftracc_ddot")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CDOTU_SUB
- */
 
 void liftracc_cdotu_sub(const int n, const void * x, const int incx, const void * y, const int incy, void * dotu)
 {
@@ -312,11 +287,6 @@ __typeof__ (liftracc_cdotu_sub_) CDOTU_SUB __attribute__ ((alias("liftracc_cdotu
 __typeof__ (liftracc_cdotu_sub) cblas_cdotu_sub __attribute__ ((alias("liftracc_cdotu_sub")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * CDOTC_SUB
- */
-
 void liftracc_cdotc_sub(const int n, const void * x, const int incx, const void * y, const int incy, void * dotc)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -368,11 +338,6 @@ __typeof__ (liftracc_cdotc_sub_) CDOTC_SUB __attribute__ ((alias("liftracc_cdotc
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_cdotc_sub) cblas_cdotc_sub __attribute__ ((alias("liftracc_cdotc_sub")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * ZDOTU_SUB
- */
 
 void liftracc_zdotu_sub(const int n, const void * x, const int incx, const void * y, const int incy, void * dotu)
 {
@@ -426,11 +391,6 @@ __typeof__ (liftracc_zdotu_sub_) ZDOTU_SUB __attribute__ ((alias("liftracc_zdotu
 __typeof__ (liftracc_zdotu_sub) cblas_zdotu_sub __attribute__ ((alias("liftracc_zdotu_sub")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZDOTC_SUB
- */
-
 void liftracc_zdotc_sub(const int n, const void * x, const int incx, const void * y, const int incy, void * dotc)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -482,11 +442,6 @@ __typeof__ (liftracc_zdotc_sub_) ZDOTC_SUB __attribute__ ((alias("liftracc_zdotc
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_zdotc_sub) cblas_zdotc_sub __attribute__ ((alias("liftracc_zdotc_sub")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * SNRM2
- */
 
 float liftracc_snrm2(const int n, const float * x, const int incx)
 {
@@ -540,11 +495,6 @@ __typeof__ (liftracc_snrm2_) SNRM2 __attribute__ ((alias("liftracc_snrm2_")));
 __typeof__ (liftracc_snrm2) cblas_snrm2 __attribute__ ((alias("liftracc_snrm2")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * SASUM
- */
-
 float liftracc_sasum(const int n, const float * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -596,11 +546,6 @@ __typeof__ (liftracc_sasum_) SASUM __attribute__ ((alias("liftracc_sasum_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_sasum) cblas_sasum __attribute__ ((alias("liftracc_sasum")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * DNRM2
- */
 
 double liftracc_dnrm2(const int n, const double * x, const int incx)
 {
@@ -654,11 +599,6 @@ __typeof__ (liftracc_dnrm2_) DNRM2 __attribute__ ((alias("liftracc_dnrm2_")));
 __typeof__ (liftracc_dnrm2) cblas_dnrm2 __attribute__ ((alias("liftracc_dnrm2")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DASUM
- */
-
 double liftracc_dasum(const int n, const double * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -710,11 +650,6 @@ __typeof__ (liftracc_dasum_) DASUM __attribute__ ((alias("liftracc_dasum_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_dasum) cblas_dasum __attribute__ ((alias("liftracc_dasum")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * SCNRM2
- */
 
 float liftracc_scnrm2(const int n, const void * x, const int incx)
 {
@@ -768,11 +703,6 @@ __typeof__ (liftracc_scnrm2_) SCNRM2 __attribute__ ((alias("liftracc_scnrm2_")))
 __typeof__ (liftracc_scnrm2) cblas_scnrm2 __attribute__ ((alias("liftracc_scnrm2")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * SCASUM
- */
-
 float liftracc_scasum(const int n, const void * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -824,11 +754,6 @@ __typeof__ (liftracc_scasum_) SCASUM __attribute__ ((alias("liftracc_scasum_")))
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_scasum) cblas_scasum __attribute__ ((alias("liftracc_scasum")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * DZNRM2
- */
 
 double liftracc_dznrm2(const int n, const void * x, const int incx)
 {
@@ -882,11 +807,6 @@ __typeof__ (liftracc_dznrm2_) DZNRM2 __attribute__ ((alias("liftracc_dznrm2_")))
 __typeof__ (liftracc_dznrm2) cblas_dznrm2 __attribute__ ((alias("liftracc_dznrm2")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DZASUM
- */
-
 double liftracc_dzasum(const int n, const void * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -938,11 +858,6 @@ __typeof__ (liftracc_dzasum_) DZASUM __attribute__ ((alias("liftracc_dzasum_")))
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_dzasum) cblas_dzasum __attribute__ ((alias("liftracc_dzasum")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * ISAMAX
- */
 
 liftracc_index_t liftracc_isamax(const int n, const float * x, const int incx)
 {
@@ -996,11 +911,6 @@ __typeof__ (liftracc_isamax_) ISAMAX __attribute__ ((alias("liftracc_isamax_")))
 __typeof__ (liftracc_isamax) cblas_isamax __attribute__ ((alias("liftracc_isamax")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * IDAMAX
- */
-
 liftracc_index_t liftracc_idamax(const int n, const double * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -1052,11 +962,6 @@ __typeof__ (liftracc_idamax_) IDAMAX __attribute__ ((alias("liftracc_idamax_")))
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_idamax) cblas_idamax __attribute__ ((alias("liftracc_idamax")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * ICAMAX
- */
 
 liftracc_index_t liftracc_icamax(const int n, const void * x, const int incx)
 {
@@ -1110,11 +1015,6 @@ __typeof__ (liftracc_icamax_) ICAMAX __attribute__ ((alias("liftracc_icamax_")))
 __typeof__ (liftracc_icamax) cblas_icamax __attribute__ ((alias("liftracc_icamax")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * IZAMAX
- */
-
 liftracc_index_t liftracc_izamax(const int n, const void * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -1166,11 +1066,6 @@ __typeof__ (liftracc_izamax_) IZAMAX __attribute__ ((alias("liftracc_izamax_")))
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_izamax) cblas_izamax __attribute__ ((alias("liftracc_izamax")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * SSWAP
- */
 
 void liftracc_sswap(const int n, float * x, const int incx, float * y, const int incy)
 {
@@ -1224,11 +1119,6 @@ __typeof__ (liftracc_sswap_) SSWAP __attribute__ ((alias("liftracc_sswap_")));
 __typeof__ (liftracc_sswap) cblas_sswap __attribute__ ((alias("liftracc_sswap")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * SCOPY
- */
-
 void liftracc_scopy(const int n, const float * x, const int incx, float * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -1280,11 +1170,6 @@ __typeof__ (liftracc_scopy_) SCOPY __attribute__ ((alias("liftracc_scopy_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_scopy) cblas_scopy __attribute__ ((alias("liftracc_scopy")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * SAXPY
- */
 
 void liftracc_saxpy(const int n, const float alpha, const float * x, const int incx, float * y, const int incy)
 {
@@ -1338,11 +1223,6 @@ __typeof__ (liftracc_saxpy_) SAXPY __attribute__ ((alias("liftracc_saxpy_")));
 __typeof__ (liftracc_saxpy) cblas_saxpy __attribute__ ((alias("liftracc_saxpy")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DSWAP
- */
-
 void liftracc_dswap(const int n, double * x, const int incx, double * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -1394,11 +1274,6 @@ __typeof__ (liftracc_dswap_) DSWAP __attribute__ ((alias("liftracc_dswap_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_dswap) cblas_dswap __attribute__ ((alias("liftracc_dswap")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * DCOPY
- */
 
 void liftracc_dcopy(const int n, const double * x, const int incx, double * y, const int incy)
 {
@@ -1452,11 +1327,6 @@ __typeof__ (liftracc_dcopy_) DCOPY __attribute__ ((alias("liftracc_dcopy_")));
 __typeof__ (liftracc_dcopy) cblas_dcopy __attribute__ ((alias("liftracc_dcopy")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DAXPY
- */
-
 void liftracc_daxpy(const int n, const double alpha, const double * x, const int incx, double * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -1508,11 +1378,6 @@ __typeof__ (liftracc_daxpy_) DAXPY __attribute__ ((alias("liftracc_daxpy_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_daxpy) cblas_daxpy __attribute__ ((alias("liftracc_daxpy")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CSWAP
- */
 
 void liftracc_cswap(const int n, void * x, const int incx, void * y, const int incy)
 {
@@ -1566,11 +1431,6 @@ __typeof__ (liftracc_cswap_) CSWAP __attribute__ ((alias("liftracc_cswap_")));
 __typeof__ (liftracc_cswap) cblas_cswap __attribute__ ((alias("liftracc_cswap")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * CCOPY
- */
-
 void liftracc_ccopy(const int n, const void * x, const int incx, void * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -1622,11 +1482,6 @@ __typeof__ (liftracc_ccopy_) CCOPY __attribute__ ((alias("liftracc_ccopy_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_ccopy) cblas_ccopy __attribute__ ((alias("liftracc_ccopy")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CAXPY
- */
 
 void liftracc_caxpy(const int n, const void * alpha, const void * x, const int incx, void * y, const int incy)
 {
@@ -1680,11 +1535,6 @@ __typeof__ (liftracc_caxpy_) CAXPY __attribute__ ((alias("liftracc_caxpy_")));
 __typeof__ (liftracc_caxpy) cblas_caxpy __attribute__ ((alias("liftracc_caxpy")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZSWAP
- */
-
 void liftracc_zswap(const int n, void * x, const int incx, void * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -1736,11 +1586,6 @@ __typeof__ (liftracc_zswap_) ZSWAP __attribute__ ((alias("liftracc_zswap_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_zswap) cblas_zswap __attribute__ ((alias("liftracc_zswap")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * ZCOPY
- */
 
 void liftracc_zcopy(const int n, const void * x, const int incx, void * y, const int incy)
 {
@@ -1794,11 +1639,6 @@ __typeof__ (liftracc_zcopy_) ZCOPY __attribute__ ((alias("liftracc_zcopy_")));
 __typeof__ (liftracc_zcopy) cblas_zcopy __attribute__ ((alias("liftracc_zcopy")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZAXPY
- */
-
 void liftracc_zaxpy(const int n, const void * alpha, const void * x, const int incx, void * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -1850,11 +1690,6 @@ __typeof__ (liftracc_zaxpy_) ZAXPY __attribute__ ((alias("liftracc_zaxpy_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_zaxpy) cblas_zaxpy __attribute__ ((alias("liftracc_zaxpy")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * SROTG
- */
 
 void liftracc_srotg(float * a, float * b, float * c, float * s)
 {
@@ -1908,11 +1743,6 @@ __typeof__ (liftracc_srotg_) SROTG __attribute__ ((alias("liftracc_srotg_")));
 __typeof__ (liftracc_srotg) cblas_srotg __attribute__ ((alias("liftracc_srotg")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * SROTMG
- */
-
 void liftracc_srotmg(float * d1, float * d2, float * b1, const float b2, float * p)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -1964,11 +1794,6 @@ __typeof__ (liftracc_srotmg_) SROTMG __attribute__ ((alias("liftracc_srotmg_")))
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_srotmg) cblas_srotmg __attribute__ ((alias("liftracc_srotmg")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * SROT
- */
 
 void liftracc_srot(const int n, float * x, const int incx, float * y, const int incy, const float c, const float s)
 {
@@ -2022,11 +1847,6 @@ __typeof__ (liftracc_srot_) SROT __attribute__ ((alias("liftracc_srot_")));
 __typeof__ (liftracc_srot) cblas_srot __attribute__ ((alias("liftracc_srot")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * SROTM
- */
-
 void liftracc_srotm(const int n, float * x, const int incx, float * y, const int incy, const float * p)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -2078,11 +1898,6 @@ __typeof__ (liftracc_srotm_) SROTM __attribute__ ((alias("liftracc_srotm_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_srotm) cblas_srotm __attribute__ ((alias("liftracc_srotm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * DROTG
- */
 
 void liftracc_drotg(double * a, double * b, double * c, double * s)
 {
@@ -2136,11 +1951,6 @@ __typeof__ (liftracc_drotg_) DROTG __attribute__ ((alias("liftracc_drotg_")));
 __typeof__ (liftracc_drotg) cblas_drotg __attribute__ ((alias("liftracc_drotg")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DROTMG
- */
-
 void liftracc_drotmg(double * d1, double * d2, double * b1, const double b2, double * p)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -2192,11 +2002,6 @@ __typeof__ (liftracc_drotmg_) DROTMG __attribute__ ((alias("liftracc_drotmg_")))
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_drotmg) cblas_drotmg __attribute__ ((alias("liftracc_drotmg")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * DROT
- */
 
 void liftracc_drot(const int n, double * x, const int incx, double * y, const int incy, const double c, const double s)
 {
@@ -2250,11 +2055,6 @@ __typeof__ (liftracc_drot_) DROT __attribute__ ((alias("liftracc_drot_")));
 __typeof__ (liftracc_drot) cblas_drot __attribute__ ((alias("liftracc_drot")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DROTM
- */
-
 void liftracc_drotm(const int n, double * x, const int incx, double * y, const int incy, const double * p)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -2306,11 +2106,6 @@ __typeof__ (liftracc_drotm_) DROTM __attribute__ ((alias("liftracc_drotm_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_drotm) cblas_drotm __attribute__ ((alias("liftracc_drotm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * SSCAL
- */
 
 void liftracc_sscal(const int n, const float alpha, float * x, const int incx)
 {
@@ -2364,11 +2159,6 @@ __typeof__ (liftracc_sscal_) SSCAL __attribute__ ((alias("liftracc_sscal_")));
 __typeof__ (liftracc_sscal) cblas_sscal __attribute__ ((alias("liftracc_sscal")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DSCAL
- */
-
 void liftracc_dscal(const int n, const double alpha, double * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -2420,11 +2210,6 @@ __typeof__ (liftracc_dscal_) DSCAL __attribute__ ((alias("liftracc_dscal_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_dscal) cblas_dscal __attribute__ ((alias("liftracc_dscal")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CSCAL
- */
 
 void liftracc_cscal(const int n, const void * alpha, void * x, const int incx)
 {
@@ -2478,11 +2263,6 @@ __typeof__ (liftracc_cscal_) CSCAL __attribute__ ((alias("liftracc_cscal_")));
 __typeof__ (liftracc_cscal) cblas_cscal __attribute__ ((alias("liftracc_cscal")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZSCAL
- */
-
 void liftracc_zscal(const int n, const void * alpha, void * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -2534,11 +2314,6 @@ __typeof__ (liftracc_zscal_) ZSCAL __attribute__ ((alias("liftracc_zscal_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_zscal) cblas_zscal __attribute__ ((alias("liftracc_zscal")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CSSCAL
- */
 
 void liftracc_csscal(const int n, const float alpha, void * x, const int incx)
 {
@@ -2592,11 +2367,6 @@ __typeof__ (liftracc_csscal_) CSSCAL __attribute__ ((alias("liftracc_csscal_")))
 __typeof__ (liftracc_csscal) cblas_csscal __attribute__ ((alias("liftracc_csscal")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZDSCAL
- */
-
 void liftracc_zdscal(const int n, const double alpha, void * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -2648,11 +2418,6 @@ __typeof__ (liftracc_zdscal_) ZDSCAL __attribute__ ((alias("liftracc_zdscal_")))
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_zdscal) cblas_zdscal __attribute__ ((alias("liftracc_zdscal")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * SGEMV
- */
 
 void liftracc_sgemv(const liftracc_order_t order, const liftracc_transpose_t transa, const int m, const int n, const float alpha, const float * a, const int lda, const float * x, const int incx, const float beta, float * y, const int incy)
 {
@@ -2706,11 +2471,6 @@ __typeof__ (liftracc_sgemv_) SGEMV __attribute__ ((alias("liftracc_sgemv_")));
 __typeof__ (liftracc_sgemv) cblas_sgemv __attribute__ ((alias("liftracc_sgemv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * SGBMV
- */
-
 void liftracc_sgbmv(const liftracc_order_t order, const liftracc_transpose_t transa, const int m, const int n, const int kl, const int ku, const float alpha, const float * a, const int lda, const float * x, const int incx, const float beta, float * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -2762,11 +2522,6 @@ __typeof__ (liftracc_sgbmv_) SGBMV __attribute__ ((alias("liftracc_sgbmv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_sgbmv) cblas_sgbmv __attribute__ ((alias("liftracc_sgbmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * STRMV
- */
 
 void liftracc_strmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const float * a, const int lda, float * x, const int incx)
 {
@@ -2820,11 +2575,6 @@ __typeof__ (liftracc_strmv_) STRMV __attribute__ ((alias("liftracc_strmv_")));
 __typeof__ (liftracc_strmv) cblas_strmv __attribute__ ((alias("liftracc_strmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * STBMV
- */
-
 void liftracc_stbmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const int k, const float * a, const int lda, float * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -2876,11 +2626,6 @@ __typeof__ (liftracc_stbmv_) STBMV __attribute__ ((alias("liftracc_stbmv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_stbmv) cblas_stbmv __attribute__ ((alias("liftracc_stbmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * STPMV
- */
 
 void liftracc_stpmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const float * ap, float * x, const int incx)
 {
@@ -2934,11 +2679,6 @@ __typeof__ (liftracc_stpmv_) STPMV __attribute__ ((alias("liftracc_stpmv_")));
 __typeof__ (liftracc_stpmv) cblas_stpmv __attribute__ ((alias("liftracc_stpmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * STRSV
- */
-
 void liftracc_strsv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const float * a, const int lda, float * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -2990,11 +2730,6 @@ __typeof__ (liftracc_strsv_) STRSV __attribute__ ((alias("liftracc_strsv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_strsv) cblas_strsv __attribute__ ((alias("liftracc_strsv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * STBSV
- */
 
 void liftracc_stbsv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const int k, const float * a, const int lda, float * x, const int incx)
 {
@@ -3048,11 +2783,6 @@ __typeof__ (liftracc_stbsv_) STBSV __attribute__ ((alias("liftracc_stbsv_")));
 __typeof__ (liftracc_stbsv) cblas_stbsv __attribute__ ((alias("liftracc_stbsv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * STPSV
- */
-
 void liftracc_stpsv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const float * ap, float * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -3104,11 +2834,6 @@ __typeof__ (liftracc_stpsv_) STPSV __attribute__ ((alias("liftracc_stpsv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_stpsv) cblas_stpsv __attribute__ ((alias("liftracc_stpsv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * DGEMV
- */
 
 void liftracc_dgemv(const liftracc_order_t order, const liftracc_transpose_t transa, const int m, const int n, const double alpha, const double * a, const int lda, const double * x, const int incx, const double beta, double * y, const int incy)
 {
@@ -3162,11 +2887,6 @@ __typeof__ (liftracc_dgemv_) DGEMV __attribute__ ((alias("liftracc_dgemv_")));
 __typeof__ (liftracc_dgemv) cblas_dgemv __attribute__ ((alias("liftracc_dgemv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DGBMV
- */
-
 void liftracc_dgbmv(const liftracc_order_t order, const liftracc_transpose_t transa, const int m, const int n, const int kl, const int ku, const double alpha, const double * a, const int lda, const double * x, const int incx, const double beta, double * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -3218,11 +2938,6 @@ __typeof__ (liftracc_dgbmv_) DGBMV __attribute__ ((alias("liftracc_dgbmv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_dgbmv) cblas_dgbmv __attribute__ ((alias("liftracc_dgbmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * DTRMV
- */
 
 void liftracc_dtrmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const double * a, const int lda, double * x, const int incx)
 {
@@ -3276,11 +2991,6 @@ __typeof__ (liftracc_dtrmv_) DTRMV __attribute__ ((alias("liftracc_dtrmv_")));
 __typeof__ (liftracc_dtrmv) cblas_dtrmv __attribute__ ((alias("liftracc_dtrmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DTBMV
- */
-
 void liftracc_dtbmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const int k, const double * a, const int lda, double * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -3332,11 +3042,6 @@ __typeof__ (liftracc_dtbmv_) DTBMV __attribute__ ((alias("liftracc_dtbmv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_dtbmv) cblas_dtbmv __attribute__ ((alias("liftracc_dtbmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * DTPMV
- */
 
 void liftracc_dtpmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const double * ap, double * x, const int incx)
 {
@@ -3390,11 +3095,6 @@ __typeof__ (liftracc_dtpmv_) DTPMV __attribute__ ((alias("liftracc_dtpmv_")));
 __typeof__ (liftracc_dtpmv) cblas_dtpmv __attribute__ ((alias("liftracc_dtpmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DTRSV
- */
-
 void liftracc_dtrsv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const double * a, const int lda, double * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -3446,11 +3146,6 @@ __typeof__ (liftracc_dtrsv_) DTRSV __attribute__ ((alias("liftracc_dtrsv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_dtrsv) cblas_dtrsv __attribute__ ((alias("liftracc_dtrsv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * DTBSV
- */
 
 void liftracc_dtbsv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const int k, const double * a, const int lda, double * x, const int incx)
 {
@@ -3504,11 +3199,6 @@ __typeof__ (liftracc_dtbsv_) DTBSV __attribute__ ((alias("liftracc_dtbsv_")));
 __typeof__ (liftracc_dtbsv) cblas_dtbsv __attribute__ ((alias("liftracc_dtbsv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DTPSV
- */
-
 void liftracc_dtpsv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const double * ap, double * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -3560,11 +3250,6 @@ __typeof__ (liftracc_dtpsv_) DTPSV __attribute__ ((alias("liftracc_dtpsv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_dtpsv) cblas_dtpsv __attribute__ ((alias("liftracc_dtpsv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CGEMV
- */
 
 void liftracc_cgemv(const liftracc_order_t order, const liftracc_transpose_t transa, const int m, const int n, const void * alpha, const void * a, const int lda, const void * x, const int incx, const void * beta, void * y, const int incy)
 {
@@ -3618,11 +3303,6 @@ __typeof__ (liftracc_cgemv_) CGEMV __attribute__ ((alias("liftracc_cgemv_")));
 __typeof__ (liftracc_cgemv) cblas_cgemv __attribute__ ((alias("liftracc_cgemv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * CGBMV
- */
-
 void liftracc_cgbmv(const liftracc_order_t order, const liftracc_transpose_t transa, const int m, const int n, const int kl, const int ku, const void * alpha, const void * a, const int lda, const void * x, const int incx, const void * beta, void * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -3674,11 +3354,6 @@ __typeof__ (liftracc_cgbmv_) CGBMV __attribute__ ((alias("liftracc_cgbmv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_cgbmv) cblas_cgbmv __attribute__ ((alias("liftracc_cgbmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CTRMV
- */
 
 void liftracc_ctrmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const void * a, const int lda, void * x, const int incx)
 {
@@ -3732,11 +3407,6 @@ __typeof__ (liftracc_ctrmv_) CTRMV __attribute__ ((alias("liftracc_ctrmv_")));
 __typeof__ (liftracc_ctrmv) cblas_ctrmv __attribute__ ((alias("liftracc_ctrmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * CTBMV
- */
-
 void liftracc_ctbmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const int k, const void * a, const int lda, void * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -3788,11 +3458,6 @@ __typeof__ (liftracc_ctbmv_) CTBMV __attribute__ ((alias("liftracc_ctbmv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_ctbmv) cblas_ctbmv __attribute__ ((alias("liftracc_ctbmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CTPMV
- */
 
 void liftracc_ctpmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const void * ap, void * x, const int incx)
 {
@@ -3846,11 +3511,6 @@ __typeof__ (liftracc_ctpmv_) CTPMV __attribute__ ((alias("liftracc_ctpmv_")));
 __typeof__ (liftracc_ctpmv) cblas_ctpmv __attribute__ ((alias("liftracc_ctpmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * CTRSV
- */
-
 void liftracc_ctrsv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const void * a, const int lda, void * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -3902,11 +3562,6 @@ __typeof__ (liftracc_ctrsv_) CTRSV __attribute__ ((alias("liftracc_ctrsv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_ctrsv) cblas_ctrsv __attribute__ ((alias("liftracc_ctrsv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CTBSV
- */
 
 void liftracc_ctbsv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const int k, const void * a, const int lda, void * x, const int incx)
 {
@@ -3960,11 +3615,6 @@ __typeof__ (liftracc_ctbsv_) CTBSV __attribute__ ((alias("liftracc_ctbsv_")));
 __typeof__ (liftracc_ctbsv) cblas_ctbsv __attribute__ ((alias("liftracc_ctbsv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * CTPSV
- */
-
 void liftracc_ctpsv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const void * ap, void * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -4016,11 +3666,6 @@ __typeof__ (liftracc_ctpsv_) CTPSV __attribute__ ((alias("liftracc_ctpsv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_ctpsv) cblas_ctpsv __attribute__ ((alias("liftracc_ctpsv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * ZGEMV
- */
 
 void liftracc_zgemv(const liftracc_order_t order, const liftracc_transpose_t transa, const int m, const int n, const void * alpha, const void * a, const int lda, const void * x, const int incx, const void * beta, void * y, const int incy)
 {
@@ -4074,11 +3719,6 @@ __typeof__ (liftracc_zgemv_) ZGEMV __attribute__ ((alias("liftracc_zgemv_")));
 __typeof__ (liftracc_zgemv) cblas_zgemv __attribute__ ((alias("liftracc_zgemv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZGBMV
- */
-
 void liftracc_zgbmv(const liftracc_order_t order, const liftracc_transpose_t transa, const int m, const int n, const int kl, const int ku, const void * alpha, const void * a, const int lda, const void * x, const int incx, const void * beta, void * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -4130,11 +3770,6 @@ __typeof__ (liftracc_zgbmv_) ZGBMV __attribute__ ((alias("liftracc_zgbmv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_zgbmv) cblas_zgbmv __attribute__ ((alias("liftracc_zgbmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * ZTRMV
- */
 
 void liftracc_ztrmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const void * a, const int lda, void * x, const int incx)
 {
@@ -4188,11 +3823,6 @@ __typeof__ (liftracc_ztrmv_) ZTRMV __attribute__ ((alias("liftracc_ztrmv_")));
 __typeof__ (liftracc_ztrmv) cblas_ztrmv __attribute__ ((alias("liftracc_ztrmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZTBMV
- */
-
 void liftracc_ztbmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const int k, const void * a, const int lda, void * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -4244,11 +3874,6 @@ __typeof__ (liftracc_ztbmv_) ZTBMV __attribute__ ((alias("liftracc_ztbmv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_ztbmv) cblas_ztbmv __attribute__ ((alias("liftracc_ztbmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * ZTPMV
- */
 
 void liftracc_ztpmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const void * ap, void * x, const int incx)
 {
@@ -4302,11 +3927,6 @@ __typeof__ (liftracc_ztpmv_) ZTPMV __attribute__ ((alias("liftracc_ztpmv_")));
 __typeof__ (liftracc_ztpmv) cblas_ztpmv __attribute__ ((alias("liftracc_ztpmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZTRSV
- */
-
 void liftracc_ztrsv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const void * a, const int lda, void * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -4358,11 +3978,6 @@ __typeof__ (liftracc_ztrsv_) ZTRSV __attribute__ ((alias("liftracc_ztrsv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_ztrsv) cblas_ztrsv __attribute__ ((alias("liftracc_ztrsv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * ZTBSV
- */
 
 void liftracc_ztbsv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const int k, const void * a, const int lda, void * x, const int incx)
 {
@@ -4416,11 +4031,6 @@ __typeof__ (liftracc_ztbsv_) ZTBSV __attribute__ ((alias("liftracc_ztbsv_")));
 __typeof__ (liftracc_ztbsv) cblas_ztbsv __attribute__ ((alias("liftracc_ztbsv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZTPSV
- */
-
 void liftracc_ztpsv(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int n, const void * ap, void * x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -4472,11 +4082,6 @@ __typeof__ (liftracc_ztpsv_) ZTPSV __attribute__ ((alias("liftracc_ztpsv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_ztpsv) cblas_ztpsv __attribute__ ((alias("liftracc_ztpsv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * SSYMV
- */
 
 void liftracc_ssymv(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const float alpha, const float * a, const int lda, const float * x, const int incx, const float beta, float * y, const int incy)
 {
@@ -4530,11 +4135,6 @@ __typeof__ (liftracc_ssymv_) SSYMV __attribute__ ((alias("liftracc_ssymv_")));
 __typeof__ (liftracc_ssymv) cblas_ssymv __attribute__ ((alias("liftracc_ssymv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * SSBMV
- */
-
 void liftracc_ssbmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const int k, const float alpha, const float * a, const int lda, const float * x, const int incx, const float beta, float * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -4586,11 +4186,6 @@ __typeof__ (liftracc_ssbmv_) SSBMV __attribute__ ((alias("liftracc_ssbmv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_ssbmv) cblas_ssbmv __attribute__ ((alias("liftracc_ssbmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * SSPMV
- */
 
 void liftracc_sspmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const float alpha, const float * ap, const float * x, const int incx, const float beta, float * y, const int incy)
 {
@@ -4644,11 +4239,6 @@ __typeof__ (liftracc_sspmv_) SSPMV __attribute__ ((alias("liftracc_sspmv_")));
 __typeof__ (liftracc_sspmv) cblas_sspmv __attribute__ ((alias("liftracc_sspmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * SGER
- */
-
 void liftracc_sger(const liftracc_order_t order, const int m, const int n, const float alpha, const float * x, const int incx, const float * y, const int incy, float * a, const int lda)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -4700,11 +4290,6 @@ __typeof__ (liftracc_sger_) SGER __attribute__ ((alias("liftracc_sger_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_sger) cblas_sger __attribute__ ((alias("liftracc_sger")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * SSYR
- */
 
 void liftracc_ssyr(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const float alpha, const float * x, const int incx, float * a, const int lda)
 {
@@ -4758,11 +4343,6 @@ __typeof__ (liftracc_ssyr_) SSYR __attribute__ ((alias("liftracc_ssyr_")));
 __typeof__ (liftracc_ssyr) cblas_ssyr __attribute__ ((alias("liftracc_ssyr")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * SSPR
- */
-
 void liftracc_sspr(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const float alpha, const float * x, const int incx, float * ap)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -4814,11 +4394,6 @@ __typeof__ (liftracc_sspr_) SSPR __attribute__ ((alias("liftracc_sspr_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_sspr) cblas_sspr __attribute__ ((alias("liftracc_sspr")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * SSYR2
- */
 
 void liftracc_ssyr2(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const float alpha, const float * x, const int incx, const float * y, const int incy, float * a, const int lda)
 {
@@ -4872,11 +4447,6 @@ __typeof__ (liftracc_ssyr2_) SSYR2 __attribute__ ((alias("liftracc_ssyr2_")));
 __typeof__ (liftracc_ssyr2) cblas_ssyr2 __attribute__ ((alias("liftracc_ssyr2")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * SSPR2
- */
-
 void liftracc_sspr2(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const float alpha, const float * x, const int incx, const float * y, const int incy, float * a)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -4928,11 +4498,6 @@ __typeof__ (liftracc_sspr2_) SSPR2 __attribute__ ((alias("liftracc_sspr2_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_sspr2) cblas_sspr2 __attribute__ ((alias("liftracc_sspr2")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * DSYMV
- */
 
 void liftracc_dsymv(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const double alpha, const double * a, const int lda, const double * x, const int incx, const double beta, double * y, const int incy)
 {
@@ -4986,11 +4551,6 @@ __typeof__ (liftracc_dsymv_) DSYMV __attribute__ ((alias("liftracc_dsymv_")));
 __typeof__ (liftracc_dsymv) cblas_dsymv __attribute__ ((alias("liftracc_dsymv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DSBMV
- */
-
 void liftracc_dsbmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const int k, const double alpha, const double * a, const int lda, const double * x, const int incx, const double beta, double * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -5042,11 +4602,6 @@ __typeof__ (liftracc_dsbmv_) DSBMV __attribute__ ((alias("liftracc_dsbmv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_dsbmv) cblas_dsbmv __attribute__ ((alias("liftracc_dsbmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * DSPMV
- */
 
 void liftracc_dspmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const double alpha, const double * ap, const double * x, const int incx, const double beta, double * y, const int incy)
 {
@@ -5100,11 +4655,6 @@ __typeof__ (liftracc_dspmv_) DSPMV __attribute__ ((alias("liftracc_dspmv_")));
 __typeof__ (liftracc_dspmv) cblas_dspmv __attribute__ ((alias("liftracc_dspmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DGER
- */
-
 void liftracc_dger(const liftracc_order_t order, const int m, const int n, const double alpha, const double * x, const int incx, const double * y, const int incy, double * a, const int lda)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -5156,11 +4706,6 @@ __typeof__ (liftracc_dger_) DGER __attribute__ ((alias("liftracc_dger_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_dger) cblas_dger __attribute__ ((alias("liftracc_dger")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * DSYR
- */
 
 void liftracc_dsyr(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const double alpha, const double * x, const int incx, double * a, const int lda)
 {
@@ -5214,11 +4759,6 @@ __typeof__ (liftracc_dsyr_) DSYR __attribute__ ((alias("liftracc_dsyr_")));
 __typeof__ (liftracc_dsyr) cblas_dsyr __attribute__ ((alias("liftracc_dsyr")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DSPR
- */
-
 void liftracc_dspr(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const double alpha, const double * x, const int incx, double * ap)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -5270,11 +4810,6 @@ __typeof__ (liftracc_dspr_) DSPR __attribute__ ((alias("liftracc_dspr_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_dspr) cblas_dspr __attribute__ ((alias("liftracc_dspr")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * DSYR2
- */
 
 void liftracc_dsyr2(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const double alpha, const double * x, const int incx, const double * y, const int incy, double * a, const int lda)
 {
@@ -5328,11 +4863,6 @@ __typeof__ (liftracc_dsyr2_) DSYR2 __attribute__ ((alias("liftracc_dsyr2_")));
 __typeof__ (liftracc_dsyr2) cblas_dsyr2 __attribute__ ((alias("liftracc_dsyr2")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DSPR2
- */
-
 void liftracc_dspr2(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const double alpha, const double * x, const int incx, const double * y, const int incy, double * a)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -5384,11 +4914,6 @@ __typeof__ (liftracc_dspr2_) DSPR2 __attribute__ ((alias("liftracc_dspr2_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_dspr2) cblas_dspr2 __attribute__ ((alias("liftracc_dspr2")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CHEMV
- */
 
 void liftracc_chemv(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const void * alpha, const void * a, const int lda, const void * x, const int incx, const void * beta, void * y, const int incy)
 {
@@ -5442,11 +4967,6 @@ __typeof__ (liftracc_chemv_) CHEMV __attribute__ ((alias("liftracc_chemv_")));
 __typeof__ (liftracc_chemv) cblas_chemv __attribute__ ((alias("liftracc_chemv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * CHBMV
- */
-
 void liftracc_chbmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const int k, const void * alpha, const void * a, const int lda, const void * x, const int incx, const void * beta, void * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -5498,11 +5018,6 @@ __typeof__ (liftracc_chbmv_) CHBMV __attribute__ ((alias("liftracc_chbmv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_chbmv) cblas_chbmv __attribute__ ((alias("liftracc_chbmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CHPMV
- */
 
 void liftracc_chpmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const void * alpha, const void * ap, const void * x, const int incx, const void * beta, void * y, const int incy)
 {
@@ -5556,11 +5071,6 @@ __typeof__ (liftracc_chpmv_) CHPMV __attribute__ ((alias("liftracc_chpmv_")));
 __typeof__ (liftracc_chpmv) cblas_chpmv __attribute__ ((alias("liftracc_chpmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * CGERU
- */
-
 void liftracc_cgeru(const liftracc_order_t order, const int m, const int n, const void * alpha, const void * x, const int incx, const void * y, const int incy, void * a, const int lda)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -5612,11 +5122,6 @@ __typeof__ (liftracc_cgeru_) CGERU __attribute__ ((alias("liftracc_cgeru_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_cgeru) cblas_cgeru __attribute__ ((alias("liftracc_cgeru")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CGERC
- */
 
 void liftracc_cgerc(const liftracc_order_t order, const int m, const int n, const void * alpha, const void * x, const int incx, const void * y, const int incy, void * a, const int lda)
 {
@@ -5670,11 +5175,6 @@ __typeof__ (liftracc_cgerc_) CGERC __attribute__ ((alias("liftracc_cgerc_")));
 __typeof__ (liftracc_cgerc) cblas_cgerc __attribute__ ((alias("liftracc_cgerc")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * CHER
- */
-
 void liftracc_cher(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const float alpha, const void * x, const int incx, void * a, const int lda)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -5726,11 +5226,6 @@ __typeof__ (liftracc_cher_) CHER __attribute__ ((alias("liftracc_cher_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_cher) cblas_cher __attribute__ ((alias("liftracc_cher")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CHPR
- */
 
 void liftracc_chpr(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const float alpha, const void * x, const int incx, void * a)
 {
@@ -5784,11 +5279,6 @@ __typeof__ (liftracc_chpr_) CHPR __attribute__ ((alias("liftracc_chpr_")));
 __typeof__ (liftracc_chpr) cblas_chpr __attribute__ ((alias("liftracc_chpr")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * CHER2
- */
-
 void liftracc_cher2(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const void * alpha, const void * x, const int incx, const void * y, const int incy, void * a, const int lda)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -5840,11 +5330,6 @@ __typeof__ (liftracc_cher2_) CHER2 __attribute__ ((alias("liftracc_cher2_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_cher2) cblas_cher2 __attribute__ ((alias("liftracc_cher2")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CHPR2
- */
 
 void liftracc_chpr2(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const void * alpha, const void * x, const int incx, const void * y, const int incy, void * ap)
 {
@@ -5898,11 +5383,6 @@ __typeof__ (liftracc_chpr2_) CHPR2 __attribute__ ((alias("liftracc_chpr2_")));
 __typeof__ (liftracc_chpr2) cblas_chpr2 __attribute__ ((alias("liftracc_chpr2")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZHEMV
- */
-
 void liftracc_zhemv(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const void * alpha, const void * a, const int lda, const void * x, const int incx, const void * beta, void * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -5954,11 +5434,6 @@ __typeof__ (liftracc_zhemv_) ZHEMV __attribute__ ((alias("liftracc_zhemv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_zhemv) cblas_zhemv __attribute__ ((alias("liftracc_zhemv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * ZHBMV
- */
 
 void liftracc_zhbmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const int k, const void * alpha, const void * a, const int lda, const void * x, const int incx, const void * beta, void * y, const int incy)
 {
@@ -6012,11 +5487,6 @@ __typeof__ (liftracc_zhbmv_) ZHBMV __attribute__ ((alias("liftracc_zhbmv_")));
 __typeof__ (liftracc_zhbmv) cblas_zhbmv __attribute__ ((alias("liftracc_zhbmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZHPMV
- */
-
 void liftracc_zhpmv(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const void * alpha, const void * ap, const void * x, const int incx, const void * beta, void * y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -6068,11 +5538,6 @@ __typeof__ (liftracc_zhpmv_) ZHPMV __attribute__ ((alias("liftracc_zhpmv_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_zhpmv) cblas_zhpmv __attribute__ ((alias("liftracc_zhpmv")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * ZGERU
- */
 
 void liftracc_zgeru(const liftracc_order_t order, const int m, const int n, const void * alpha, const void * x, const int incx, const void * y, const int incy, void * a, const int lda)
 {
@@ -6126,11 +5591,6 @@ __typeof__ (liftracc_zgeru_) ZGERU __attribute__ ((alias("liftracc_zgeru_")));
 __typeof__ (liftracc_zgeru) cblas_zgeru __attribute__ ((alias("liftracc_zgeru")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZGERC
- */
-
 void liftracc_zgerc(const liftracc_order_t order, const int m, const int n, const void * alpha, const void * x, const int incx, const void * y, const int incy, void * a, const int lda)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -6182,11 +5642,6 @@ __typeof__ (liftracc_zgerc_) ZGERC __attribute__ ((alias("liftracc_zgerc_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_zgerc) cblas_zgerc __attribute__ ((alias("liftracc_zgerc")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * ZHER
- */
 
 void liftracc_zher(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const double alpha, const void * x, const int incx, void * a, const int lda)
 {
@@ -6240,11 +5695,6 @@ __typeof__ (liftracc_zher_) ZHER __attribute__ ((alias("liftracc_zher_")));
 __typeof__ (liftracc_zher) cblas_zher __attribute__ ((alias("liftracc_zher")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZHPR
- */
-
 void liftracc_zhpr(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const double alpha, const void * x, const int incx, void * a)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -6296,11 +5746,6 @@ __typeof__ (liftracc_zhpr_) ZHPR __attribute__ ((alias("liftracc_zhpr_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_zhpr) cblas_zhpr __attribute__ ((alias("liftracc_zhpr")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * ZHER2
- */
 
 void liftracc_zher2(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const void * alpha, const void * x, const int incx, const void * y, const int incy, void * a, const int lda)
 {
@@ -6354,11 +5799,6 @@ __typeof__ (liftracc_zher2_) ZHER2 __attribute__ ((alias("liftracc_zher2_")));
 __typeof__ (liftracc_zher2) cblas_zher2 __attribute__ ((alias("liftracc_zher2")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZHPR2
- */
-
 void liftracc_zhpr2(const liftracc_order_t order, const liftracc_uplo_t uplo, const int n, const void * alpha, const void * x, const int incx, const void * y, const int incy, void * ap)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -6410,11 +5850,6 @@ __typeof__ (liftracc_zhpr2_) ZHPR2 __attribute__ ((alias("liftracc_zhpr2_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_zhpr2) cblas_zhpr2 __attribute__ ((alias("liftracc_zhpr2")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * SGEMM
- */
 
 void liftracc_sgemm(const liftracc_order_t order, const liftracc_transpose_t transa, const liftracc_transpose_t transb, const int m, const int n, const int k, const float alpha, const float * a, const int lda, const float * b, const int ldb, const float beta, float * c, const int ldc)
 {
@@ -6468,11 +5903,6 @@ __typeof__ (liftracc_sgemm_) SGEMM __attribute__ ((alias("liftracc_sgemm_")));
 __typeof__ (liftracc_sgemm) cblas_sgemm __attribute__ ((alias("liftracc_sgemm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * SSYMM
- */
-
 void liftracc_ssymm(const liftracc_order_t order, const liftracc_side_t side, const liftracc_uplo_t uplo, const int m, const int n, const float alpha, const float * a, const int lda, const float * b, const int ldb, const float beta, float * c, const int ldc)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -6524,11 +5954,6 @@ __typeof__ (liftracc_ssymm_) SSYMM __attribute__ ((alias("liftracc_ssymm_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_ssymm) cblas_ssymm __attribute__ ((alias("liftracc_ssymm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * SSYRK
- */
 
 void liftracc_ssyrk(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t trans, const int n, const int k, const float alpha, const float * a, const int lda, const float beta, float * c, const int ldc)
 {
@@ -6582,11 +6007,6 @@ __typeof__ (liftracc_ssyrk_) SSYRK __attribute__ ((alias("liftracc_ssyrk_")));
 __typeof__ (liftracc_ssyrk) cblas_ssyrk __attribute__ ((alias("liftracc_ssyrk")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * SSYR2K
- */
-
 void liftracc_ssyr2k(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t trans, const int n, const int k, const float alpha, const float * a, const int lda, const float * b, const int ldb, const float beta, float * c, const int ldc)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -6638,11 +6058,6 @@ __typeof__ (liftracc_ssyr2k_) SSYR2K __attribute__ ((alias("liftracc_ssyr2k_")))
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_ssyr2k) cblas_ssyr2k __attribute__ ((alias("liftracc_ssyr2k")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * STRMM
- */
 
 void liftracc_strmm(const liftracc_order_t order, const liftracc_side_t side, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int m, const int n, const float alpha, const float * a, const int lda, float * b, const int ldb)
 {
@@ -6696,11 +6111,6 @@ __typeof__ (liftracc_strmm_) STRMM __attribute__ ((alias("liftracc_strmm_")));
 __typeof__ (liftracc_strmm) cblas_strmm __attribute__ ((alias("liftracc_strmm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * STRSM
- */
-
 void liftracc_strsm(const liftracc_order_t order, const liftracc_side_t side, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int m, const int n, const float alpha, const float * a, const int lda, float * b, const int ldb)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -6752,11 +6162,6 @@ __typeof__ (liftracc_strsm_) STRSM __attribute__ ((alias("liftracc_strsm_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_strsm) cblas_strsm __attribute__ ((alias("liftracc_strsm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * DGEMM
- */
 
 void liftracc_dgemm(const liftracc_order_t order, const liftracc_transpose_t transa, const liftracc_transpose_t transb, const int m, const int n, const int k, const double alpha, const double * a, const int lda, const double * b, const int ldb, const double beta, double * c, const int ldc)
 {
@@ -6810,11 +6215,6 @@ __typeof__ (liftracc_dgemm_) DGEMM __attribute__ ((alias("liftracc_dgemm_")));
 __typeof__ (liftracc_dgemm) cblas_dgemm __attribute__ ((alias("liftracc_dgemm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DSYMM
- */
-
 void liftracc_dsymm(const liftracc_order_t order, const liftracc_side_t side, const liftracc_uplo_t uplo, const int m, const int n, const double alpha, const double * a, const int lda, const double * b, const int ldb, const double beta, double * c, const int ldc)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -6866,11 +6266,6 @@ __typeof__ (liftracc_dsymm_) DSYMM __attribute__ ((alias("liftracc_dsymm_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_dsymm) cblas_dsymm __attribute__ ((alias("liftracc_dsymm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * DSYRK
- */
 
 void liftracc_dsyrk(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t trans, const int n, const int k, const double alpha, const double * a, const int lda, const double beta, double * c, const int ldc)
 {
@@ -6924,11 +6319,6 @@ __typeof__ (liftracc_dsyrk_) DSYRK __attribute__ ((alias("liftracc_dsyrk_")));
 __typeof__ (liftracc_dsyrk) cblas_dsyrk __attribute__ ((alias("liftracc_dsyrk")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DSYR2K
- */
-
 void liftracc_dsyr2k(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t trans, const int n, const int k, const double alpha, const double * a, const int lda, const double * b, const int ldb, const double beta, double * c, const int ldc)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -6980,11 +6370,6 @@ __typeof__ (liftracc_dsyr2k_) DSYR2K __attribute__ ((alias("liftracc_dsyr2k_")))
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_dsyr2k) cblas_dsyr2k __attribute__ ((alias("liftracc_dsyr2k")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * DTRMM
- */
 
 void liftracc_dtrmm(const liftracc_order_t order, const liftracc_side_t side, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int m, const int n, const double alpha, const double * a, const int lda, double * b, const int ldb)
 {
@@ -7038,11 +6423,6 @@ __typeof__ (liftracc_dtrmm_) DTRMM __attribute__ ((alias("liftracc_dtrmm_")));
 __typeof__ (liftracc_dtrmm) cblas_dtrmm __attribute__ ((alias("liftracc_dtrmm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * DTRSM
- */
-
 void liftracc_dtrsm(const liftracc_order_t order, const liftracc_side_t side, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int m, const int n, const double alpha, const double * a, const int lda, double * b, const int ldb)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -7094,11 +6474,6 @@ __typeof__ (liftracc_dtrsm_) DTRSM __attribute__ ((alias("liftracc_dtrsm_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_dtrsm) cblas_dtrsm __attribute__ ((alias("liftracc_dtrsm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CGEMM
- */
 
 void liftracc_cgemm(const liftracc_order_t order, const liftracc_transpose_t transa, const liftracc_transpose_t transb, const int m, const int n, const int k, const void * alpha, const void * a, const int lda, const void * b, const int ldb, const void * beta, void * c, const int ldc)
 {
@@ -7152,11 +6527,6 @@ __typeof__ (liftracc_cgemm_) CGEMM __attribute__ ((alias("liftracc_cgemm_")));
 __typeof__ (liftracc_cgemm) cblas_cgemm __attribute__ ((alias("liftracc_cgemm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * CSYMM
- */
-
 void liftracc_csymm(const liftracc_order_t order, const liftracc_side_t side, const liftracc_uplo_t uplo, const int m, const int n, const void * alpha, const void * a, const int lda, const void * b, const int ldb, const void * beta, void * c, const int ldc)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -7208,11 +6578,6 @@ __typeof__ (liftracc_csymm_) CSYMM __attribute__ ((alias("liftracc_csymm_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_csymm) cblas_csymm __attribute__ ((alias("liftracc_csymm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CSYRK
- */
 
 void liftracc_csyrk(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t trans, const int n, const int k, const void * alpha, const void * a, const int lda, const void * beta, void * c, const int ldc)
 {
@@ -7266,11 +6631,6 @@ __typeof__ (liftracc_csyrk_) CSYRK __attribute__ ((alias("liftracc_csyrk_")));
 __typeof__ (liftracc_csyrk) cblas_csyrk __attribute__ ((alias("liftracc_csyrk")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * CSYR2K
- */
-
 void liftracc_csyr2k(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t trans, const int n, const int k, const void * alpha, const void * a, const int lda, const void * b, const int ldb, const void * beta, void * c, const int ldc)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -7322,11 +6682,6 @@ __typeof__ (liftracc_csyr2k_) CSYR2K __attribute__ ((alias("liftracc_csyr2k_")))
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_csyr2k) cblas_csyr2k __attribute__ ((alias("liftracc_csyr2k")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CTRMM
- */
 
 void liftracc_ctrmm(const liftracc_order_t order, const liftracc_side_t side, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int m, const int n, const void * alpha, const void * a, const int lda, void * b, const int ldb)
 {
@@ -7380,11 +6735,6 @@ __typeof__ (liftracc_ctrmm_) CTRMM __attribute__ ((alias("liftracc_ctrmm_")));
 __typeof__ (liftracc_ctrmm) cblas_ctrmm __attribute__ ((alias("liftracc_ctrmm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * CTRSM
- */
-
 void liftracc_ctrsm(const liftracc_order_t order, const liftracc_side_t side, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int m, const int n, const void * alpha, const void * a, const int lda, void * b, const int ldb)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -7436,11 +6786,6 @@ __typeof__ (liftracc_ctrsm_) CTRSM __attribute__ ((alias("liftracc_ctrsm_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_ctrsm) cblas_ctrsm __attribute__ ((alias("liftracc_ctrsm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * ZGEMM
- */
 
 void liftracc_zgemm(const liftracc_order_t order, const liftracc_transpose_t transa, const liftracc_transpose_t transb, const int m, const int n, const int k, const void * alpha, const void * a, const int lda, const void * b, const int ldb, const void * beta, void * c, const int ldc)
 {
@@ -7494,11 +6839,6 @@ __typeof__ (liftracc_zgemm_) ZGEMM __attribute__ ((alias("liftracc_zgemm_")));
 __typeof__ (liftracc_zgemm) cblas_zgemm __attribute__ ((alias("liftracc_zgemm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZSYMM
- */
-
 void liftracc_zsymm(const liftracc_order_t order, const liftracc_side_t side, const liftracc_uplo_t uplo, const int m, const int n, const void * alpha, const void * a, const int lda, const void * b, const int ldb, const void * beta, void * c, const int ldc)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -7550,11 +6890,6 @@ __typeof__ (liftracc_zsymm_) ZSYMM __attribute__ ((alias("liftracc_zsymm_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_zsymm) cblas_zsymm __attribute__ ((alias("liftracc_zsymm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * ZSYRK
- */
 
 void liftracc_zsyrk(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t trans, const int n, const int k, const void * alpha, const void * a, const int lda, const void * beta, void * c, const int ldc)
 {
@@ -7608,11 +6943,6 @@ __typeof__ (liftracc_zsyrk_) ZSYRK __attribute__ ((alias("liftracc_zsyrk_")));
 __typeof__ (liftracc_zsyrk) cblas_zsyrk __attribute__ ((alias("liftracc_zsyrk")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZSYR2K
- */
-
 void liftracc_zsyr2k(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t trans, const int n, const int k, const void * alpha, const void * a, const int lda, const void * b, const int ldb, const void * beta, void * c, const int ldc)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -7664,11 +6994,6 @@ __typeof__ (liftracc_zsyr2k_) ZSYR2K __attribute__ ((alias("liftracc_zsyr2k_")))
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_zsyr2k) cblas_zsyr2k __attribute__ ((alias("liftracc_zsyr2k")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * ZTRMM
- */
 
 void liftracc_ztrmm(const liftracc_order_t order, const liftracc_side_t side, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int m, const int n, const void * alpha, const void * a, const int lda, void * b, const int ldb)
 {
@@ -7722,11 +7047,6 @@ __typeof__ (liftracc_ztrmm_) ZTRMM __attribute__ ((alias("liftracc_ztrmm_")));
 __typeof__ (liftracc_ztrmm) cblas_ztrmm __attribute__ ((alias("liftracc_ztrmm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZTRSM
- */
-
 void liftracc_ztrsm(const liftracc_order_t order, const liftracc_side_t side, const liftracc_uplo_t uplo, const liftracc_transpose_t transa, const liftracc_diag_t diag, const int m, const int n, const void * alpha, const void * a, const int lda, void * b, const int ldb)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -7778,11 +7098,6 @@ __typeof__ (liftracc_ztrsm_) ZTRSM __attribute__ ((alias("liftracc_ztrsm_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_ztrsm) cblas_ztrsm __attribute__ ((alias("liftracc_ztrsm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CHEMM
- */
 
 void liftracc_chemm(const liftracc_order_t order, const liftracc_side_t side, const liftracc_uplo_t uplo, const int m, const int n, const void * alpha, const void * a, const int lda, const void * b, const int ldb, const void * beta, void * c, const int ldc)
 {
@@ -7836,11 +7151,6 @@ __typeof__ (liftracc_chemm_) CHEMM __attribute__ ((alias("liftracc_chemm_")));
 __typeof__ (liftracc_chemm) cblas_chemm __attribute__ ((alias("liftracc_chemm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * CHERK
- */
-
 void liftracc_cherk(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t trans, const int n, const int k, const float alpha, const void * a, const int lda, const float beta, void * c, const int ldc)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -7892,11 +7202,6 @@ __typeof__ (liftracc_cherk_) CHERK __attribute__ ((alias("liftracc_cherk_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_cherk) cblas_cherk __attribute__ ((alias("liftracc_cherk")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * CHER2K
- */
 
 void liftracc_cher2k(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t trans, const int n, const int k, const void * alpha, const void * a, const int lda, const void * b, const int ldb, const float beta, void * c, const int ldc)
 {
@@ -7950,11 +7255,6 @@ __typeof__ (liftracc_cher2k_) CHER2K __attribute__ ((alias("liftracc_cher2k_")))
 __typeof__ (liftracc_cher2k) cblas_cher2k __attribute__ ((alias("liftracc_cher2k")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZHEMM
- */
-
 void liftracc_zhemm(const liftracc_order_t order, const liftracc_side_t side, const liftracc_uplo_t uplo, const int m, const int n, const void * alpha, const void * a, const int lda, const void * b, const int ldb, const void * beta, void * c, const int ldc)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -8006,11 +7306,6 @@ __typeof__ (liftracc_zhemm_) ZHEMM __attribute__ ((alias("liftracc_zhemm_")));
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_zhemm) cblas_zhemm __attribute__ ((alias("liftracc_zhemm")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * ZHERK
- */
 
 void liftracc_zherk(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t trans, const int n, const int k, const double alpha, const void * a, const int lda, const double beta, void * c, const int ldc)
 {
@@ -8064,11 +7359,6 @@ __typeof__ (liftracc_zherk_) ZHERK __attribute__ ((alias("liftracc_zherk_")));
 __typeof__ (liftracc_zherk) cblas_zherk __attribute__ ((alias("liftracc_zherk")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
 
-
-/***
- * ZHER2K
- */
-
 void liftracc_zher2k(const liftracc_order_t order, const liftracc_uplo_t uplo, const liftracc_transpose_t trans, const int n, const int k, const void * alpha, const void * a, const int lda, const void * b, const int ldb, const double beta, void * c, const int ldc)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -8120,11 +7410,6 @@ __typeof__ (liftracc_zher2k_) ZHER2K __attribute__ ((alias("liftracc_zher2k_")))
 #ifdef _LIFTRACC_CBLAS_INTERFACE_
 __typeof__ (liftracc_zher2k) cblas_zher2k __attribute__ ((alias("liftracc_zher2k")));
 #endif // _LIFTRACC_CBLAS_INTERFACE_
-
-
-/***
- * XERBLA
- */
 
 void liftracc_xerbla(int p, const char * rout, const char * form, ...)
 {

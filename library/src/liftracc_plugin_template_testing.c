@@ -1,4 +1,14 @@
 
+/**
+ * @file liftracc_plugin_template_testing.c
+ * @brief Small example for plugin.
+ *
+ * Use this file as a template if you want to extend the blas version of
+ * liftracc available here. Simply copy the file with an unique name to
+ * liftracc/library/src/plugins/ directory and fill in the needed additional
+ * code.
+ */
+
 #include "liftracc.h"
 #include "liftracc_plugin.h"
 #include "liftracc_logging.h"
@@ -12,6 +22,11 @@
 #include <limits.h>
 
 /* TODO: add needed include files here */
+
+/**
+ * @addtogroup liftracc_plugin
+ * @{
+ */
 
 #if _LIFTRACC_PROFILING_ > 0
 #include "liftracc_profiling.h"
@@ -271,4 +286,6 @@ liftracc_index_t liftracc_plugin_idamax(const int n, const double * x, const int
 
     return ret;
 }
+
+/** @} */
 

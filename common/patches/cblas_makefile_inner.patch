@@ -1,0 +1,32 @@
+diff -ru old/Makefile.LINUX new/Makefile.LINUX
+--- old/Makefile.LINUX	1999-03-15 21:10:52.000000000 +0100
++++ new/Makefile.LINUX	2010-08-19 14:23:29.000000000 +0200
+@@ -22,11 +22,11 @@
+ # Libraries and includs
+ #-----------------------------------------------------------------------------
+  
+-BLLIB = ../../BLAS/libblas.a
+-CBDIR = ..
+-CBLIBDIR = $(CBDIR)
+-CBLIB = $(CBLIBDIR)/libcblas.a
+-CBLIBSO = $(CBLIBDIR)/libcblas.so
++BLLIB = ../../BLAS/libblas.a
++CBDIR = ..
++CBLIBDIR = $(CBDIR)
++CBLIB = $(CBLIBDIR)/libcblas_inner.a
++CBLIBSO = $(CBLIBDIR)/libcblas_inner.so
+ 
+ #-----------------------------------------------------------------------------
+ # Compilers
+diff -ru old/src/Makefile new/src/Makefile
+--- old/src/Makefile	1999-03-15 21:11:03.000000000 +0100
++++ new/src/Makefile	2010-08-19 14:30:13.000000000 +0200
+@@ -234,7 +234,7 @@
+ all: $(alev)  
+ 	$(ARCH) $(ARCHFLAGS)  $(CBLIB) $(alev) 
+ 	$(RANLIB) $(CBLIB)
+-	$(CC) -shared -L../../BLAS *.o -lblas -o ../libcblas.so
++	$(CC) -shared -L../../BLAS *.o -lblas -o ../libcblas_inner.so
+ 
+ 
+ .SUFFIXES: .o .c .f

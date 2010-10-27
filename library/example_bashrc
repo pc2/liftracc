@@ -1,39 +1,25 @@
 
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-        . /etc/bashrc
-fi
-
-# setup clearspeed environment
-source /opt/clearspeed/bin/bashrc
-
-#export PATH=~/bin:~/opt/pin-2.6-27887-gcc.4.0.0-ia32_intel64-linux:$PATH
-export PATH=$HOME/bin:$HOME/usr/local/texlive/2009/bin/x86_64-linux:~/opt/pin-2.7-31933-gcc.3.4.6-ia32_intel64-linux:$PATH
-
-export SVN_EDITOR=vim
-
-export CS_HOST_BLAS=$HOME/libraries/blas/GotoBLAS2/libgoto2.so
-
-export FC=/usr/bin/gfortran
-export CC=/usr/local/bin/gcc
-export CXX=/usr/local/bin/g++
-
-# User specific aliases and functions
-alias ll='ls -l'
-alias lla='ls -al'
-
 # liftracc environment variables
-export LIFTRACC_ROOT_DIR=$HOME/sourcecode/libliftracc
+# change value suiting your architecture (e.g. number of cpus)
+export OMP_NUM_THREADS=16
+
+export LIFTRACC_ROOT_DIR=$HOME/liftracc/library
 export LIFTRACC_BUILD_DIR=$LIFTRACC_ROOT_DIR/build
 
-export CBLAS_ROOT_DIR=$HOME/libraries/blas/CBLAS
-export GOTO2_ROOT_DIR=$HOME/libraries/blas/GotoBLAS2
-export ATLAS_ROOT_DIR=$HOME/libraries/blas/ATLAS
+export BLAS_ROOT_DIR=$HOME/liftracc/blas_libs/BLAS
+
+export CBLAS_ROOT_DIR=$HOME/liftracc/blas_libs/CBLAS
+
+export GOTO2_ROOT_DIR=$HOME/liftracc/blas_libs/GotoBLAS2
+
+export ATLAS_ROOT_DIR=$HOME/liftracc/blas_libs/ATLAS
 export ATLAS_BUILD_DIR=$ATLAS_ROOT_DIR/build
+
 export CUDA_ROOT_DIR=/usr/local/cuda
+
 export CLEARSPEED_ROOT_DIR=/opt/clearspeed
 
-export USE_CBLAS_LIB=$CBLAS_ROOT_DIR/libcblas.so
+export USE_CBLAS_LIB=$CBLAS_ROOT_DIR/libcblas_inner.so
 export USE_GOTO2_LIB=$GOTO2_ROOT_DIR/libgoto2.so
 export USE_ATLAS_LIB=$ATLAS_BUILD_DIR/lib/libatlas.so
 export USE_CUBLAS_LIB=$CUDA_ROOT_DIR/lib/libcublas.so
@@ -41,6 +27,17 @@ export USE_CSXL_LIB=$CLEARSPEED_ROOT_DIR/lib/libcsxl_mkl.so
 
 export CUDA_PROFILE=0
 export CS_BLAS_HOST_ASSIST_PERCENTAGE=0
+export CS_HOST_BLAS=$USE_GOTO2_LIB
 
-export LD_LIBRARY_PATH=$CUDA_ROOT_DIR/lib:$GOTO2_ROOT_DIR:$CLEARSPEED_ROOT_DIR/lib:$CBLAS_ROOT_DIR:$ATLAS_BUILD_DIR/lib:$LIFTRACC_BUILD_DIR
+export LD_LIBRARY_PATH=$HOME/lib64
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_ROOT_DIR/lib64
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_ROOT_DIR/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$GOTO2_ROOT_DIR
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CLEARSPEED_ROOT_DIR/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$BLAS_ROOT_DIR
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CBLAS_ROOT_DIR
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ATLAS_BUILD_DIR/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DYNBLAS_BUILD_DIR
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIFTRACC_BUILD_DIR
 

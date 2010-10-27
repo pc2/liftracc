@@ -1,13 +1,24 @@
 /**
- * \file liftracc_logging.h
- * \brief Logging definitions of the liftracc lib
+ * @file liftracc_logging.h
+ * @brief Logging definitions of the liftracc lib
  *
- * \author Manuel Niekamp <niekma@upb.de>
- * \version 0.1
- * \date 10/2009-03/2010
+ * @author Manuel Niekamp <niekma@upb.de>
+ * @version 0.1
  *
  * Implements the logging mechanism used by the library.
  * The log level is controlled via -D compiler parameters.
+ * Diffetent log level can be selected via ccmake.
+ *
+ * <b>\#define _DEBUG_</b><br>
+ * Turn on and off debug messages globally.
+ *
+ * <b>\#define _DEBUG_LEVEL_</b><br>
+ * Defines the debug level.<br>
+ * 0-NONE<br>
+ * 1-ERROR<br>
+ * 2-ERROR,MSG<br>
+ * 3-ERROR,MSG,WARN<br>
+ * 4-ERROR,MSG,WARN,INFO
  */
 #ifndef __LIFTRACC_LOGGING_H__
 #define __LIFTRACC_LOGGING_H__

@@ -98,7 +98,7 @@ int main(int argc, char** argv)
         int different = 0;
         int c;
         for (c=0; c<max_entries; c++) {
-            if (dM[c] != dC[c]) different++;
+            if ((round(dM[c]*10000)/10000) != (round(dC[c]*10000)/10000)) different++;
         }
         MSG("Entries: %d -- Different: %d -- Same: %d", max_entries, different, max_entries-different);
 #ifdef _LIFTRACC_PROFILING_        

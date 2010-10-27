@@ -1,14 +1,19 @@
 /**
- * \file liftracc_plugin.h
- * \brief Definitions needed by the plugins
+ * @file liftracc_plugin.h
+ * @brief Definitions needed by the plugins
  *
- * \author Manuel Niekamp <niekma@upb.de>
- * \version 0.1
- * \date 10/2009-03/2010
+ * @author Manuel Niekamp <niekma@upb.de>
+ * @version 0.1
  *
  * This File defines things related to the plugins.
  * Mainly this is the plugin info structur.
  */
+
+/**
+ * @defgroup liftracc_plugin Plugins
+ * @{
+ */
+
 #ifndef __LIFTRACC_PLUGIN_H__
 #define __LIFTRACC_PLUGIN_H__
 
@@ -20,7 +25,8 @@
 #endif
 
 /**
- * \brief Plugin information structur
+ * @brief Plugin information structur
+ *
  * This struct contains all the info to describe a
  * plugin in detail.
  */
@@ -31,21 +37,27 @@ typedef const struct {
     unsigned char prio;  /**< plugin priority 0:reserved! 1-255:from low to high */
 } plugin_info_t;
 
+/** @} */
 
 /**
- * \brief Calculate the index in array.
+ * @addtogroup liftracc_select
+ * @{
+ */
+
+/**
+ * @brief Calculate the index in array.
  *
  * Inline assembler function to calculate the index in LUT.
  * As numbers to the power of two are used, this can be done
  * with the bsr instruction.
  *
- * \param probsize
+ * @param probsize
  *   Get the index to this number
- * \param max
+ * @param max
  *   To not jump behind the bounds of the array, the maximum
  *   index return is max.
  *
- * \return
+ * @return
  *   The index to use in LUT array
  */
 static __inline__ unsigned int get_inx(unsigned int probsize, unsigned int max) {
@@ -61,6 +73,13 @@ static __inline__ unsigned int get_inx(unsigned int probsize, unsigned int max) 
     );
     return (unsigned int) ret;
 }
+
+/** @} */
+
+/**
+ * @addtogroup liftracc_plugin
+ * @{
+ */
 
 #ifdef _LIFTRACC_AUTOMODE_TRAINING_
 void set_decision_data(int success,
@@ -80,4 +99,6 @@ void set_decision_data(int success,
 #endif /* _LIFTRACC_AUTOMODE_TRAINING_ */
 
 #endif // __LIFTRACC_PLUGIN_H__
+
+/** @} */
 

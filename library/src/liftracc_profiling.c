@@ -1,16 +1,21 @@
 /**
- * \file liftracc_profiling.c
- * \brief C file of the profiling component
+ * @file liftracc_profiling.c
+ * @brief C file of the profiling component
  *
- * \author Manuel Niekamp <niekma@upb.de>
- * \version 0.1
- * \date 10/2009-03/2010
+ * @author Manuel Niekamp <niekma@upb.de>
+ * @version 0.1
  *
  * This file implements the profiling component.
  * Profiling is used to measure timings. Functionality to start
  * and stop a time measurement is provided.
  * It is possible to save the collected data to a file.
  */
+
+/**
+ * @addtogroup liftracc_prof
+ * @{
+ */
+
 #ifdef _LIFTRACC_PROFILING_ > 0
 
 #include <stdio.h>
@@ -18,6 +23,12 @@
 #include "liftracc_logging.h"
 #include "liftracc_profiling.h"
 
+/**
+ * @brief Useful names for profiling data
+ *
+ * Provide names for the measure points selectable through
+ * @ref prof_id_t.
+ */
 const char *prof_id_names[] = {
     "measuring_error",
     "measuring_error2",
@@ -239,4 +250,6 @@ void print_profiling_data(const char* title, profiling_data_t *pd, const char *n
 }
 */
 #endif // _LIFTRACC_PROFILING_
+
+/** @} */
 

@@ -1,11 +1,17 @@
 
 /**
- * \file cblas_autogen.c
- * \brief [generated file]
+ * @file cblas_autogen.c
+ * @brief [generated file]
+ *
+ * This file is generated automatically, do not edit manually!
  */
 
-/* This file is generated automatically, do not edit manually! */
-
+/**
+ * @brief Function names for inner call
+ *
+ * This array provides the function names in order to load the standard cblas
+ * functions via dlsym(...).
+ */
 const char *liftracc_cblas_function_names[] = {
     "inner_cblas_sdsdot",
     "inner_cblas_dsdot",

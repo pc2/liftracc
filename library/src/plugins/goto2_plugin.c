@@ -1,4 +1,9 @@
 
+/**
+ * @file goto2_plugin.c
+ * @brief Plugin to support the Goto2 library
+ */
+
 #include "liftracc.h"
 #include "liftracc_plugin.h"
 #include "liftracc_logging.h"

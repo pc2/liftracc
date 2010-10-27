@@ -1,0 +1,46 @@
+/**
+ * @page extend Extension
+ *
+ * This page describes how the author intends to extend the library.
+ *
+ * @section plugin_sec Adding new plugins to the library
+ *
+ * If you want to write a new plugin in order to support new kinds of
+ * accelerators or write faster versions of some of the functions
+ * supported by the implemented library the easiest way to start is,
+ * to have a look at @ref liftracc_plugin_template_testing.c or
+ * @ref liftracc_plugin_template.c or look at one of the plugins already done.
+ * You can find these plugins in 'liftracc/library/src/plugins/'.
+ *
+ * Copy one of the files with a new name to the plugin directory.
+ *
+ * If you start with @ref liftracc_plugin_template.c the workflow is the
+ * following:
+ *  - generate a uuid (with e.g. uuidgen) and paste it in the
+ *    liftracc_plugin_info struct.
+ *  - assign a meaningful name an description.
+ *  - fill in a priority, even if this field isn't used at the moment.
+ *  - plugin init code should be inserted in liftracc_plugin_load().
+ *  - plugin finalization code should be inserted in liftracc_plugin_unload().
+ *  - every unsupported function prototype
+ *    <b style="color:#C40000">MUST</b> be deleted!
+ *  - fill in the code for the supported functions.
+ *  - recompile the library.
+ *  - write tune apps that make use of the functions.
+ *  - test the lib with meaningful beanchmark.
+ *
+ * @section inter_sec Adding a new interface to the library
+ *
+ * Adding a new interface to the library is a bit tricky. Have a look at
+ * 'liftracc/library/generate/' to see how to do it.
+ *
+ * @subsection tools_sec Used tools
+ *   - Python to generate the cblas.xml from cblas.h
+ *     (used script can be found in 'liftracc/common/')
+ *   - editor to hand write the stylesheets
+ *   - xsltproc to generate the source files
+ *
+ * @author Manuel Niekamp <niekma@upb.de>
+ * @version 0.1
+ */
+

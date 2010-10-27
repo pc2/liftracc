@@ -25,15 +25,21 @@
 
 <xsl:template match="/blas_functions">
 <![CDATA[/**
- * \file cblas_autogen.h
- * \brief [generated file]
+ * @file cblas_autogen.h
+ * @brief [generated file]
+ *
+ * This file is generated automatically, do not edit manually!
  */
-
-/* This file is generated automatically, do not edit manually! */
 
 #ifndef __CBLAS_AUTOGEN_H__
 #define __CBLAS_AUTOGEN_H__
 
+/**
+ * @brief CBLAS function id's
+ *
+ * This enumeration provides an id for every known cblas function. Additionally
+ * an entry to get the function count easily.
+ */
 typedef enum {]]>
 <xsl:apply-templates/><![CDATA[    CBLAS_FUNCTIONS_COUNT
 } liftracc_cblas_functions_t;

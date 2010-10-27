@@ -71,11 +71,11 @@
 
 <xsl:template match="/blas_functions">
 <![CDATA[/**
- * \file liftracc_autogen.c
- * \brief [generated file]
+ * @file liftracc_autogen.c
+ * @brief [generated file]
+ *
+ * This file is generated automatically, do not edit manually!
  */
-
-/* This file is generated automatically, do not edit manually! */
 
 #ifndef _GNU_SOURCE
 #define _GNU_SOURCE
@@ -101,12 +101,8 @@ liftracc_selector_problem_info_t pinfo = { };
 <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="/blas_functions//*//function"><![CDATA[
-/***
- * ]]><xsl:value-of select="helper:upper-case(@name)"/><![CDATA[
- */
-
-]]><xsl:value-of select="dyn:evaluate(concat('$',@type))"/><xsl:text> </xsl:text><xsl:value-of select="concat($PREFIX, @name)"/><![CDATA[(]]><xsl:value-of select="helper:type-param-str()"/><xsl:if test="@name='xerbla'">, ...</xsl:if><![CDATA[)
+<xsl:template match="/blas_functions//*//function">
+<xsl:value-of select="dyn:evaluate(concat('$',@type))"/><xsl:text> </xsl:text><xsl:value-of select="concat($PREFIX, @name)"/><![CDATA[(]]><xsl:value-of select="helper:type-param-str()"/><xsl:if test="@name='xerbla'">, ...</xsl:if><![CDATA[)
 {
 #if _LIFTRACC_PROFILING_ == 1
     liftracc_function_timing_start(&(liftracc_function_profiling_data[LIFTRACC_FUNCTION_]]><xsl:value-of select="helper:upper-case(@name)"/><![CDATA[]));

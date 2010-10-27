@@ -1,16 +1,21 @@
 /** 
- * \file liftracc_selector.h
- * \brief Header file of the selector module
+ * @file liftracc_selector.h
+ * @brief Header file of the selector module
  *
- * \author Manuel Niekamp <niekma@upb.de>
- * \version 0.1
- * \date 10/2009-03/2010
+ * @author Manuel Niekamp <niekma@upb.de>
+ * @version 0.1
  *
  * This file defines the interface to the selector component.
  * The selector is used inside the wrapper library to select
  * the best function out of a function pool. The functions
  * selected match the calling one from the wrapper library.
  */
+
+/**
+ * @defgroup liftracc_select Selector Component
+ * @{
+ */
+
 #ifndef __LIFTRACC_SELECTOR_H__
 #define __LIFTRACC_SELECTOR_H__
 
@@ -19,15 +24,16 @@
 #define ARRAY_SIZE 15 /* 2^14 problem size should be supported */
 
 #ifdef _LIFTRACC_AUTOMODE_
-/* in auto mode ticks are used to find the fastest function */
+/** in auto mode ticks are used to find the fastest function */
 typedef ticks decision_data_t;
 #else
-/* if in prio mode prios go from 1-255 */
+/** if in prio mode prios go from 1-255 */
 typedef unsigned char decision_data_t;
 #endif /* _LIFTRACC_AUTOMODE_ */
 
 /**
- * Enumeration of error states.
+ * @brief Enumeration of error states.
+ *
  * This enum covers all possible error states the
  * selector can get in.
  */
@@ -43,7 +49,8 @@ typedef enum {
 } liftracc_selector_error_t;
 
 /**
- * Enumeration of selector function ids.
+ * @brief Enumeration of selector function ids.
+ *
  * There is an id to every blas function supported.
  * One of these ids is passed to the selector in order
  * to decide which function should be selected.
@@ -198,7 +205,8 @@ typedef enum {
 } liftracc_selector_funcid_t;
 
 /**
- * Struct to describe the problem.
+ * @brief Struct to describe the problem.
+ *
  * At the moment this is only one integer value. This struct is
  * used by the selector to find the best function.
  * Currently the matrix or vector dimension is saved in info1.
@@ -215,20 +223,22 @@ extern char liftracc_library_path[];
 extern const char *liftracc_selector_funcnames[];
 
 /**
- * \brief Selector component init function.
+ * @brief Selector component init function.
+ *
  * All init stuff is done here. This includes loading the
  * plugins and generating the look up table.
  *
- * \return
+ * @return
  *   Error state or NO_ERROR
  */
 liftracc_selector_error_t liftracc_selector_init();
 
 /**
- * \brief Selector component finalize function.
+ * @brief Selector component finalize function.
+ *
  * Clean up is done here.
  *
- * \return
+ * @return
  *   Error state or NO_ERROR
  */
 liftracc_selector_error_t liftracc_selector_fini();
@@ -236,20 +246,24 @@ liftracc_selector_error_t liftracc_selector_fini();
 #ifdef _LIFTRACC_SELECTOR_NEW_
 
 /**
- * \brief Selects function pointer to use from LUT
+ * @brief Selects function pointer to use from LUT
  *
  * This function selects the function pointer that is stored in
  * the LUT. The returned function pointer depends on the given
  * parameter.
  *
- * \param func_id
+ * @param func_id
  *   Indentifies the function that should be returned.
- * \param decision
+ * @param problem_info
  *   Decision data that is used to select the best
  *   function fron the sublibraries.
  *
- * \return
+ * @return
  *   The selected function pointer
+ *
+ * @todo
+ *   More and different versions of the selector mechanism should be
+ *   implemented.
  */
 void *liftracc_selector_select(const liftracc_selector_funcid_t func_id,
                                const liftracc_selector_problem_info_t *problem_info);
@@ -257,16 +271,16 @@ void *liftracc_selector_select(const liftracc_selector_funcid_t func_id,
 #else /* _LIFTRACC_SELECTOR_NEW_ */
 
 /**
- * \brief Select function pointer to use in LUT
+ * @brief Select function pointer to use in LUT
  *
  * This function selects a function pointer. It is one of
  * the function pointers available in one of the sublibraries.
  * The selection is based on a per library priority.
  *
- * \param symbol_name
+ * @param symbol_name
  *   Symbol name of function that should be selected.
  *
- * \return
+ * @return
  *   The selected function pointer
  */
 void *liftracc_selector_select(const char *symbol_name);
@@ -274,18 +288,18 @@ void *liftracc_selector_select(const char *symbol_name);
 #endif /* _LIFTRACC_SELECTOR_NEW_ */
 
 /**
- * \brief Load decision info's from file
+ * @brief Load decision info's from file
  *
  * This method loads the array containing infos used by the selector
  * to decide with function is the fastest an should therefor be used
  * as entry in the function pointer LUT.
  *
- * \param file_name
+ * @param file_name
  *   Name of file to load data from
- * \param array
+ * @param array
  *   Pointer to array to store data into
  *
- * \return
+ * @return
  *   liftracc selector error code
  */
 liftracc_selector_error_t liftracc_selector_loadinfo(const char *file_name, 
@@ -294,18 +308,18 @@ liftracc_selector_error_t liftracc_selector_loadinfo(const char *file_name,
 #ifdef _LIFTRACC_AUTOMODE_
 
 /**
- * \brief Save decision info's to file
+ * @brief Save decision info's to file
  *
  * This method saves the array containing infos used by the selector
  * to decide with function is the fastest an should therefor be used
  * as entry in the function pointer LUT.
  *
- * \param file_name
+ * @param file_name
  *   Name of file to save data to
- * \param array
+ * @param array
  *   Pointer to array that contains the data
  *
- * \return
+ * @return
  *   liftracc selector error code
  */
 liftracc_selector_error_t liftracc_selector_saveinfo(const char *file_name,
@@ -314,4 +328,6 @@ liftracc_selector_error_t liftracc_selector_saveinfo(const char *file_name,
 #endif /* _LIFTRACC_AUTOMODE_ */
 
 #endif // __LIFTRACC_SELECTOR_H__
+
+/** @} */
 

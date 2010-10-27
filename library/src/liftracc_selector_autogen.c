@@ -1,4 +1,23 @@
 
+/**
+ * @file liftracc_selector_autogen.c
+ * @brief [generated file]
+ *
+ * This file is generated automatically, do not edit manually!
+ */
+
+/**
+ * @addtogroup liftracc_select
+ * @{
+ */
+
+/**
+ * @brief Array of function name strings
+ *
+ * In order to load each function with dlsym the function name is needed.
+ * The index into this array is the function id defined in Enumeration
+ * @ref liftracc_selector_funcid_t.
+ */
 const char *liftracc_selector_funcnames[] = {
     "liftracc_plugin_sdsdot",
     "liftracc_plugin_dsdot",
@@ -146,4 +165,6 @@ const char *liftracc_selector_funcnames[] = {
     "liftracc_plugin_calltest_dynamic",
     "size_entry"
 };
+
+/** @} */
 

@@ -1,15 +1,20 @@
 /**
- * \file liftracc.h
- * \brief Header file of the liftracc lib.
+ * @file liftracc.h
+ * @brief Header file of the liftracc lib.
  *
- * \author Manuel Niekamp <niekma@upb.de>
- * \version 0.1
- * \date Oct. 2009 - Mar. 2010
+ * @author Manuel Niekamp <niekma@upb.de>
+ * @version 0.1
  *
  * Main header file of the complete library.
  * Users should include this file to use
  * libliftracc.
  */
+
+/**
+ * @defgroup liftracc_init Library initialization/finalization
+ * @{
+ */
+
 #ifndef __LIFTRACC_H__
 #define __LIFTRACC_H__
 
@@ -26,7 +31,9 @@ extern "C" {
 #include "liftracc_level3.h"
 #endif /* _LIFTRACC_TESTING_ */
 
-int liftracc_is_initialized();
+int liftracc_is_initialized(void);
+
+/** @} */
 
 #if _LIFTRACC_PROFILING_ > 0
 int liftracc_calltest_dynamic(int a, int b, int c);

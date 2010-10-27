@@ -1,0 +1,47 @@
+/**
+ * @page usage Usage
+ *
+ * If you want to use the liftracc library make sure the application
+ * you want to use the library with uses one of the supported interfaces.
+ * If this is not the case have a look at the @ref extend page in order to see,
+ * how additional interfaces can be added.
+ *
+ * The general way of using libliftracc is to preload it instead of a standard
+ * library like cblas. To achieve this the linux operating system provides
+ * the environment variable '$LD_PRELOAD'. The suggested usage is to create
+ * a shell script that sets the environment variable accordingly and than
+ * starts the application that should run with libliftracc.
+ *
+ * @code
+ * #!/bin/bash
+ * export LD_PRELOAD=/path/to/libliftracc.so
+ * /path/to/app
+ * @endcode
+ *
+ * The advantage over setting '$LD_PRELOAD' in the actual shell is, that no
+ * other application is influenced by libliftracc.
+ *
+ * Another way would be to include 'liftracc.h' and link your application
+ * against libliftracc.so. Obviously you need to have the source code
+ * available in order to use the library this way.
+ *
+ * @section interface_sec Supported interfaces
+ *
+ * Currently two interfaces are supported. Which interface is active can be
+ * selected through ccmake. The involved options are
+ * <b>LIFTRACC_CBLAS_INTERFACE</b> and <b>LIFTRACC_MKL_INTERFACE</b>.
+ *
+ * @section linpack_sec Linpack benchmark
+ *
+ * The first field test was done with the linpack benchmark test suite.
+ * For more information have a look at
+ * <a href="http://www.netlib.org/benchmark/index.html">
+ * http://www.netlib.org/benchmark/index.html</a>. The modified versions that
+ * were used as part of this project can be found in 'liftracc/benchmarks'.
+ *
+ * <dl><dt><b>Next:</b></dt><dd>@ref extend</dd></dl>
+ *
+ * @author Manuel Niekamp <niekma@upb.de>
+ * @version 0.1
+ */
+

@@ -30,8 +30,8 @@ diff -ru old/Makefile.LINUX new/Makefile.LINUX
  
 -CFLAGS = -O3 -DADD_
 -FFLAGS = -O3  
-+CFLAGS = -O3 -fPIC -DADD_
-+FFLAGS = -O3 -fPIC
++CFLAGS = -O2 -fPIC -DADD_
++FFLAGS = -O2 -fPIC
  
  #-----------------------------------------------------------------------------
  # Archive programs and flags

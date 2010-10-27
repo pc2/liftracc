@@ -1,4 +1,9 @@
 
+/**
+ * @file clearspeed_plugin.c
+ * @brief Plugin to support the Clearspeed library
+ */
+
 #include "liftracc.h"
 #include "liftracc_plugin.h"
 #include "liftracc_logging.h"

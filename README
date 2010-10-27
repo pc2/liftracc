@@ -1,25 +1,40 @@
-prerequirements:
-  - C/C++/Fortran compiler
-  - cmake+make
-  - netlib.org blas+cblas library
-  - python (for the generator scripts)
 
-optional:
-  - additional BLAS libraries (Goto2, ATLAS, MKL, ...)
-  - hardware accelerated versions of BLAS (cuda, clearspeed, opencl, ...)
+liftracc is a library framework to create accelerated replacements of existig
+libraries. The new library can be used instead of the old, unaccelerated
+version. One technique to use such libraries is 'shared library interposing'.
+Through a flexible plugin system it is possible to integrate existing versions
+of accelerated sublibraries. Also it is possible to write the needed
+programmcode directly inside a plugin to control the hardware accelerator
+(e.g. grafik card, accelerator board).
+
+The framework provides mechanisms to dynamically select between different
+implementations of one function (provided through the plugins). Thus it is
+possible to use different accelerators on different problem sizes. Research
+around the liftracc project has shown that you can get certain speedup from
+such dynamic selection.
+
+In this repository, as an example, the framework is used to build an
+accelerated version of the blas (basic linear algebra subprogramms) interface.
+A function collection of mathematical vector an matrix functions.
+
+For further information on how to install, use and extend the framework have a
+look at 'liftracc/library/documentation/html/index.html' after cloning.
 
 directory structure:
-  benchmarks/
+  liftracc/benchmarks/
    - linpack benchmark in order to test the library
-  common/
-   - python helper scripts
+  liftracc/blas_libs/
+   - bash scripts for easy sublibrary installation
+  liftracc/common/
+   - some python scripts
    - cmake modules
    - xml files
-  library/
+  liftracc/library/
    - liftracc source code
    - auto generation scripts
    - profiling scripts
-   - documentation
-  testapps/
+  liftracc/library/documentation/html/
+   - library documentation
+  liftracc/testapps/
    - some test applications
 

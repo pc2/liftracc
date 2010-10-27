@@ -94,7 +94,7 @@ int main(int argc, char** argv)
         liftracc_function_timing_stop(&(data[i]));
 #endif /* _LIFTRACC_PROFILING_ */
         memcpy(dC, dM, max_entries);
-        INFO("%d.run", i);
+        MSG("%d.run", i);
     }
    }
 

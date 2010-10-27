@@ -1,10 +1,9 @@
 /**
- * \file liftracc_testing.c
- * \brief C file to test new functionality
+ * @file liftracc_testing.c
+ * @brief C file to test new functionality
  *
- * \author Manuel Niekamp <niekma@upb.de>
- * \version 0.1
- * \date 10/2009-03/2010
+ * @author Manuel Niekamp <niekma@upb.de>
+ * @version 0.1
  *
  * This file implements the main functionality of the library.
  * It is intended to use this file for testing purpose.
@@ -22,10 +21,6 @@ extern profiling_data_t liftracc_function_profiling_data[];
 #endif
 
 liftracc_selector_problem_info_t pinfo = { };
-
-/**
- * SDSDOT
- */
 
 float liftracc_sdsdot(const int n, const float alpha, const float *x,
                      const int incx, const float *y, const int incy)
@@ -71,10 +66,6 @@ float liftracc_sdsdot_(const int *n, const float *alpha, const float *x,
     return liftracc_sdsdot(*n, *alpha, x, *incx, y, *incy);
 }
 
-/**
- * DSDOT
- */
-
 double liftracc_dsdot(const int n, const float *x, const int incx, const float *y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -117,10 +108,6 @@ double liftracc_dsdot_(const int *n, const float *x, const int *incx,
 {
     return liftracc_dsdot(*n, x, *incx, y, *incy);
 }
-
-/**
- * SDOT
- */
 
 float liftracc_sdot(const int n, const float *x, const int incx,
                    const float *y, const int incy)
@@ -166,10 +153,6 @@ float liftracc_sdot_(const int *n, const float *x, const int *incx,
     return liftracc_sdot(*n, x, *incx, y, *incy);
 }
 
-/**
- * IDAMAX
- */
-
 liftracc_index_t liftracc_idamax(const int n, const double *x, const int incx)
 {
 #if _LIFTRACC_PROFILING_ == 1
@@ -207,9 +190,10 @@ liftracc_index_t liftracc_idamax(const int n, const double *x, const int incx)
     return ret;
 }
 
-/**
- * DSCAL
- */
+liftracc_index_t liftracc_idamax_(const int *n, const double *x, const int *incx)
+{
+    return liftracc_idamax(*n, x, *incx);
+}
 
 void liftracc_dscal(const int n, const double alpha, double * x, const int incx)
 {
@@ -245,12 +229,13 @@ void liftracc_dscal(const int n, const double alpha, double * x, const int incx)
 #endif /* _LIFTRACC_PROFILING_ */
 }
 
-/**
- * DAXPY
- */
+void liftracc_dscal_(const int *n, const double *alpha, double *x, const int *incx)
+{
+    liftracc_dscal(*n, *alpha, x, *incx);
+}
 
 void liftracc_daxpy(const int n, const double alpha, const double *x,
-                   const int incx, double *y, const int incy)
+                    const int incx, double *y, const int incy)
 {
 #if _LIFTRACC_PROFILING_ == 1
     liftracc_function_timing_start(&(liftracc_function_profiling_data[LIFTRACC_FUNCTION_DAXPY]));
@@ -284,9 +269,11 @@ void liftracc_daxpy(const int n, const double alpha, const double *x,
 #endif /* _LIFTRACC_PROFILING_ */
 }
 
-/**
- * DDOT
- */
+void liftracc_daxpy_(const int *n, const double *alpha, const double *x,
+                     const int *incx, double *y, const int *incy)
+{
+        liftracc_daxpy(*n, *alpha, x, *incx, y, *incy);
+}
 
 double liftracc_ddot(const int n, const double *x, const int incx,
                     const double *y, const int incy)
@@ -330,10 +317,6 @@ double liftracc_ddot_(const int *n, const double *x, const int *incx,
 {
     return liftracc_ddot(*n, x, *incx, y, *incy);
 }
-
-/**
- * DGEMM
- */
 
 void liftracc_dgemm(const liftracc_order_t order,
                    const liftracc_transpose_t transa,
@@ -423,7 +406,9 @@ void  liftracc_dgemm_(const char *transa,
 }
 
 /* CBLAS interface */
+/*
 __typeof__ (liftracc_dgemm_) cblas_dgemm __attribute__ ((alias("liftracc_dgemm")));
+*/
 
 /* MKL interface */
 /*

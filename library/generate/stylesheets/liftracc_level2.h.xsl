@@ -25,11 +25,11 @@
 
 <xsl:template match="/blas_functions">
 <![CDATA[/**
- * \file liftracc_level2.h
- * \brief [generated file]
+ * @file liftracc_level2.h
+ * @brief [generated file]
+ *
+ * This file is generated automatically, do not edit manually!
  */
-
-/* This file is generated automatically, do not edit manually! */
 
 #ifndef __LIFTRACC_LEVEL2_H__
 #define __LIFTRACC_LEVEL2_H__
@@ -43,16 +43,21 @@
 ]]>
 </xsl:template>
 
-<xsl:template match="/blas_functions/level2_functions/function">
-  <xsl:value-of select="dyn:evaluate(concat('$',@type))"/>
+<xsl:template match="/blas_functions/level2_functions/function"><![CDATA[
+/**
+ * @brief liftracc ]]><xsl:value-of select="@name"/><![CDATA[ function
+ */]]>
+<xsl:value-of select="dyn:evaluate(concat('$',@type))"/>
   <xsl:text> </xsl:text>
   <xsl:value-of select="concat($PREFIX, @name)"/>
   <xsl:text>(</xsl:text>
   <xsl:value-of select="helper:type-param-str()"/>
-  <xsl:text>);</xsl:text>
-  <xsl:text>
-</xsl:text>
-  <xsl:value-of select="dyn:evaluate(concat('$',@type))"/>
+  <xsl:text>);</xsl:text><![CDATA[
+
+/**
+ * @brief liftracc ]]><xsl:value-of select="@name"/><![CDATA[ function with pointer interface
+ */]]>
+<xsl:value-of select="dyn:evaluate(concat('$',@type))"/>
   <xsl:text> </xsl:text>
   <xsl:value-of select="concat($PREFIX, @name, '_')"/>
   <xsl:text>(</xsl:text>

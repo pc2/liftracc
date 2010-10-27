@@ -1,10 +1,9 @@
 /**
- * \file liftracc.c
- * \brief Main C file of the liftracc lib.
+ * @file liftracc.c
+ * @brief Main C file of the liftracc lib.
  *
- * \author Manuel Niekamp <niekma@upb.de>
- * \version 0.1
- * \date Oct. 2009 - Mar. 2010
+ * @author Manuel Niekamp <niekma@upb.de>
+ * @version 0.1
  *
  * This file contains the constructor and destructor
  * function. Some general functions are defined too.
@@ -20,18 +19,29 @@ profiling_data_t liftracc_function_profiling_data[LIFTRACC_FUNCTIONS_COUNT] = {}
 #endif // _LIFTRACC_PROFILING_
 
 /**
- * \brief Global init flag.
+ * @addtogroup liftracc_init
+ * @{
+ */
+
+/**
+ * @brief Global init flag.
  * This variable is set to >0 if the library is initialized
  * correctly.
  */
 int liftracc_initialized = 0;
 
-/***
- * \brief The library constructor.
+/**
+ * @brief The library constructor.
  * This function is called automatically when the library
  * is loaded by the dynamic loader.
+ *
+ * Function definition:
+ * @code
+ * void liftracc_init(void) __attribute__ ((constructor));
+ * @endcode
  */
-void __attribute__ ((constructor)) liftracc_init(void)
+void liftracc_init(void) __attribute__ ((constructor));
+void liftracc_init(void)
 {
 #if _LIFTRACC_PROFILING_ > 0
     INFO("Library in profiling mode.");
@@ -59,10 +69,16 @@ void __attribute__ ((constructor)) liftracc_init(void)
 }
 
 /**
- * \brief The library destructor.
+ * @brief The library destructor.
  * This function is called at the time the library is unloaded.
+ *
+ * Function definition:
+ * @code
+ * void liftracc_fini(void) __attribute__ ((destructor));
+ * @endcode
  */
-void __attribute__ ((destructor)) liftracc_fini(void)
+void liftracc_fini(void) __attribute__ ((destructor));
+void liftracc_fini(void)
 {
 #if _LIFTRACC_PROFILING_ == 1
     liftracc_function_timing_start(&(liftracc_function_profiling_data[LIFTRACC_FINI]));
@@ -82,18 +98,21 @@ void __attribute__ ((destructor)) liftracc_fini(void)
 }
 
 /**
- * \brief Check initialization state.
+ * @brief Check initialization state.
  * Return the initialization state of the library
  *
- * \return
+ * @return
  *   init state
  */
-int liftracc_is_initialized() {
+int liftracc_is_initialized(void) {
     return liftracc_initialized;
 }
 
+/** @} */
+
 #if _LIFTRACC_PROFILING_ == 1
 /**
+ * @brief dynamic call measure function
  * Only used to measure the time a dynamic call through the library
  * costs. This function is useless in any other manner.
  */

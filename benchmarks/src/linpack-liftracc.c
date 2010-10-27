@@ -49,7 +49,7 @@ int main(void)
     printf("N Reps Time(s) DGEFA DGESL OVERHEAD KFLOPS\n");
     printf("------------------------------------------\n");
 
-    for (arsize=2; arsize<=MAX_DIM; arsize*=2) {
+    for (arsize=16; arsize<=MAX_DIM; arsize*=2) {
         arsize/=2;
         arsize*=2;
         arsize2d = (long)arsize*(long)arsize;

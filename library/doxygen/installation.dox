@@ -1,0 +1,113 @@
+/**
+ * @page inst Installation
+ *
+ * This page describes the installation process of the liftracc library.
+ * The build environment used on the testsystem and how it was set up to
+ * compile the libraray is shown.
+ *
+ * If you receive errors on your testsystem feel free to post your errorlog
+ * to niekma@upb.de.
+ *
+ * @section pre_sec Prerequirements
+ *   - C/C++/Fortran compiler
+ *   - cmake
+ *   - netlib.org blas+cblas library
+ *   - python (for the generator scripts)
+ *
+ * @section opt_sec Optional
+ *   - additional BLAS libraries
+ *     (Goto2, ATLAS, ...)
+ *   - hardware accelerated versions of BLAS
+ *     (cuda, clearspeed, ...)
+ *
+ * @section comp_sec Compiler environment
+ *   - gcc-4.5.1 local installation in $HOME directory
+ *   - add $HOME/lib and $HOME/lib64 to $LD_LIBRARY_PATH
+ *     (e.g. in ~/.bashrc: export $LD_LIBRARY_PATH=$HOME/lib:$HOME/lib64)
+ *   - compiling gcc-4.5.1:
+ *     - used libraries: gmp-4.3.2, mpfr-3.0.0, mpc-0.8.2
+ *     - compiling gmp-4.3.2:
+ *       - ./configure –prefix=$HOME
+ *       - make
+ *       - make install
+ *     - compiling mpfr-3.0.0:
+ *       - ./configure --prefix=$HOME –with-gmp=$HOME
+ *       - make
+ *       - make install
+ *     - compiling mpc-0.8.2:
+ *       - ./configure --prefix=$HOME –with-gmp=$HOME
+ *       - make
+ *       - make install
+ *     - compiling gcc-4.5.1:
+ *       - ./configure --prefix=$HOME --with-gmp=$HOME --with-mpfr=$HOME –with-mpc=$HOME
+ *       - make
+ *       - make install
+ *
+ * @section comp_libs Compiling/installing supported sublibraries
+ *   - Have a look at <b>liftracc/blas_libs</b> directory. There are bash
+ *     scripts that should fulfill the task of compiling and setting up the
+ *     sublibraries.
+ *   - In order to install all sublibs just call <b>./get_all_libs.sh</b> in
+ *     that directory.
+ *   - Details on how to build the sublibraries is presented in the following
+ *     subsections.
+ *   - <b style="color:#C40000">Attention!!!</b> After a successful building
+ *     process it is necessary to set up some environment variables. As an
+ *     example have a look at <b>liftracc/library/example_bashrc</b>.
+ *
+ * @subsection comp_blas_sec BLAS/CBLAS
+ *   - It is necessary to patch the BLAS and CBLAS library to get a propper
+ *     build. The used patches can be found in <b>liftracc/common/patches</b>.
+ *   - The cblas library has to be present in two versions. The purpose of the
+ *     first one is to provide the usual cblas function interface. The purpose
+ *     of the second one is to provide the internal function interface used
+ *     inside liftracc. This is necessary to solve a calling conflict caused
+ *     by the shared library interposing mechanism.
+ *   - <b>blas.patch</b> performs changes to the blas Makefile script. The
+ *     compiler and the compiling options are changed to 'gfortran -O3 -fPIC'
+ *     and a make Rule is added to build libblas as shared library.
+ *   - <b>cblas_*.patch</b> several patches exist for the cblas library. One
+ *     is for the Makefile in order to set needed parameters for the
+ *     compilation process. One does the function renaming and one applies the
+ *     changes needed to build the internal version of the cblas library.
+ *
+ * @subsection comp_atlas_sec Atlas
+ *   - The atlas library is configured with the options shown in
+ *     <b>liftracc/blas_libs/get_atlas.sh</b>. If you can become root on you
+ *     testsystem do not use the flags '-Si cputhrchk 0' instead use a tool
+ *     like 'cpufreq-selector -g performance' to disable the CPU throttling.
+ *     For further information have a look in the INSTALL.txt shipped with the
+ *     ATLAS library.
+ *
+ * @subsection comp_goto2_sec Goto2
+ *   - There is a patch in <b>liftracc/common/patches</b> that does minor
+ *     changes to the file 'GotoBLAS2/driver/others/dynamic.c'. Compiling
+ *     the library on 64bit architektures will run into errors without it.
+ *
+ * @subsection comp_clear_sec Clearspeed
+ *   - Use the normal clearspeed installation procedure to set up the
+ *     clearspeed board. The clearspeed documention should give all the
+ *     information you need to do this.
+ *   - If the clearspeed board runs into errors while executing try to
+ *     run 'csreset'. In case of the used testsystem this solved the
+ *     problem.
+ *
+ * @subsection comp_cubla_sec CUBLAS
+ *   - Install nvidia display driver according to nvidia's install
+ *     instructions.
+ *   - Install cublas library according to nvidia's install instructions.
+ *
+ * @section comp_liftracc Compiling liftracc
+ *   - Install cmake at least version 2.6.4 (can be installed locally when
+ *     build with: ./configure --prefix=$HOME;make;make install).
+ *   - run './bootstrap.sh' in 'liftracc/library'.
+ *   - change directory to 'build'
+ *   - run 'ccmake .' to view/edit available options.
+ *   - run 'make' to build the library.
+ *
+ * <dl><dt><b>Next:</b></dt><dd>@ref usage</dd></dl>
+ *
+ * @author Manuel Niekamp <niekma@upb.de>
+ * @version 0.1
+ */
+

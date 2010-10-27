@@ -12,8 +12,8 @@ diff -ru old/Makefile.LINUX new/Makefile.LINUX
 +BLLIB = ../../BLAS/libblas.a
 +CBDIR = ..
 +CBLIBDIR = $(CBDIR)
-+CBLIB = $(CBLIBDIR)/libcblas.a
-+CBLIBSO = $(CBLIBDIR)/libcblas.so
++CBLIB = $(CBLIBDIR)/libcblas_inner.a
++CBLIBSO = $(CBLIBDIR)/libcblas_inner.so
  
  #-----------------------------------------------------------------------------
  # Compilers
@@ -6629,7 +6629,7 @@ diff -ru old/src/Makefile new/src/Makefile
  all: $(alev)  
  	$(ARCH) $(ARCHFLAGS)  $(CBLIB) $(alev) 
  	$(RANLIB) $(CBLIB)
-+	$(CC) -shared -L../../BLAS *.o -lblas -o ../libcblas.so
++	$(CC) -shared -L../../BLAS *.o -lblas -o ../libcblas_inner.so
  
  
  .SUFFIXES: .o .c .f

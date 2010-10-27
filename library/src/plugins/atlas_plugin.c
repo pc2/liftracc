@@ -1,4 +1,9 @@
 
+/**
+ * @file atlas_plugin.c
+ * @brief Plugin to support the ATLAS library
+ */
+
 #include "liftracc.h"
 #include "liftracc_plugin.h"
 #include "liftracc_logging.h"

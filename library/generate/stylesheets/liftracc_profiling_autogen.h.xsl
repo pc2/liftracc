@@ -25,17 +25,24 @@
 
 <xsl:template match="/blas_functions">
 <![CDATA[/**
- * \file liftracc_profiling_autogen.h
- * \brief [generated file]
+ * @file liftracc_profiling_autogen.h
+ * @brief [generated file]
+ *
+ * This file is generated automatically, do not edit manually!
  */
-
-/* This file is generated automatically, do not edit manually! */
 
 #ifndef __LIFTRACC_PROFILING_AUTOGEN_H__
 #define __LIFTRACC_PROFILING_AUTOGEN_H__
 
 #if _LIFTRACC_PROFILING_ > 0
 
+/**
+ * @brief liftracc function id's
+ *
+ * Enumeration of all liftracc function id's. Last entry is used to get
+ * liftracc function count easily. Entries in enumeration is used for
+ * profiling purposes.
+ */
 typedef enum {
     LIFTRACC_INIT,
     LIFTRACC_FINI,]]>

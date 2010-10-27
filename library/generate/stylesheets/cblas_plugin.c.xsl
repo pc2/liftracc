@@ -29,11 +29,11 @@
 
 <xsl:template match="/blas_functions">
 <![CDATA[/**
- * \file cblas_plugin.c
- * \brief [generated file]
+ * @file cblas_plugin.c
+ * @brief [generated file]
+ *
+ * This file is generated automatically, do not edit manually!
  */
-
-/* This file is generated automatically, do not edit manually! */
 
 #include "liftracc.h"
 #include "liftracc_plugin.h"

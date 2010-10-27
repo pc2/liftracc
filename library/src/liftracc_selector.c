@@ -1,16 +1,21 @@
 /**
- * \file liftracc_selector.c
- * \brief C file of the selector module
+ * @file liftracc_selector.c
+ * @brief C file of the selector module
  *
- * \author Manuel Niekamp <niekma@upb.de>
- * \version 0.1
- * \date 10/2009-03/2010
+ * @author Manuel Niekamp <niekma@upb.de>
+ * @version 0.1
  *
  * This file implements the interface to the selector component.
  * The selector is used inside the wrapper library to select
  * the best function out of a function pool. The functions
  * selected match the calling one from the wrapper library.
  */
+
+/**
+ * @addtogroup liftracc_select
+ * @{
+ */
+
 #include "liftracc_selector.h"
 #include "liftracc_plugin.h"
 #include "liftracc_logging.h"
@@ -33,13 +38,14 @@
 
 /* global data */
 
-char *error                         = 0;    /**< Pointer to error message.        */
+char *error                          = 0;    /**< Pointer to error message.        */
 int  liftracc_found_libs             = 0;    /**< Number of found libraries.       */
 char liftracc_library_path[PATH_MAX] = { };  /**< Path to lib liftracc.             */
 void **liftracc_plugin_handles       = 0;    /**< Pointer to all plugin handlers   */
 
 /**
- * \brief The decision table.
+ * @brief The decision table.
+ *
  * Two dimentional array containing the information
  * in order to find the best function out of the set of
  * plugins. In auto mode the collected data is the time
@@ -48,7 +54,8 @@ void **liftracc_plugin_handles       = 0;    /**< Pointer to all plugin handlers
 decision_data_t liftracc_decision_table[FUNCTION_COUNT][ARRAY_SIZE] = { };
 
 /**
- * \brief The look up table.
+ * @brief The look up table.
+ *
  * The function pointer look up table.
  * In order to get super fast access to the needed
  * functions, this array contains a function pointer
@@ -59,7 +66,8 @@ decision_data_t liftracc_decision_table[FUNCTION_COUNT][ARRAY_SIZE] = { };
 void *liftracc_fptr_lut[FUNCTION_COUNT][ARRAY_SIZE] = { };
 
 /**
- * \brief Preferred function pointers.
+ * @brief Preferred function pointers.
+ *
  * Array that contains the pointers to the functions
  * in the plugin that should be used in prefered manner.
  * The Plugin is selectable through the environment
@@ -157,7 +165,7 @@ liftracc_selector_error_t liftracc_selector_fini()
 }
 
 void *liftracc_selector_select(const liftracc_selector_funcid_t func_id,
-                              const liftracc_selector_problem_info_t *problem_info)
+                               const liftracc_selector_problem_info_t *problem_info)
 {
 #ifdef _LIFTRACC_USE_PLUGIN_
     /* if use plugin is enabled use a pointer out of the
@@ -364,4 +372,6 @@ liftracc_selector_error_t liftracc_selector_loadinfo(const char *file_name, deci
 }
 
 #endif /* _LIFTRACC_AUTOMODE_ */
+
+/** @} */
 

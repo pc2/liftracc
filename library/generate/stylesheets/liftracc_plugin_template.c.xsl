@@ -29,12 +29,12 @@
 
 <xsl:template match="/blas_functions">
 <![CDATA[/**
- * \file liftracc_plugin_template.c
- * \brief [generated template file]
+ * @file liftracc_plugin_template.c
+ * @brief [generated template file]
+ *
+ * Template file to create new plugins easily. Delete unneeded functions and
+ * fill in code to fulfill your functionality.
  */
-
-/* Template file to create new plugins easily. */
-/* Delete unneeded functions and fill in code to fulfill your functionality. */
 
 #include "liftracc.h"
 #include "plugin.h"

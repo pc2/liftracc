@@ -21,6 +21,7 @@ add_executable(test02
 )
 target_link_libraries(test02
   cblas
+  cblas_inner
   blas
 )
 
@@ -36,6 +37,14 @@ add_executable(test04
   ${PROJECT_SOURCE_DIR}/tests/test04.cpp
 )
 target_link_libraries(test04
+  liftracc
+  dl
+)
+
+add_executable(test04a
+  ${PROJECT_SOURCE_DIR}/tests/test04a.cpp
+)
+target_link_libraries(test04a
   liftracc
   dl
 )
@@ -78,6 +87,17 @@ add_executable(test09
 target_link_libraries(test09
   cublas
   liftracc
+)
+
+add_executable(dgemm_cblas_atlas
+  ${PROJECT_SOURCE_DIR}/tests/dgemm_cblas_atlas.cpp
+)
+target_link_libraries(dgemm_cblas_atlas
+  cblas
+  cblas_inner
+  blas
+  atlas
+  dl
 )
 
 #####
