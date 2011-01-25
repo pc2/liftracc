@@ -126,3 +126,15 @@ if __name__ == "__main__":
                r'KFLOPS', x_lim=(2**3,2**15)
     )
 
+    nlp_cblas = read_data('new_linpack_cblas.txt', tps.av, sym='-o', label=r'nlp\_cblas')
+    nlp_pre   = read_data('new_linpack_ldpreload.txt', tps.av, sym='-s', label=r'nlp\_pre')
+    nlp_lift  = read_data('new_linpack_liftracc.txt', tps.av, sym='-o', label=r'nlp\_lift')
+    nlp_new   = read_data('new_linpack_new.txt', tps.av, sym='->', label=r'nlp\_new')
+
+    plot_graph('test2',
+               [nlp_cblas, nlp_pre, nlp_lift, nlp_new],
+               r'Test',
+               r'Dimension [n]',
+               r'KFLOPS', x_lim=(2**3,2**15)
+    )
+

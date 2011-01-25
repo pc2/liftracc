@@ -44,9 +44,19 @@ add_executable(linpack-liftracc
 
 target_link_libraries(linpack-liftracc
   liftracc
-  cblas
-  blas
 )
+
+add_executable(linpack-testing
+  ${PROJECT_SOURCE_DIR}/src/linpack-testing.c
+)
+
+target_link_libraries(linpack-testing
+  liftracc
+)
+
+set(LIFTRACC_TESTING_SELECT "cblas" CACHE STRING "Options: cblas, liftracc.")
+string(TOUPPER "${LIFTRACC_TESTING_SELECT}" SELECT_VALUE)
+add_definitions(-D_SELECT_${SELECT_VALUE}_)
 
 add_custom_command(
   TARGET linpack-liftracc POST_BUILD

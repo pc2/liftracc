@@ -337,6 +337,8 @@ void liftracc_dgemm(const liftracc_order_t order,
     liftracc_function_timing_start(&(liftracc_function_profiling_data[LIFTRACC_FUNCTION_DGEMM]));
 #endif /* _LIFTRACC_PROFILING_ */
 
+    printf("LIFTRACC_DGEMM_USED\n");
+
     void (*liftracc_plugin_func)();
 
 #if _LIFTRACC_PROFILING_ == 2
@@ -405,13 +407,28 @@ void  liftracc_dgemm_(const char *transa,
                   c, *ldc);
 }
 
-/* CBLAS interface */
-/*
-__typeof__ (liftracc_dgemm_) cblas_dgemm __attribute__ ((alias("liftracc_dgemm")));
-*/
+#ifdef _LIFTRACC_CBLAS_INTERFACE_
+__typeof__ (liftracc_sdsdot) cblas_sdsdot __attribute__ ((alias("liftracc_sdsdot")));
+__typeof__ (liftracc_dsdot) cblas_dsdot __attribute__ ((alias("liftracc_dsdot")));
+__typeof__ (liftracc_sdot) cblas_sdot __attribute__ ((alias("liftracc_sdot")));
+__typeof__ (liftracc_idamax) cblas_idamax __attribute__ ((alias("liftracc_idamax")));
+__typeof__ (liftracc_dscal) cblas_dscal __attribute__ ((alias("liftracc_dscal")));
+__typeof__ (liftracc_daxpy) cblas_daxpy __attribute__ ((alias("liftracc_daxpy")));
+__typeof__ (liftracc_ddot) cblas_ddot __attribute__ ((alias("liftracc_ddot")));
+__typeof__ (liftracc_dgemm) cblas_dgemm __attribute__ ((alias("liftracc_dgemm")));
 
-/* MKL interface */
-/*
-__typeof__ (liftracc_dgemm_) dgemm_ __attribute__ ((alias("liftracc_dgemm_")));
-*/
+__typeof__ (liftracc_sdsdot) f2c_sdsdot __attribute__ ((alias("liftracc_sdsdot")));
+__typeof__ (liftracc_dsdot) f2c_dsdot __attribute__ ((alias("liftracc_dsdot")));
+__typeof__ (liftracc_sdot) f2c_sdot __attribute__ ((alias("liftracc_sdot")));
+__typeof__ (liftracc_idamax) f2c_idamax __attribute__ ((alias("liftracc_idamax")));
+__typeof__ (liftracc_dscal) f2c_dscal __attribute__ ((alias("liftracc_dscal")));
+__typeof__ (liftracc_daxpy) f2c_daxpy __attribute__ ((alias("liftracc_daxpy")));
+__typeof__ (liftracc_ddot) f2c_ddot __attribute__ ((alias("liftracc_ddot")));
+__typeof__ (liftracc_dgemm) f2c_dgemm __attribute__ ((alias("liftracc_dgemm")));
+#endif // _LIFTRACC_CBLAS_INTERFACE_
+
+#ifdef _LIFTRACC_MKL_INTERFACE_
+__typeof__ (liftracc_dgemm_) DGEMM __attribute__ ((alias("liftracc_dgemm_")));
+__typeof__ (liftracc_dgemm_) dgemm __attribute__ ((alias("liftracc_dgemm_")));
+#endif // _LIFTRACC_MKL_INTERFACE_
 
